@@ -3,19 +3,18 @@
 ## General Workflow
 
 1. Fork the repo
-1. Cut a namespaced feature branch from master
+1. Cut a namespaced feature branch from develop branch
   - bug/...
   - feat/...
   - test/...
   - doc/...
   - refactor/...
 1. Make commits to your feature branch. Prefix each commit like so:
-  - (feat) Added a new feature
-  - (fix) Fixed inconsistent tests [Fixes #0]
-  - (refactor) ...
-  - (cleanup) ...
-  - (test) ...
-  - (doc) ...
+  - bug/...
+  - feat/...
+  - test/...
+  - doc/...
+  - refactor/...
 1. When you've finished with your fix or feature, Rebase upstream changes into your branch. submit a [pull request][]
    directly to master. Include a description of your changes.
 1. Your pull request will be reviewed by another maintainer. The point of code
@@ -81,13 +80,15 @@ changes.
 
 ### Rebase upstream changes into your branch
 
-Once you are done making changes, you can begin the process of getting
+Once you are done committing changes to your local feature branch, you can begin the process of getting
 your code merged into the main repo. Step 1 is to rebase upstream
-changes to the master branch into yours by running this command
-from your branch:
+changes to the develop branch into yours by running these commands:
 
 ```bash
-git pull --rebase upstream master
+git checkout develop  #switch to your develop branch
+git pull upstream develop  #this will fetch and merge the develop branch
+git checkout <yourFeatureBranchName>  #this will switch to your feature branch
+git rebase develop  #this will pull and merge changes from your develop
 ```
 
 This will start the rebase process. You must commit all of your changes
@@ -95,8 +96,7 @@ before doing this. If there are no conflicts, this should just roll all
 of your changes back on top of the changes from upstream, leading to a
 nice, clean, linear commit history.
 
-If there are conflicting changes, git will start yelling at you part way
-through the rebasing process. Git will pause rebasing to allow you to sort
+If there are conflicting changes, git will start yelling when you run the rebase command. Git will pause rebasing to allow you to sort
 out the conflicts. You do this the same way you solve merge conflicts,
 by checking all of the files git says have been changed in both histories
 and picking the versions you want. Be aware that these changes will show
@@ -106,7 +106,7 @@ as possible.
 You pick a file by `git add`ing it - you do not make commits during a
 rebase.
 
-Once you are done fixing conflicts for a specific commit, run:
+Once you are done fixing conflicts for a specific commit, run (if there were conflicts):
 
 ```bash
 git rebase --continue
@@ -122,13 +122,13 @@ you get here again and nothing is broken and all the tests pass.
 
 ### Make a pull request
 
-Make a clear pull request from your fork and branch to the upstream master
+Make a clear pull request from your fork and branch to the upstream develop
 branch, detailing exactly what changes you made and what feature this
 should add. The clearer your pull request is the faster you can get
 your changes incorporated into this repo.
 
-At least one other person MUST give your changes a code review, and once
-they are satisfied they will merge your changes into upstream. Alternatively,
+All group members will conduct a code review together, and once
+they are satisfied the Scrum Master will merge your changes into upstream. Alternatively,
 they may have some requested changes. You should make more commits to your
 branch to fix these, then follow this process again from rebasing onwards.
 
@@ -153,7 +153,7 @@ Thanks for contributing!
 
 This is just to help you organize your process
 
-- [ ] Did I cut my work branch off of master (don't cut new branches from existing feature brances)?
+- [ ] Did I cut my work branch off of develop (don't cut new branches from existing feature brances)?
 - [ ] Did I follow the correct naming convention for my branch?
 - [ ] Is my branch focused on a single main change?
  - [ ] Do all of my changes directly relate to this change?

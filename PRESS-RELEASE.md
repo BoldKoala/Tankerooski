@@ -1,4 +1,4 @@
-# Project Name #
+# Tankerooski #
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -17,28 +17,40 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Tankerooski is a 3d tank battle multiplayer game
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > A fun game that can be played with friends. Compete for the highest score!
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Tankerooski is easy to play, but difficult to master. Get started today by 
+  logging in with Facebook and join the fight! Fight against the world and 
+  compete for top score.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Create a immersive and social tank game.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Render game world in 3D using three.js and WebGL.<br>
+  > Allow players to connect to the same game instance using Socket.io.<br>
+  > Build a full stack game lobby that allow players to navigate through different game instances easily. 
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+ Tankerooski is a revolutionary new game using the latest in 3D browser 
+ rendering. Play with your friends, or play with new friends you met on 
+ Tankerooski to help defeat the evil SCRUM empire!
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > With just one click you can log in or sign up with your google account and start playing!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > An awesome game to play with friend. It has a pair-model in which you can have
+  two player control one tank, one can move the tank around with limited vision
+  and the other one can look around and fires. Feels just like a real tank!
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Find your friend and start playing!
+  
+  
+  

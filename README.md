@@ -4,7 +4,7 @@
 
 ## Team
 
-  - __Development Team Members__: Jacky Chan, Bryan Venable, Rick Wuebker, Jason Yang
+  - __Development Team Members__: Jacky Chan (Architect), Bryan Venable, Rick Wuebker (SCRUM Master), Jason Yang
 
 ## Table of Contents
 
