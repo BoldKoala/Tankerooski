@@ -1,12 +1,10 @@
-# Project Name
+# Tankerooski
 
-> Pithy project description
+> Multiplayer 3D Tank Game
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Development Team Members__: Jacky Chan, Bryan Venable, Rick Wuebker, Jason Yang
 
 ## Table of Contents
 
@@ -25,10 +23,7 @@
 ## Requirements
 
 - Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- MongoDB
 
 ## Development
 
