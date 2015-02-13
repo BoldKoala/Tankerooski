@@ -1,0 +1,24 @@
+{
+  "name": "Tankerooski",
+  "version": "1.0.0",
+  "description": "Multiplayer 3D Tank Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/BoldKoala/Tankerooski"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoldKoala/Tankerooski/issues"
+  },
+  "homepage": "https://github.com/BoldKoala/Tankerooski",
+  "dependencies": {
+    "express": "^4.11.2",
+    "mongoose": "^3.8.23",
+    "passport": "^0.2.1"
+  }
+}

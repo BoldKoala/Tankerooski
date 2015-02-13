@@ -1,0 +1,24 @@
+{
+  "name": "Tankerooski",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/BoldKoala/Tankerooski",
+  "authors": [
+    "BoldKoala"
+  ],
+  "description": "Multiplayer 3D Tank Game",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "three.js": "*",
+    "angular": "~1.3.13",
+    "jquery": "~2.1.3",
+    "angular-ui-router": "~0.2.13"
+  }
+}
