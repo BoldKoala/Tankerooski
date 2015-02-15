@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="tank">
 <head>
-	<title>Node Authentication</title>
+	<title>Tankerooski</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
 	<style>
@@ -9,17 +9,17 @@
 	</style>
 </head>
 <body>
-	<div class="container">
-
-		<div class="jumbotron text-center">
-			<h1><span class="fa fa-lock"></span> Node Authentication</h1>
-
-			<p>Login or Register with:</p>
-
-			<a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
-			<a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
-		</div>
-
+	<div ui-view>
+		<h1>hello sir</h1>
 	</div>
+
+	<script type="text/javascript" src='./lib/angular/angular.min.js'></script>
+	<script type="text/javascript" src='./lib/angular-ui-router/release/angular-ui-router.min.js'></script>
+	<script src='./controllers/authController.js'></script>
+	<script src='./controllers/welcomeController.js'></script>
+	<script src='./directives/directives.js'></script>
+	<script src='./app.js'></script>
+
+
 </body>
 </html>

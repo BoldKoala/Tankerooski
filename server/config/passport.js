@@ -2,9 +2,13 @@
 
 // load all the things we need
 var LocalStrategy = require('passport-local').Strategy;
+var GoogleStrategy = require('passport-google-oath').OAuth2Strategy;
 
 // load up the user model
 var User = require('../models/userModel.js');
+
+// load the auth variables
+var configAuth = req('./oauth')
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
@@ -24,6 +28,51 @@ module.exports = function(passport) {
       done(err, user);
     });
   });
+
+  // Google
+  passport.use(new GoogleStrategy({
+
+          clientID        : configAuth.googleAuth.clientID,
+          clientSecret    : configAuth.googleAuth.clientSecret,
+          callbackURL     : configAuth.googleAuth.callbackURL,
+
+      },
+      function(token, refreshToken, profile, done) {
+
+          // make the code asynchronous
+          // User.findOne won't fire until we have all our data back from Google
+          process.nextTick(function() {
+
+              // try to find the user based on their google id
+              User.findOne({ 'google.id' : profile.id }, function(err, user) {
+                  if (err)
+                      return done(err);
+
+                  if (user) {
+
+                      // if a user is found, log them in
+                      return done(null, user);
+                  } else {
+                      // if the user isnt in our database, create a new user
+                      var newUser          = new User();
+
+                      // set all of the relevant information
+                      newUser.google.id    = profile.id;
+                      newUser.google.token = token;
+                      newUser.google.name  = profile.displayName;
+                      newUser.google.email = profile.emails[0].value; // pull the first email
+
+                      // save the user
+                      newUser.save(function(err) {
+                          if (err)
+                              throw err;
+                          return done(null, newUser);
+                      });
+                  }
+              });
+          });
+
+      }));
 
   passport.use('local-login', new LocalStrategy({
     // by default, local strategy uses username and password, we will override with email
@@ -96,6 +145,19 @@ module.exports = function(passport) {
     });
   }));
 };
+
+// Google passport setup
+passport.use(new GoogleStrategy({
+  consumerKey: GOOGLE_CONSUMER_KEY,
+  consumerSecret: GOOGLE_CONSUMER_SECRET,
+  callbackURL: "http://127.0.0.1:9000"
+  },
+    function(token, tokenSecret, profile, done) {
+      User.findOrCreate({ googleId: profile.id }, function (err, user) {
+        return done(err, user);
+      });
+    }
+));
 
 
 

@@ -16,12 +16,12 @@ module.exports = function(app, passport){
 
   app.get('/signup', function(req, res) {
     // render the signup page
-    res.redirect('views/signup.html');
+    // res.redirect('views/signup.html');
   });
   app.get('/login', function(req, res) {
     // render the signup page
-    req.flash('message', {'success': 'Sign Up Success'});
-    res.redirect('views/login.html');
+    // req.flash('message', {'success': 'Sign Up Success'});
+    // res.redirect('views/login.html');
   });
 
   app.post('/login', passport.authenticate('local-login', {
@@ -61,3 +61,14 @@ function isLoggedIn(req, res, next){
   // if they aren't redirect them to the home page
   res.redirect('/');
 }
+
+// Google authenticate requests
+app.get('/auth/google',
+  passport.authenticate('google', { scope: 'https://www.google.com/m8.feeds' }));
+
+app.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    // successful authentication, redirect home
+    res.redirect('/');
+  });
