@@ -1,3 +1,4 @@
 client/lib/
 node_modules/
 *.log
+sever/config/oauth.js
