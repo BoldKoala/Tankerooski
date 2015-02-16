@@ -1,4 +1,4 @@
+server/config/oauth.js
 client/lib/
 node_modules/
 *.log
-sever/config/oauth.js
