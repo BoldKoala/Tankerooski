@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Tankerooski</title>
-		<!--  Dependencies  -->
-		<script src='lib/jquery/dist/jquery.min.js'></script>
-		<script src='lib/angular/angular.min.js'></script>
-		<script src='lib/angular-ui-router/release/angular-ui-router.min.js'></script>
-		<!--  Style Sheet  -->
-		<link rel='stylesheet' type='text/css' href='styles/main.css'>
-	</head>
-	<body>
-	</body>
-	<!--  Application  -->
-	<script src='controllers/authController.js'></script>
-	<script src='controllers/lobbyController.js'></script>
-	<script src='controllers/playerController.js'></script>
-	<script src='directives/signin.js'></script>
-	<script src='services/authServices.js'></script>
+<html ng-app="tank">
+<head>
+	<title>Tankerooski</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<style>
+	body        { padding-top:80px; }
+	</style>
+</head>
+<body>
+	<div ui-view>
+		<h1>Loading...</h1>
+	</div>
+
+	<script type="text/javascript" src='./lib/angular/angular.min.js'></script>
+	<script type="text/javascript" src='./lib/angular-ui-router/release/angular-ui-router.min.js'></script>
+	<script src='./controllers/authController.js'></script>
+	<script src='./controllers/welcomeController.js'></script>
+	<script src='./directives/directives.js'></script>
+	<script src='./app.js'></script>
+
+
+</body>
 </html>

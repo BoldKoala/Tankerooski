@@ -1,1 +1,2 @@
-//Create OAuth stratregy here. Use passport
+// server/config/oauth.js
+
