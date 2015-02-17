@@ -1,6 +1,6 @@
 // client/directives/signin.js
 
-angular.module('tank-directives', [])
+angular.module('tank.directives', [])
   .directive('tpAuth', function(){
     return{
         restrict: 'EA',

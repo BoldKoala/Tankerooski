@@ -2,8 +2,11 @@
 
 angular.module('tank', [
   'ui.router',
-  'tank-directives',
-
+  'tank.directives',
+  'tank.services',
+  'tank.profile',
+  'tank.welcome',
+  'tank.auth'
   ])
 
 // Configure roots for app
@@ -19,17 +22,14 @@ angular.module('tank', [
   .state('welcome', {
     url: '',
     template: '<tank-welcome></tank-welcome>'
-    // controller: 'welcomeController'
   })
   .state('login', {
     url: '/login',
     template: '<tank-login></tank-login>'
-    // controller: 'loginController'
   })
   .state('signin', {
     url: '/signin',
     template: '<tank-signin></tank-signin>'
-    // controller: 'signinController'
   })
   .state('profile', {
     url:'/profile',
