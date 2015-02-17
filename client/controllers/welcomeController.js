@@ -2,7 +2,7 @@
 
 'use strict';
 
-angular.module('tank', [])
-  .controller('welcomeController', function(){
+angular.module('tank.welcome', [])
+  .controller('WelcomeController', function(){
 
   })

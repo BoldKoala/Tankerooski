@@ -45,7 +45,6 @@ module.exports = function(passport) {
                       return done(err);
                   if (user) {
                       // if a user is found, log them in
-                      console.log(user);
                       return done(null, user);
                   } else {
                       // if the user isnt in our database, create a new user
@@ -139,18 +138,7 @@ module.exports = function(passport) {
   }));
 };
 
-// // Google passport setup
-// passport.use(new GoogleStrategy({
-//   consumerKey: GOOGLE_CONSUMER_KEY,
-//   consumerSecret: GOOGLE_CONSUMER_SECRET,
-//   callbackURL: "http://127.0.0.1:9000"
-//   },
-//     function(token, tokenSecret, profile, done) {
-//       User.findOrCreate({ googleId: profile.id }, function (err, user) {
-//         return done(err, user);
-//       });
-//     }
-// ));
+
 
 
 
