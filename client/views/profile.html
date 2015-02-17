@@ -1,27 +1,19 @@
 
 <div class="container">
-
-    <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    <h1>Tankerooski</h1>
+    <h2>Profile Page</h2>
+    <div>
+        <a href="/logout">Logout</a>
+        <div>[Profile pic placeholder]</div>
+        <a>Callsign: </a><br>
+        <a>Kills: </a><br>
+        <a>Deaths: </a><br>
+        <a>Date of Enlistment: </a><br>
+        <a>Hometown: </a><br>
+        <a>Ideal First Date : </a>
     </div>
+    <a href="http://tankfiddle.herokuapp.com/"><h2>Join the fight!</h2></a>
 
-    <div class="row">
 
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
-
-                    <p>
-                        <strong>id</strong>: <%= user._id %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
-                    </p>
-
-            </div>
-        </div>
-
-    </div>
 
 </div>

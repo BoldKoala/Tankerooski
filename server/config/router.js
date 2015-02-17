@@ -49,6 +49,16 @@ module.exports = function(app, passport){
     req.logout();
     res.redirect('/');
   });
+
+  app.get('/auth/google', passport.authenticate('google', {
+    scope : ['profile', 'email']
+  }));
+
+  app.get('/auth/google/callback',
+    passport.authenticate('google', {
+      successRedirect: '/profile',
+      failureRedirect: '/'
+    }));
 };
 
 // route middleware to make sure user is logged in
@@ -63,12 +73,36 @@ function isLoggedIn(req, res, next){
 }
 
 // Google authenticate requests
-app.get('/auth/google',
-  passport.authenticate('google', { scope: 'https://www.google.com/m8.feeds' }));
+// app.get('/auth/google',
+//   passport.authenticate('google', { scope: 'https://www.google.com/m8.feeds' }));
 
-app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    // successful authentication, redirect home
-    res.redirect('/');
-  });
+// app.get('/auth/google/callback',
+//   passport.authenticate('google', { failureRedirect: '/login' }),
+//   function(req, res) {
+//     // successful authentication, redirect home
+//     res.redirect('/');
+//   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

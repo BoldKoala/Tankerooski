@@ -1,4 +1,5 @@
 server/config/local.env.json
+server/config/local.env.js
 client/lib/
 node_modules/
 *.log
