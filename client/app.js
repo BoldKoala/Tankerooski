@@ -31,6 +31,11 @@ angular.module('tank', [
     template: '<tank-signin></tank-signin>'
     // controller: 'signinController'
   })
+  .state('profile', {
+    url:'/profile',
+    template: '<tank-profile></tank-profile>',
+    controller: 'ProfileController'
+  })
 })
 
 
