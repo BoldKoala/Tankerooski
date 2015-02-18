@@ -21,9 +21,14 @@ gulp.task('url', function(){
     url: 'http://localhost:9000',
     app: 'google-chrome'
   };
-  gulp.src('./client/index.html')
+  gulp.src('./client')
   .pipe(open('', options));
 });
+
+gulp.task('open', function(){
+  gulp.src('.client/**/*.html')
+  .pipe(open())
+})
 
 // Attempt to use browser sync here
 // The ultimate goal is to open new browser tab
