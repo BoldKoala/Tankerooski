@@ -1,8 +1,4 @@
-// server/config/router.js
-
-var express = require('express');
-//Create router here
-module.exports = function(app, passport){
+module.exports = function(app, express, passport){
   //=====================================
   // HOME PAGE
   // ====================================
@@ -19,15 +15,15 @@ module.exports = function(app, passport){
     res.redirect('/');
   });
 
+  //Google Oauth
   app.get('/auth/google', passport.authenticate('google', {
     scope : ['profile', 'email', 'https://www.googleapis.com/auth/userinfo.profile']
   }));
 
-  app.get('/auth/google/callback',
-    passport.authenticate('google', {
-      successRedirect: '/#/profile',
-      failureRedirect: '/'
-    }));
+  app.get('/auth/google/callback', passport.authenticate('google', {
+    successRedirect: '/#/profile',
+    failureRedirect: '/'
+  }));
 };
 
 // route middleware to make sure user is logged in
@@ -36,7 +32,6 @@ function isLoggedIn(req, res, next){
   if (req.isAuthenticated()) {
     return next();
   }
-
   // if they aren't redirect them to the home page
   res.redirect('/');
 }

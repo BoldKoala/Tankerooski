@@ -2,15 +2,12 @@
 <html ng-app="tank">
 <head>
 	<title>Tankerooski</title>
+	<link rel="stylesheet" href="./styles/main.css"> <!-- load bootstrap css -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-	<style>
-	body        { padding-top:80px;}
-	</style>
 </head>
 <body>
-	<div ui-view>
-	</div>
+	<div ui-view></div>
 
 	<script type="text/javascript" src='./lib/angular/angular.min.js'></script>
 	<script type="text/javascript" src='./lib/angular-ui-router/release/angular-ui-router.min.js'></script>
@@ -20,8 +17,5 @@
 	<script src='./controllers/profileController.js'></script>
 	<script src='./services/authServices.js'></script>
 	<script src='./directives/directives.js'></script>
-	
-
-
 </body>
 </html>
