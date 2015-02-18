@@ -1,5 +1,3 @@
-// client/app.js
-
 angular.module('tank', [
   'ui.router',
   'tank.directives',
@@ -10,7 +8,7 @@ angular.module('tank', [
   ])
 
 // Configure roots for app
-.config(function($stateProvider, $httpProvider){
+.config(function($stateProvider){
   $stateProvider
   .state('intro',{
     template: 'index.html'
