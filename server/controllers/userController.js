@@ -77,9 +77,11 @@ module.exports = UserController;
 // Require all the things!
 var google = require('googleapis');
 var configAuth = require('../config/local.env.js');
+// var User = require('../models/userModel.js');
+// var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 
-// Get Google API info
+// // Get Google API info
 var OAuth2 = google.auth.OAuth2;
 var oauth2Client = new OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
 google.options({ auth: oauth2Client }); // set auth as a global default 

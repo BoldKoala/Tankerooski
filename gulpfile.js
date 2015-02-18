@@ -5,9 +5,10 @@
 var gulp = require('gulp'),
     // gutil = require('gulp-util'),
     jshint = require('gulp-jshint'),
-    open = require('gulp-open'),
+    // open = require('gulp-open'),
     browserSync = require('browser-sync'),
-    nodemon = require('gulp-nodemon');
+    nodemon = require('gulp-nodemon'),
+    connect = require('gulp-connect-multi')();
 
 // Lint on gulp lint
 gulp.task('lint', function() {
@@ -15,27 +16,33 @@ gulp.task('lint', function() {
     .pipe(jshint());
 });
 
-// Open local host
-gulp.task('url', function(){
-  var options = {
-    url: 'http://localhost:9000',
-    app: 'google-chrome'
-  };
-  gulp.src('./client')
-  .pipe(open('', options));
-});
+// Opens up browser
+// gulp.task('connect', connect.server({
+//   root: ['app'],
+//   port: 9000,
+//   livereload: true,
+//   open: {
+//     browser: 'Google Chrome'
+//   }
+// }));
 
-gulp.task('open', function(){
-  gulp.src('.client/**/*.html')
-  .pipe(open())
+// Opens up browser, works with 'serve'
+gulp.task('browser-sync', ['serve'], function(){
+  browserSync.init({
+    files: ['./**/**/*.*'],
+    proxy:'http://localhost:9000',
+    port: 9000,
+    browser: ['google chrome']
+  })
 })
-
-// Attempt to use browser sync here
-// The ultimate goal is to open new browser tab
-// http://www.browsersync.io/docs/gulp/
 
 // Run nodemon on gulp serve
 gulp.task('serve', function() {
   nodemon({script: 'server/server.js'})
   .on('change', ['lint']);
+});
+
+gulp.task('default', ['browser-sync'], function() {
+  // Watch for changes and refresh browser
+  gulp.watch('./**/**/*.*', [browserSync.reload]); // Does not seem to work
 });
