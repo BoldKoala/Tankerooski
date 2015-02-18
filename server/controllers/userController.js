@@ -69,3 +69,17 @@ UserController.signin = function(profile, done, token) {
 
 
 module.exports = UserController;
+
+// server/controllers/userControllers.js
+
+// Creation of users belongs in this file
+
+// Require all the things!
+var google = require('googleapis');
+var configAuth = require('../config/local.env.js');
+
+
+// Get Google API info
+var OAuth2 = google.auth.OAuth2;
+var oauth2Client = new OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
+google.options({ auth: oauth2Client }); // set auth as a global default 
