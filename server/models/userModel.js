@@ -7,17 +7,7 @@ var bcrypt = require('bcrypt-nodejs');
 // define the schema for our user model
 var userSchema = mongoose.Schema({
   // For now we will forget about local and facebook and focus on google login
-  local: {
-    email: String,
-    password: String
-  },
-  facebook: {
-    id: String,
-    token: String,
-    email: String,
-    name: String
-  },
-  google: {
+google: {
     id: String,
     token: String,
     email: String,
@@ -25,8 +15,9 @@ var userSchema = mongoose.Schema({
     givenName: String,
     familyName: String,
     picture: String,
-    local: String,
-    link: String
+    locale: String,
+    link: String,
+    callSign: String
   }
 });
 
