@@ -4,7 +4,9 @@ angular.module('tank', [
   'tank.services',
   'tank.profile',
   'tank.welcome',
-  'tank.auth'
+  'tank.auth',
+  'ngResource',
+  'ngCookies'
   ])
 
 // Configure roots for app

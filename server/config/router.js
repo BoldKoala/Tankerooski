@@ -3,10 +3,11 @@ module.exports = function(app, express, passport){
   // HOME PAGE
   // ====================================
   // console.log("this is dirname", __dirname);
+  //var UserController  = require('../controllers/userController.js');
   app.use(express.static(__dirname+'/../../client'));
 
   app.get('/loggedin', function(req, res) {
-    res.send(req.isAuthenticated() ? req.user : '0');
+    res.send(req.isAuthenticated() ? req.user.google : '0');
   });
 
   // Logout
@@ -21,9 +22,14 @@ module.exports = function(app, express, passport){
   }));
 
   app.get('/auth/google/callback', passport.authenticate('google', {
-    successRedirect: '/#/profile',
+    //successRedirect: '/#/profile',
     failureRedirect: '/'
-  }));
+  }), function(req, res, profile){
+    console.log("this is req", req.user.google);
+    res.cookie('user', req.user.google);
+    res.redirect('/#/profile');
+  });
+
 };
 
 // route middleware to make sure user is logged in

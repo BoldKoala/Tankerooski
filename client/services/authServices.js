@@ -1,6 +1,9 @@
 angular.module('tank.services', [])
 
-.factory('User', function($http, $location, $rootScope){
+.factory('User', function($http, $location, $cookieStore){
+
+  //console.log("this is cookiestore: ", $cookieStore.get('user'));
+
   var u = {};
   var info = {};
 
