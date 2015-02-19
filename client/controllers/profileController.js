@@ -2,11 +2,9 @@
 
 angular.module('tank.profile',[])
   
-.controller('ProfileController', function($scope, User, $stateParams, $rootScope, $cookieStore){
-  $scope.user = $cookieStore.get();
-  User.setUser();
-  $scope.user = User.getUser();
-  console.log("here is $stateParams", $stateParams);
-
-
+.controller('ProfileController', function($scope, $http, User, $stateParams, $rootScope, $cookieStore){
+  angular.extend($scope,User);
+  $scope.setUser(function(user){
+  	$scope.data = user;
+  });
 })
