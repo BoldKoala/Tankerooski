@@ -18,8 +18,8 @@ UserController.show = function (req, res) {
 
 UserController.signin = function(profile, done, token) {
 	// Login user with Google OAuth
-  console.log("this is profile: ", profile); 
-  console.log("this is token: ", token);
+  // console.log("this is profile: ", profile); 
+  // console.log("this is token: ", token);
 	User.findOne({'google.id': profile.id}, function(err, user) {
     if(err){
       return done(err);

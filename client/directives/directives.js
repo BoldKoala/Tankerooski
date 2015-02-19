@@ -1,5 +1,5 @@
 angular.module('tank.directives', [])
-  .directive('tpAuth', function(){
+  .directive('tankAuth', function(){
     return{
         restrict: 'EA',
         scope: '=',
