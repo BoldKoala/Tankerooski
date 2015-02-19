@@ -19,7 +19,7 @@ google: {
     link: String,
     callSign: String
   }
-});
+}); 
 
 // methods
 // generating a hash

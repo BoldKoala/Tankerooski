@@ -3,23 +3,18 @@ var User = require('../models/userModel.js');
 
 var UserController = {};
 
-UserController.show = function (req, res) {
+UserController.show = function (req, res, done) {
   var userId = req.user.google.id;
-  console.log("THIS IS USER ID",req.user.google.id);
 
   User.findOne({'google.id' : userId}, function (err, user) {
     if (err){
      return next(err);
    }
-    console.log("LOGGING USER JSON", user);
-    return user;
+    res.send(user);
   });
 };
 
 UserController.signin = function(profile, done, token) {
-	// Login user with Google OAuth
-  // console.log("this is profile: ", profile); 
-  // console.log("this is token: ", token);
 	User.findOne({'google.id': profile.id}, function(err, user) {
     if(err){
       return done(err);

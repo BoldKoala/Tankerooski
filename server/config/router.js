@@ -16,10 +16,6 @@ module.exports = function(app, express, passport){
     res.redirect('/');
   });
 
-  app.get('/login',function(req,res){
-    res.redirect('/auth/google');
-  })
-
   //Google Oauth
   app.get('/auth/google', passport.authenticate('google', {
     scope : ['profile', 'email']//['profile', 'email', 'https://www.googleapis.com/auth/userinfo.profile']
@@ -29,10 +25,7 @@ module.exports = function(app, express, passport){
     successRedirect: '/#/profile',
     failureRedirect: '/'
   }), function(req, res, profile){
-    console.log("this is req", req.user.google);
-    // res.cookie('user', req.user.google);
-    // res.redirect('/#/profile');
-    res.send(req.user.google);
+
   });
 
 };

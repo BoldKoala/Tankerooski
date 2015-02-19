@@ -1,11 +1,9 @@
 angular.module('tank.services', [])
 
 .factory('User', function($http, $location, $cookieStore){
-
-  //console.log("this is cookiestore: ", $cookieStore.get('user'));
-
   var user = {};
-  // var info = {};
+
+  user.data = {};
 
   user.setUser = function(cb){
     $http.get('/loggedin').success(function(user){
@@ -15,9 +13,7 @@ angular.module('tank.services', [])
         $location.url('/login');
       }
     });
-
   };
-
 
   return user;
 })
