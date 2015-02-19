@@ -1,8 +1,5 @@
 // Require all the things!
 var User = require('../models/userModel.js');
-var google = require('googleapis');
-var configAuth = require('../config/local.env.js');
-// var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var UserController = {};
 
