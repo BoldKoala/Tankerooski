@@ -23,7 +23,7 @@ module.exports = function(passport) {
   // Login user with Google OAuth
   passport.use(new GoogleStrategy(configAuth.googleAuth, function(token, refreshToken, profile, done){
     process.nextTick(function(){
-      UserController.signin(profile,done)
+      UserController.signin(profile, done, token)
     });
   }));
 };

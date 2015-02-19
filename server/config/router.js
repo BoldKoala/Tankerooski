@@ -17,7 +17,7 @@ module.exports = function(app, express, passport){
 
   //Google Oauth
   app.get('/auth/google', passport.authenticate('google', {
-    scope : ['profile', 'email', 'https://www.googleapis.com/auth/userinfo.profile']
+    scope : ['profile', 'email']//['profile', 'email', 'https://www.googleapis.com/auth/userinfo.profile']
   }));
 
   app.get('/auth/google/callback', passport.authenticate('google', {

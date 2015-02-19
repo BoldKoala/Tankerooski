@@ -3,6 +3,6 @@
 'use strict';
 
 angular.module('tank.welcome', [])
-  .controller('WelcomeController', function(){
+.controller('WelcomeController', function(){
 
-  })
+})
