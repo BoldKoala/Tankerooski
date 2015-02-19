@@ -24,10 +24,7 @@ module.exports = function(app, express, passport){
   app.get('/auth/google/callback', passport.authenticate('google', {
     successRedirect: '/#/profile',
     failureRedirect: '/'
-  }), function(req, res, profile){
-
-  });
-
+  }), function(req, res, profile){});
 };
 
 // route middleware to make sure user is logged in
