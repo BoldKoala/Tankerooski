@@ -3,6 +3,19 @@ var User = require('../models/userModel.js');
 
 var UserController = {};
 
+UserController.show = function (req, res) {
+  var userId = req.user.google.id;
+  console.log("THIS IS USER ID",req.user.google.id);
+
+  User.findOne({'google.id' : userId}, function (err, user) {
+    if (err){
+     return next(err);
+   }
+    console.log("LOGGING USER JSON", user);
+    return user;
+  });
+};
+
 UserController.signin = function(profile, done, token) {
 	// Login user with Google OAuth
   console.log("this is profile: ", profile); 
@@ -13,8 +26,16 @@ UserController.signin = function(profile, done, token) {
     }
     if(user) {
       // found user update token
-      user.token = token;
-      user.save(function(err,user, num){
+      user.google.token = token;
+      user.google.token      = token;
+      user.google.email      = profile._json.email;
+      user.google.name       = profile._json.name;
+      user.google.givenName  = profile._json.given_name;
+      user.google.familyName = profile._json.family_name;
+      user.google.picture    = profile._json.picture;
+      user.google.locale     = profile._json.locale;
+      user.google.link       = profile._json.link;
+      user.save(function(err, user, num){
         if(err){
           console.log('error saving token');
         }
