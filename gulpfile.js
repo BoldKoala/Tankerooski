@@ -38,7 +38,7 @@ gulp.task('browser-sync', ['serve'], function(){
 
 // Run nodemon on gulp serve
 gulp.task('serve', function() {
-  nodemon({script: 'server/server.js'})
+  nodemon({script: 'index.js'})
   .on('change', ['lint']);
 });
 
