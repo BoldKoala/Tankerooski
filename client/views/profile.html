@@ -3,15 +3,19 @@
     <h2>Profile Page</h2>
     <div>
         <a href="/logout">Logout</a>
-        <div>[Profile pic placeholder]</div>
+        <h2>Player Name: {{user.givenName}}</h2>
+        <h3>Date Enlisted: {{player.date}} <h3> 
+        <h3>Player callsign: 'Viper'</h3>
         <img src="{{user.picture}}"></img>
-        <div> {{ data.picture }} </div> 
-        <a>Callsign: </a><br>
-        <a>Kills: </a><br>
-        <a>Deaths: </a><br>
-        <a>Date of Enlistment: </a><br>
-        <a>Hometown: </a><br>
-        <a>Ideal First Date : </a>
+        <h2>Player Stats</h2>
+        <h3>Kills: {{player.kills}}</h3> 
+        <h3>Deaths: {{player.killed}}</h3>
+        <h2>TANK DATA</h2>
+        <h3>Speed               {{tank.speed}} </h3>
+        <h3>Hit Points:         {{tank.HP}} </h3>
+        <h3>Bullet Frequency:   {{tank.bulletFreq}} </h3>
+        <h3> 
+        <h3>Ideal First Date : {{player.firstDate}}</h3>
     </div>
   <a href="http://tankfiddle.herokuapp.com/"><h2>Join the fight!</h2></a>
 </div>
