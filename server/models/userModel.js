@@ -8,17 +8,30 @@ var bcrypt = require('bcrypt-nodejs');
 var userSchema = mongoose.Schema({
   // For now we will forget about local and facebook and focus on google login
 google: {
-    id: String,
-    token: String,
-    email: String,
-    name: String,
-    givenName: String,
+    id:         String,
+    token:      String,
+    email:      String,
+    name:       String,
+    givenName:  String,
     familyName: String,
-    picture: String,
-    locale: String,
-    link: String,
-    callSign: String
-  }
+    picture:    String,
+    locale:     String,
+    link:       String,
+    callSign:   String
+  },
+tank : {
+  speed:        Number,
+  damage:       Number,
+  HP:           Number,
+  bulletFreq:   Number
+},
+player: {
+  kills:        Number,
+  killed:       Number,
+  date:         String,
+  firstDate:    String
+}
+
 }); 
 
 // methods
