@@ -1,4 +1,4 @@
-// Require database model
+// Require all the things!
 var User = require('../models/userModel.js');
 
 var UserController = {};
@@ -67,5 +67,19 @@ UserController.signin = function(profile, done, token) {
   });
 }
 
-
 module.exports = UserController;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
