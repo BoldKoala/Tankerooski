@@ -1,4 +1,215 @@
 body {
-	background-color: black;
-	padding-top:80px;
+  width:100%;
 }
+
+h1 {
+  font-weight:normal;
+  font-size: 55px;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+ font-weight: normal;
+ font-size: 40px;
+ text-align: center;
+ color: #fff;
+ margin: 0;
+ padding: 0;
+}
+
+h3 {
+ font-weight: normal;
+ font-size: 16px;
+ text-align: center;
+ margin: 5px 0;
+ padding: 0;
+ z-index: 1;
+ position: relative;
+}
+
+ul.about li{
+  text-align:center;
+}
+
+#header {
+    width: 100%;
+    background: url('../assets/images/header-bg.png');
+    height: 90px;
+    position: fixed;
+    margin-top: 30px;
+}
+
+#navList { 
+  width: 770px; 
+  float: right; 
+  margin-top: 20px;
+  list-style: none;
+  display: block;
+  margin: 0 auto;
+  list-style: none;
+}
+
+#navList li{
+    margin-top: 60px;
+    float: left;
+    padding-left: 15px;
+
+}
+
+#nav li a { 
+  color: #fff; 
+  opacity:0.6; 
+  font-size: 17px; 
+  text-decoration: none; 
+  font-family:'Black Ops One', cursive;
+}
+#nav li a.active { 
+  color: #fff; 
+  opacity:1; 
+  border-bottom: 2px solid #fff;
+}
+#nav li a:hover { 
+  color: #fff; 
+  opacity:1;
+}
+.tank{
+  float:left;
+  margin-left:30px;
+  font-family: 'Black Ops One', cursive;
+  font-size:70px;
+  color:#ccc;
+  opacity:0.35;
+}
+#top{
+  background: url('../assets/images/peace.jpg') no-repeat;
+  height: 750px;
+  margin: 0;
+  padding: 580px 0 40px 0;
+  background-size: cover;
+  font-family: 'Goudy Bookletter 1911', serif;
+}
+#top h1, #top h2{
+  font-family: 'Goudy Bookletter 1911', serif;
+  text-align: left;
+  color: #ccc;
+  margin-left:75px;
+  font-size:30px;
+}
+
+#top h1{
+  font-size:45px;
+}
+
+#breakingNews{
+    background-color: #fff;
+    color: #333333;
+    height: 750px;
+    margin: 40 auto;
+    overflow: hidden;
+    padding: 200px 0;
+}
+
+.quotes_container { 
+  width: 800px; 
+}
+
+.quotes {
+ font-family: 'Goudy Bookletter 1911', serif;
+ font-weight: normal;
+ font-size: 25px;
+ text-align: left;
+ margin: 50px 0px 20px 25px;
+}
+.barack{
+  margin-left:25px;
+}
+.aliens{
+  margin-left:250px;
+}
+
+#Invasion{
+    background: url(../assets/images/invasion.jpg) 50% 0 no-repeat fixed;
+    color: #fff;
+    height: 750px;
+    max-height:750px;
+    padding: 170px 0 0 0;
+    background-size: cover;
+}
+
+#extermination{
+  background-color: #fff fixed;
+
+  color: #333333;
+  height: 600px;
+  max-height:600px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 100px 0;
+}
+
+#rebellion{
+    background: url(../assets/images/tank.jpg) 50% 0 no-repeat;
+    color: #fff;
+    height: 750px;
+    background-size: cover;
+    padding:30px;
+}
+
+#rebellionLogin{
+    background: url(../assets/images/tank.jpg) 50% 0 no-repeat;
+    color: black;
+    height: 750px;
+    background-size: cover;
+    padding:0px;
+}
+
+.log{
+  margin-left:340px;
+  border:10px solid white;
+  width:350px;
+  text-align:center;
+  margin-top:300px;
+  padding-bottom:10px;
+}
+.logs{
+  margin-left:340px;
+  border:10px solid black;
+  width:350px;
+  text-align:center;
+  margin-top:50px;
+  padding-bottom:10px;
+}
+.gols{
+  color:black;
+  margin-left:290px;
+  width:300px;
+  text-align:center;
+  margin-top:0px;
+}
+.gol{
+  margin-left:290px;
+  width:300px;
+  text-align:center;
+  margin-top:300px;
+}
+
+div.About{
+  background-color: #fff;
+  color: #333333;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 200px 0;
+  margin-bottom:50px;
+}
+
+.desc{
+  text-align:center;
+}
+/*.parallax-window{
+  height:400px;
+  background:transparent;
+}*/

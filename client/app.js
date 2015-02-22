@@ -6,7 +6,9 @@ angular.module('tank', [
   'tank.welcome',
   'tank.auth',
   'ngResource',
-  'ngCookies'
+  'ngCookies',
+  'angular-parallax',
+  'scrollto'
   ])
 
 // Configure roots for app
@@ -29,6 +31,10 @@ angular.module('tank', [
     .state('welcome', {
       url: '',
       template: '<tank-welcome></tank-welcome>'
+    })
+    .state('about',{
+      url: '/about',
+      template: '<tank-about></tank-about>'
     })
   
   $httpProvider.interceptors.push('AttachTokens');

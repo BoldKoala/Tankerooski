@@ -39,3 +39,11 @@ angular.module('tank.directives', [])
       templateUrl: './views/profile.html'
     }
   })
+  .directive('tankAbout', function(){
+    return {
+      restrict: 'EA',
+      scope: '=',
+      replace: true,
+      templateUrl: './views/about.html'
+    }
+  })

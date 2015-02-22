@@ -1,7 +1,131 @@
-<div class="container">
-	<div class="jumbotron text-center">
-		<h1>Tankerooski</h1>
-		<a ui-sref="login" class="btn btn-default">Enter</a><br>
-		<a ui-sref="login" class="btn btn-default">Skip Intro</a>
-	</div>
+ <div>
+ <header id="header">
+ <nav  id="nav">
+  <h1 class="tank">Tankerooski</h1>
+   <ul id="navList">
+     <li><a ui-sref="login">Login</a></li>
+     <li><a href="#top" title="Next Section" scroll-to="#top" offset="0" container="html, body">Top</a></li>
+     <li><a href="#breakingNews" title="Next Section" scroll-to="#breakingNews" offset="0" container="html, body">Breaking News</a></li>
+     <li><a href="#Invasion" title="Next Section" scroll-to="#Invasion" offset="0" container="html, body">Invasion</a></li>
+     <li><a href="#extermination" title="Next Section" scroll-to="#extermination" offset="0" container="html, body">Extermination</a></li>
+     <li><a href="#rebellion" title="Next Section" scroll-to="#rebellion" offset="0" container="html, body">Rebellion</a></li>
+     <li><a href="#About" title="Next Section" scroll-to="#About" offset="0" container="html, body">About</a></li>
+
+   </ul>
+ </nav>
+ </header>
+
+ <!--<div id="top" class="parallax-window" data-parallax="scroll" data-image-src="../assets/images/peace.jpg">-->
+ <div id="top" parallax-background parallax-ratio="0.9">
+       <div id="peace">
+           <h2>Before they came.. there was</h2>
+           <h1>Peace</h1>
+       </div>
+  </div>
+
+  <div id="breakingNews" parallax-background parallax-ratio="0.9">
+    <div class="quotes_container row">
+      <div class="col-md-12">
+        <div class="col-md-8">
+          <h3 class="quotes">“This is truly a chance for the people of Earth to show the world we are a peaceful planet.  We will embrace these visitors with open arms and hospitality.”</h3>
+          <h4 class='barack'> - Barack Obama </h4>
+        </div>
+        <div class="col-md-2">
+          <img src="../assets/images/aliens.jpg" class="aliens"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="Invasion" parallax-background parallax-ratio="0.8">
+       <div>
+              <div class="quotes_container">
+              <h3 class="quotes">“Nobody could imagine the carnage that they would bring.”  </h3>
+              <h4> - Bryan Venable</h4>
+           </div>
+       </div>
+   </div>
+
+   <div id="extermination">
+     <div class="quotes_container row">
+       <div class="col-md-12">
+         <div class="col-md-8">
+           <h3 class="quotes">“Then there was nothing left.  ...Until”</h3>
+           <h4 class='barack'> - Jackie Chan </h4>
+         </div>
+         <div class="col-md-2">
+         </div>
+       </div>
+     </div>
+   </div>
+
+  <div id="rebellion" parallax-background parallax-ratio="0.9">
+    <div class="quotes_container row">
+      <div class="col-md-12">
+        <div class="col-md-6">
+          <div class="gol">
+            <h3 class="quotes">“We were able to take hold a fleet of old German tanks.  Now we just need to train people with our sweet virtual training ground so we can destroy these alien bastards.”</h3>
+            <h4 class='barack'> - General Jason Yang </h4>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <div class="log">
+              <h2>Join the resistance. Start training today.</h2>
+              <p>Login or Register with:</p>
+              <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+            </div>  
+        </div> 
+      </div>
+    </div> 
+  </div>
+
+<div class="About" id="About">
+
+  <h4 class="desc"><em>Tankersooski is a real-time multiplayer 3D tank fighting game.  It's like a party in your brower and everyone is coming.</em></h4>
+
+  <h1>Creators</h1>
+
+  <div class="row" >
+    <div class="col-md-12">
+      <ul class="list-unstyled about" >
+        <li class="col-xs-6 col-md-3">
+          <img src="../assets/images/jc.jpeg" alt="Jackie Chan"/>
+          <h3>Jackie Chan</h3>
+          <a  href="http://github.com/chikeichan">
+            <img  src="../assets/images/github.png" alt="github octocat"/>
+          </a>
+        </li>
+        <li class="col-xs-6 col-md-3">
+          <img src="../assets/images/jy.jpg" alt="Jason Yang"/>
+          <h3>Jason Yang</h3>
+          <a href="http://github.com/jasonyangftd">
+            <img src="../assets/images/github.png" alt="github octocat"/>
+          </a>
+        </li>
+        <li class="col-xs-6 col-md-3">
+          <img src="../assets/images/bv.jpeg" alt="Byran Venable"/>
+          <h3>Bryan Venable</h3>
+          <a href="http://github.com/bryanlvenable">
+            <img src="../assets/images/github.png" alt="github octocat"/>
+          </a>
+        </li>
+        <li class="col-xs-6 col-md-3">
+          <img src="../assets/images/rw.jpeg" alt="Rick Wuebker"/>
+          <h3>Rick Wuebker</h3>
+          <a href="http://github.com/rwuebker">
+            <img src="../assets/images/github.png" alt="github octocat"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
+
+<!--  <div class="container">
+  <div class="jumbotron text-center">
+    <h1>Tankerooski</h1>
+    <a ui-sref="login" class="btn btn-default">Enter</a><br>
+    <a ui-sref="login" class="btn btn-default">Skip Intro</a>
+  </div>
+</div> -->
