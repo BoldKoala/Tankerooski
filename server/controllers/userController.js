@@ -54,7 +54,7 @@ UserController.signin = function(profile, done, token) {
       newUser.tank.speed        = 0.1;
       newUser.tank.damage       = 1;
       newUser.tank.HP           = 10;
-      newUser.tank.bulletFreq   = 250;
+      newUser.tank.bulletFreq   = 2000;
       newUser.player.date       = n;
       newUser.player.firstDate  = "Maybe a little wine and some grecco-roman wrestling, wherever the night takes us...";
       newUser.save(function(err) {

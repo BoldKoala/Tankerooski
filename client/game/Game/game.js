@@ -68,20 +68,30 @@ function init(){
 
     //Enter key
     if(d.keyCode === 13){
+      //Create DOM element
       var message = document.getElementById('chatbox-input').value;
-      multiplayer.sendMsg(tanks._id,message)
-      document.getElementById('chatbox-input').value = '';
       var tr = document.createElement('tr');
       var username = document.createElement('td');
+      var text = document.createElement('td');
+      var table = document.getElementById('chatbox-table')
+      
+      //Broadcast message
+      multiplayer.sendMsg(tanks._id,message)
+      document.getElementById('chatbox-input').value = '';
+
+      //Update username DOM
       username.setAttribute('id','chatbox-username');
       username.innerHTML = tanks._id;
-      var text = document.createElement('td');
+
+      //Update message DOM
       text.setAttribute('id','chatbox-message');
       text.innerHTML = message;
+
+      //Append username and message to table row
       tr.appendChild(username);
       tr.appendChild(text)
 
-      var table = document.getElementById('chatbox-table')
+      //Append table row to chat table
       table.appendChild(tr);
       table.scrollTop = table.scrollHeight;
     }
@@ -103,6 +113,10 @@ function init(){
   document.getElementsByTagName('canvas')[0].addEventListener('click',function(d){
     tanks[tanks._id].currentSpeed = tanks[tanks._id].currentSpeed ? 0 :-tanks[tanks._id].speed;
   })
+
+  window.onunload = function(){
+    window.localStorage.removeItem('com.tankerooski.id');
+  };
 
   //Invoke Rendering function
   render();
@@ -372,7 +386,7 @@ function init(){
         })
         setTimeout(function(){
           tanks[tanks._id].noFire = false;
-        },2000)
+        },tanks[tanks._id].bulletFreq)
         setTimeout(function(){
           map.scene.remove(bullets.shift().bulleter);
         },1000)

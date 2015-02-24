@@ -8,8 +8,10 @@ function Tank(attr) {
 	tank.z = attr.z;
 	tank.color = attr.color;
 	tank.speed = attr.speed;
-	tank.hp = 10;
+	tank.hp = attr.hp;
+	tank.damage = attr.damage;
 	tank.isCollide = false;
+	tank.bulletFreq = attr.bulletFreq;
 
 	//direction system
 	tank.currentSpeed = 0;
