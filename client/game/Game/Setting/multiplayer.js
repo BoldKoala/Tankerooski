@@ -100,27 +100,33 @@ function Multiplayer(map,tanks,bullets){
 		//send tanks._id to socket id
 		id: function(id){
 			var codes = 0;
-			for(var i = 0; i<id.length; i++){
-				codes += id.charCodeAt(i);
+			for(var i = 0; i<id._id.length; i++){
+				codes += id._id.charCodeAt(i);
 			}
 			var r = codes % Math.floor(Math.random()*256);
 			var g = codes % Math.floor(Math.random()*256);
 			var b = codes % Math.floor(Math.random()*256);
 			var rgb = 'rgb('+r+','+g+','+b+')';
 
-			tanks[id] = Tank({
-				x:0.25,
-				y:0.25,
-				z:0.25, 
-				color:rgb, 
-				speed:0.1, 
+			tanks[id.google.givenName] = Tank({
+				x: 0.25,
+				y: 0.25,
+				z: 0.25, 
+				color: rgb, 
+				speed: id.tank.speed, 
+				hp: id.tank.HP,
+				bulletFreq: id.tank.bulletFreq,
+				damage: id.tank.damage,
 				onLoad:function(d){
 					console.log('Currenlt there are '+ (++counter) +' users');
 					map.scene.add(d);
 				}
 			});
 
-			tanks._id = id;
+			tanks._id = id.google.givenName;
+			console.log(id.tank)
+			console.log(tanks[tanks._id]);
+			document.getElementById('tank-color').innerHTML = '<img src="'+id.google.picture+'"></img>';
 		}
 	};
 
@@ -133,6 +139,10 @@ function Multiplayer(map,tanks,bullets){
 	for(var event in eventHandlers){
 		multiplayer.socket.on(event, eventHandlers[event]);
 	}
+
+	multiplayer.socket.on('login',function(){
+		multiplayer.socket.emit('spawn',window.localStorage.getItem('com.tankerooski.id'));
+	})
 
 	//Add events emitting functions
 	multiplayer.sendMsg = function(id,msg){

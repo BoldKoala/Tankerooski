@@ -21,10 +21,15 @@ canvas {
 }
 
 #tank-color {
-	height: 50px;
+	height: 52px;
 	width: 50px;
 	display: inline-block;
 	z-index: 2;	
+}
+
+#tank-color>img {
+	width: 50px;
+	height: 50px;
 }
 
 #dead, #loading {
@@ -78,6 +83,7 @@ canvas {
 
 #chatbox-username {
 	width: 30%;
+	overflow-x: hidden;
 }
 
 #chatbox-message {

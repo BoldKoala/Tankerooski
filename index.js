@@ -1,13 +1,20 @@
 var app = require('./server/server.js');
 var port = process.env.PORT || 9000;
 var io = require('socket.io').listen(app.listen(port));
+var User = require('./server/models/userModel.js');
+
 
 // Launch
 var tanks = {};
 
 io.on('connection',function(socket, a, b){
-	socket.emit('id',socket.id);
+	socket.emit('login',socket.id);
 
+	socket.on('spawn',function(d){
+		User.findById(d,function(err,tank){
+			socket.emit('id',tank);
+		})
+	});
 	socket.on('send',function(d){
 		socket.broadcast.emit('broadcast',d);
 	});
