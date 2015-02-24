@@ -238,3 +238,18 @@ div.About{
   height:400px;
   background:transparent;
 }*/
+#intro{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+}
+input{
+  display:block;
+  width:150px;
+}
+#mySurface{
+  /*background-color:#FA5C4F;*/
+  background: url(../assets/images/flame.gif) 50% 0 no-repeat;
+}

@@ -47,3 +47,4 @@ angular.module('tank.directives', [])
       templateUrl: './views/about.html'
     }
   })
+  

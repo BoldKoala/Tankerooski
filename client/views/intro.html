@@ -1,0 +1,16 @@
+<div >
+    <fa-app id="intro" ng-controller='FamousController' fa-perspective="1000">
+        <fa-modifier fa-align="introModifier.align"
+                     fa-size="introModifier.size"
+                     fa-rotate-y="angle.get()"
+                     fa-origin="introModifier.origin"
+                     fa-translate="introTransitionable.get()"
+                     >
+            <fa-image-surface fa-image-url="../assets/images/flame.gif"
+                        fa-color="'white'"
+                        fa-click="animate()">
+            </fa-surface>
+        </fa-modifier>
+    </fa-app>
+
+</div>
