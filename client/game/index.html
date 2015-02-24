@@ -19,7 +19,18 @@
       <p>Arrow Keys to Aim</p>
       <p>C to Jump</p>
       <p>V to Toggle First Person View</p>
+      <p>R/Esc to Toggle Chatbox</p>
       <p>Loading.....</p>
+    </div>
+
+    <div id='chatbox'>
+      <table id='chatbox-table'>
+        <tr>
+          <td id='chatbox-username'>Username</td>
+          <td id='chatbox-message'>Message</td>
+        </tr>
+      </table>
+      <input type='text' id='chatbox-input' placeholder='Enter to Send Message'></input>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>

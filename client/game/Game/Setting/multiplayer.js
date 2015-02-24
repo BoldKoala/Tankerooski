@@ -10,7 +10,19 @@ function Multiplayer(map,tanks,bullets){
 		},
 		//Console log broadcast message
 		broadcast: function(msg){
-			console.log(msg);
+			var tr = document.createElement('tr');
+			var username = document.createElement('td');
+			username.setAttribute('id','chatbox-username');
+			username.innerHTML = msg.id;
+			var message = document.createElement('td');
+			message.setAttribute('id','chatbox-message');
+			message.innerHTML = msg.message;
+			tr.appendChild(username);
+			tr.appendChild(message)
+
+			var table = document.getElementById('chatbox-table')
+			table.appendChild(tr);
+			table.scrollTop = table.scrollHeight;
 		},
 		goodHit: function(hitter){
 			console.log(hitter.from+" hit "+hitter.to);
@@ -123,8 +135,8 @@ function Multiplayer(map,tanks,bullets){
 	}
 
 	//Add events emitting functions
-	multiplayer.sendMsg = function(msg){
-	  multiplayer.socket.emit('send',msg)
+	multiplayer.sendMsg = function(id,msg){
+	  multiplayer.socket.emit('send',{id:id,message:msg});
 	};
 
 	//Syncing tank position and rotation
