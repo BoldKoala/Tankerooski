@@ -1,43 +1,55 @@
+var MSG = false;
 function keyDown(d, tanks, POV) {
-	// console.log(d.keyCode);
+	console.log(d.keyCode);
   //W key
-  if(d.keyCode === 87){
-    tanks[tanks._id].currentSpeed = -tanks[tanks._id].speed;    
-  }
-  //S key
-  if(d.keyCode === 83){
-    tanks[tanks._id].currentSpeed = tanks[tanks._id].speed;    
-  }
-  //D key
-  if(d.keyCode === 68){
-    tanks[tanks._id].spin = 0.05;
-  }
-  //A key
-  if(d.keyCode === 65){
-    tanks[tanks._id].spin = -0.05;
-  }
-  //space
-  if (d.keyCode === 32){
-    tanks[tanks._id].isFire = true;
+  if(!MSG){
+    if(d.keyCode === 87){
+      tanks[tanks._id].currentSpeed = -tanks[tanks._id].speed;    
+    }
+    //S key
+    if(d.keyCode === 83){
+      tanks[tanks._id].currentSpeed = tanks[tanks._id].speed;    
+    }
+    //D key
+    if(d.keyCode === 68){
+      tanks[tanks._id].spin = 0.05;
+    }
+    //A key
+    if(d.keyCode === 65){
+      tanks[tanks._id].spin = -0.05;
+    }
+    //space
+    if (d.keyCode === 32){
+      tanks[tanks._id].isFire = true;
+    }
+
+    //Right key
+    if(d.keyCode === 39){
+      tanks[tanks._id].torretY = 0.02;
+    }
+    //Left key
+    if(d.keyCode === 37){
+      tanks[tanks._id].torretY = -0.02;
+    }
+    //Up key
+    if(d.keyCode === 38){
+      tanks[tanks._id].torretX = 0.02;
+    }
+    //Down key
+    if(d.keyCode === 40){
+      tanks[tanks._id].torretX = -0.02;
+    }
+
+    if(d.keyCode === 82){
+      document.getElementById('chatbox').style.display = 'block';
+      MSG = true;
+    }
   }
 
-  //Right key
-  if(d.keyCode === 39){
-    tanks[tanks._id].torretY = 0.02;
+  if(d.keyCode === 27){
+    document.getElementById('chatbox').style.display = 'none';
+    MSG = false;
   }
-  //Left key
-  if(d.keyCode === 37){
-    tanks[tanks._id].torretY = -0.02;
-  }
-  //Up key
-  if(d.keyCode === 38){
-    tanks[tanks._id].torretX = 0.02;
-  }
-  //Down key
-  if(d.keyCode === 40){
-    tanks[tanks._id].torretX = -0.02;
-  }
-
   //c
   if(d.keyCode === 67){
     if(tanks[tanks._id].tanker.position.y < 0.1){    
