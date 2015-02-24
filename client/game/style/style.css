@@ -51,7 +51,7 @@ canvas {
 
 #chatbox-table, #chatbox {
 	width: 30%;
-	height: 40%;
+	height: 100%;
 	position: fixed;
 	right: 0;
 	bottom: 0;
@@ -68,18 +68,28 @@ canvas {
 #chatbox-table {
 	position: relative;
 	display: inline-block;
-	height: 86%;
+	height: 95%;
+	font-family: monospace;
+	font-size: 12px;
+	color: rgb(82, 250, 0);
+	width: 100%;
+	overflow-y: scroll;
 }
 
 #chatbox-username {
 	width: 30%;
 }
 
+#chatbox-message {
+	width: 70%;
+}
+
 #chatbox-input {
 	z-index: 3;
 	position: relative;
-	height: 14%;
+	height: 20px;
 	border: 0px;
 	width: 100%;
 	font-size: 100%;
+	opacity: 1;
 }

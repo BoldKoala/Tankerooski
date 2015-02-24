@@ -65,6 +65,26 @@ function init(){
     if (d.keyCode === 86){
       POV = POV === 'FPS' ? 'Birdeye' : 'FPS';
     } 
+
+    //Enter key
+    if(d.keyCode === 13){
+      var message = document.getElementById('chatbox-input').value;
+      multiplayer.sendMsg(tanks._id,message)
+      document.getElementById('chatbox-input').value = '';
+      var tr = document.createElement('tr');
+      var username = document.createElement('td');
+      username.setAttribute('id','chatbox-username');
+      username.innerHTML = tanks._id;
+      var text = document.createElement('td');
+      text.setAttribute('id','chatbox-message');
+      text.innerHTML = message;
+      tr.appendChild(username);
+      tr.appendChild(text)
+
+      var table = document.getElementById('chatbox-table')
+      table.appendChild(tr);
+      table.scrollTop = table.scrollHeight;
+    }
   };
 
   window.onkeyup = function(d){

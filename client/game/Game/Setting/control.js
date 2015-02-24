@@ -42,29 +42,32 @@ function keyDown(d, tanks, POV) {
 
     if(d.keyCode === 82){
       document.getElementById('chatbox').style.display = 'block';
+      var table = document.getElementById('chatbox-table')
+      table.scrollTop = table.scrollHeight;
       MSG = true;
+    }
+
+    //c
+    if(d.keyCode === 67){
+      if(tanks[tanks._id].tanker.position.y < 0.1){    
+        var counter = 0;
+        setInterval(function(){
+          if (counter < 50){
+            tanks[tanks._id].tanker.position.y += 0.06
+            counter++
+          }
+          if (counter >= 50 && counter < 100){
+            tanks[tanks._id].tanker.position.y -= 0.06
+            counter++
+          }
+        }, 10)
+      }
     }
   }
 
   if(d.keyCode === 27){
     document.getElementById('chatbox').style.display = 'none';
     MSG = false;
-  }
-  //c
-  if(d.keyCode === 67){
-    if(tanks[tanks._id].tanker.position.y < 0.1){    
-      var counter = 0;
-      setInterval(function(){
-        if (counter < 50){
-          tanks[tanks._id].tanker.position.y += 0.06
-          counter++
-        }
-        if (counter >= 50 && counter < 100){
-          tanks[tanks._id].tanker.position.y -= 0.06
-          counter++
-        }
-      }, 10)
-    }
   }
 }
 
