@@ -1,0 +1,44 @@
+body { 
+  margin: 0; 
+  overflow: hidden;
+  background-color: black;
+}
+
+canvas {
+  width: 100%; 
+  height: 100%;
+}
+
+#hp {
+	width: 20%;
+	height: 50px;
+	color: white;
+	font-size: 20px;
+	position: fixed;
+}
+
+#tank-color {
+	height: 50px;
+	width: 50px;
+	display: inline-block;
+}
+
+#dead, #loading {
+	color: red;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	position: fixed;
+	top: 50%;
+	bottom: 50%;
+	font-size: 50px;
+	display: none;
+}
+
+#loading {
+	top: 30%;
+	font-size: 25px;
+	color: white;
+	line-height: 0.5;
+	display: inline-block;
+}

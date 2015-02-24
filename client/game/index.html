@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test1</title>
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
+
+
+  </head>
+
+  <body>
+    <div id='hp'>
+      <div id='tank-color'></div>
+      HP: <span id='tank-hp'></span>
+    </div>
+
+    <div id='dead'>Wait 5 second to respawn</div>
+    <div id='loading'>
+      <p>WASD to Move</p>
+      <p>Arrow Keys to Aim</p>
+      <p>C to Jump</p>
+      <p>V to Toggle First Person View</p>
+      <p>Loading.....</p>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="./lib/three.min.js"></script>
+    <script type="text/javascript" src="./lib/buzz.min.js"></script>
+    <script type="text/javascript" src="./Model/Objects/castle-tower.scene/castle-tower.js"></script>
+    <script type="text/javascript" src="./Model/German-Tank/german.js"></script>
+    <script type="text/javascript" src="./Game/pre-fetch.js"></script>
+    <script type="text/javascript" src="./Game/Class/map.js"></script>
+    <script type="text/javascript" src="./Game/Class/tank.js"></script>
+    <script type="text/javascript" src="./Game/Class/bullets.js"></script>
+    <script type="text/javascript" src="./Game/Class/objects.js"></script>
+    <script type="text/javascript" src="./Game/Setting/multiplayer.js"></script>
+    <script type="text/javascript" src="./Game/Setting/control.js"></script>
+    <script type="text/javascript" src="./Game/game.js"></script>
+
+  </body>
+
+</html>
