@@ -244,6 +244,9 @@ div.About{
   right: 0;
   bottom: 0;
   left:0;
+  background: url(../assets/images/Skulls.jpg) 50% 0 no-repeat;
+  /*background-height: 100%;*/
+  background-size: 100% 100%;
 }
 input{
   display:block;

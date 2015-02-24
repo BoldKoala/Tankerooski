@@ -2,7 +2,7 @@
 
 angular.module('tank.famous',[])
   
-.controller('FamousController', function($scope, $window, $location, User, $http, $famous){
+.controller('FamousController', function($scope, $state, $window, $location, User, $http, $famous){
   var Transitionable = $famous['famous/transitions/Transitionable'];
   var Easing = $famous['famous/transitions/Easing']
 
@@ -29,10 +29,20 @@ angular.module('tank.famous',[])
     align: [0.5,0.5]
   };
 
-  $scope.flipIt = function() {
-    $famous.find('fa-flipper')[0].flip();
+  $scope.flipIt = function(cb) {
+    $famous.find('fa-flipper')[0].flip(null, cb);
+
+    setTimeout((function(){console.log("inside the callback");
+    $state.go('welcome')}), 4000);
   };
 
+  $scope.flipOptions = {
+    duration: 3000
+  };
+  
+  var cb = function() {
+    
+  };
 
 
 
