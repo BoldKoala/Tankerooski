@@ -144,6 +144,10 @@ function init(){
         renderer.render(map.scene, camera);
         syncStates();
         updateBulletsFired();
+        tanks[tanks._id].hpbar.position.x = tanks[tanks._id].tanker.position.x;
+        tanks[tanks._id].hpbar.position.y = tanks[tanks._id].tanker.position.y+1;
+        tanks[tanks._id].hpbar.position.z = tanks[tanks._id].tanker.position.z;
+        tanks[tanks._id].hpbar.rotation.y = -tanks[tanks._id].cameraDirection;
       } 
     }
   };
@@ -227,6 +231,16 @@ function init(){
         if(to === tanks._id){
           multiplayer.hit(from,to);
           tanks[tanks._id].hp--;
+          tanks[tanks._id].hpbar.scale.z = tanks[tanks._id].hp === 0 ? 0.01 : tanks[tanks._id].hp/tanks[tanks._id].maxHP;
+          if(tanks[tanks._id].hp <= 7){
+            tanks[tanks._id].hpbar.material.color.set('yellow');
+          }
+          if(tanks[tanks._id].hp <= 5){
+            tanks[tanks._id].hpbar.material.color.set('orange');
+          }
+          if(tanks[tanks._id].hp <= 2){
+            tanks[tanks._id].hpbar.material.color.set('red');
+          }
           if(tanks[tanks._id].hp === 0){
             tanks[tanks._id].flip();
             tanks[tanks._id].spin = 0;
@@ -239,12 +253,14 @@ function init(){
             multiplayer.kill(tanks._id);
             setTimeout(function(){
               tanks[tanks._id].hp = 10;
+              tanks[tanks._id].hpbar.scale.z = tanks[tanks._id].hp/tanks[tanks._id].maxHP;
+              tanks[tanks._id].hpbar.material.color.set('green');
               INITIAL = true;
               document.getElementById('dead').style.display = 'none';   
               tanks[tanks._id].restore();       
             },5000)
           } else if(to !== 'Tower'){
-            console.log(from+" hit "+to);
+            // console.log(from+" hit "+to);
             document.getElementById('tank-hp').innerHTML = tanks[tanks._id].hp;
           }
         }
@@ -361,7 +377,9 @@ function init(){
           color:tanks[tanks._id].color,
           id: tanks._id,
           isDriving: tanks[tanks._id].isDriving,
-          torretY: tanks[tanks._id].tanker.children[2].rotation.y
+          torretY: tanks[tanks._id].tanker.children[2].rotation.y,
+          hp: tanks[tanks._id].hp,
+          maxHP: tanks[tanks._id].maxHP
         }
       );
     }

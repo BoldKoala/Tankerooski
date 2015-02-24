@@ -9,6 +9,7 @@ function Tank(attr) {
 	tank.color = attr.color;
 	tank.speed = attr.speed;
 	tank.hp = attr.hp;
+	tank.maxHP = attr.hp;
 	tank.damage = attr.damage;
 	tank.isCollide = false;
 	tank.bulletFreq = attr.bulletFreq;
@@ -28,16 +29,14 @@ function Tank(attr) {
 	tank.noFire = false;
 
 	tank.material = {
-		tank: new THREE.MeshLambertMaterial({ color: tank.color })
+		tank: new THREE.MeshLambertMaterial({ color: tank.color }),
+		hp: new THREE.MeshBasicMaterial({ color: 'green'})
 	};
 
 	tank.driveSound = new buzz.sound('./Sound/tank-driving-edited.ogg');
 
-	// ====== Cube building (Legacy Code) ======
-	// tank.tanker = new THREE.Mesh(new THREE.BoxGeometry(tank.x, tank.y, tank.z), tank.material.tank );
-
-	// Position Cube
-	// tank.tanker.position.y = tank.y/2;
+	//HP Bar
+	tank.hpbar = new THREE.Mesh(new THREE.BoxGeometry(0.05,0.05,0.5), tank.material.hp );
 
 	var loader = new THREE.ObjectLoader();
 	tank.tanker = loader.parse(GermanTank);
@@ -52,7 +51,9 @@ function Tank(attr) {
   	tank.tanker.children[i].castShadow = true;
   })
 
+  tank.tanker.children.push(tank.hpbar)
   attr.onLoad(tank.tanker);
+  
 	// Tank fire
 	tank.fire = function(direction){
 		bullet = Bullet(-Math.sin(direction), -Math.cos(direction), 10, this.tanker.position);
