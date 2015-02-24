@@ -22,6 +22,7 @@
     "angular-ui-router": "~0.2.13",
     "angular-resource": "~1.3.13",
     "angular-cookies": "~1.3.13",
-    "angular-scrollto": "~0.1.4"
+    "angular-scrollto": "~0.1.4",
+    "parallax": "~2.1.3"
   }
 }

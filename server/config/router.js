@@ -44,6 +44,11 @@ module.exports = function(app, express, passport){
     }
   });
 
+  app.get('/game',function(req,res){
+    // res.sendFile(__dirname+'/../../client/game/index.html');
+    res.redirect('/game/index.html');
+  })
+
   app.get('*', function(req, res) {
     res.sendFile(__dirname + '/../../client/index.html')
   })
