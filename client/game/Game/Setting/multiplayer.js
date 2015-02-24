@@ -25,10 +25,10 @@ function Multiplayer(map,tanks,bullets){
 			table.scrollTop = table.scrollHeight;
 		},
 		goodHit: function(hitter){
-			console.log(hitter.from+" hit "+hitter.to);
+			// console.log(hitter.from+" hit "+hitter.to);
 		},
 		killed: function(id){
-			console.log(id + ' is dead');
+			// console.log(id + ' is dead');
 			tanks[id].flip();
 			tanks[id].hp = 0;
 			setTimeout(function(){
@@ -39,7 +39,7 @@ function Multiplayer(map,tanks,bullets){
 		//Remove disconnected tank
 		exit: function(id){
 			console.log(id," exited")
-			console.log('Currenlt there are '+ (--counter) +' users');
+			console.log('Currenlyt there are '+ (--counter) +' users');
 			map.scene.remove(tanks[id].tanker);
 			delete tanks[id];
 		},
@@ -75,8 +75,9 @@ function Multiplayer(map,tanks,bullets){
 					z:0.25, 
 					color:state.color,
 					speed: 0.1,
+					name: state.id,
 					onLoad: function(d){
-						console.log('Currenlt there are '+ (++counter) +' users');
+						console.log('Currently there are '+ (++counter) +' users');
 						map.scene.add(d);
 						d.position.x = state.x;
 						d.position.y = state.y;
@@ -86,13 +87,31 @@ function Multiplayer(map,tanks,bullets){
 						d.rotation.z = state.rz;
 					}
 				});
-			} else if(tanks[state.id].tanker){
+			} else if(tanks[state.id].tanker && tanks[tanks._id]){
 				tanks[state.id].tanker.position.x = state.x;
 				tanks[state.id].tanker.position.y = state.y;
 				tanks[state.id].tanker.position.z = state.z;
 				tanks[state.id].tanker.rotation.x = state.rx;
 				tanks[state.id].tanker.rotation.y = state.ry;
 				tanks[state.id].tanker.rotation.z = state.rz;
+				tanks[state.id].hp                = state.hp;
+        tanks[state.id].hpbar.position.x  = state.x;
+        tanks[state.id].hpbar.position.y  = state.y+1;
+        tanks[state.id].hpbar.position.z  = state.z;
+        tanks[state.id].hpbar.rotation.y  = -tanks[tanks._id].cameraDirection;
+        tanks[state.id].hpbar.scale.z     = state.hp === 0 ? 0.01 : state.hp/state.maxHP;		
+        if(tanks[state.id].hp === 10){
+          tanks[state.id].hpbar.material.color.set('green');
+        }
+        if(tanks[state.id].hp <= 7){
+          tanks[state.id].hpbar.material.color.set('yellow');
+        }
+        if(tanks[state.id].hp <= 5){
+          tanks[state.id].hpbar.material.color.set('orange');
+        }
+        if(tanks[state.id].hp <= 2){
+          tanks[state.id].hpbar.material.color.set('red');
+        }
 				tanks[state.id].isDriving = state.isDriving;
 				tanks[state.id].tanker.children[2].rotation.y = state.torretY;
 			}
@@ -117,15 +136,14 @@ function Multiplayer(map,tanks,bullets){
 				hp: id.tank.HP,
 				bulletFreq: id.tank.bulletFreq,
 				damage: id.tank.damage,
-				onLoad:function(d){
-					console.log('Currenlt there are '+ (++counter) +' users');
-					map.scene.add(d);
+				name: id.google.givenName,
+				onLoad:function(tanker){
+					console.log('Currently there are '+ (++counter) +' users');
+					map.scene.add(tanker);
 				}
 			});
 
 			tanks._id = id.google.givenName;
-			console.log(id.tank)
-			console.log(tanks[tanks._id]);
 			document.getElementById('tank-color').innerHTML = '<img src="'+id.google.picture+'"></img>';
 		}
 	};

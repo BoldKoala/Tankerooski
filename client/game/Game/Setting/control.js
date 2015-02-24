@@ -1,6 +1,6 @@
 var MSG = false;
 function keyDown(d, tanks, POV) {
-	console.log(d.keyCode);
+	// console.log(d.keyCode);
   //W key
   if(!MSG){
     if(d.keyCode === 87){
