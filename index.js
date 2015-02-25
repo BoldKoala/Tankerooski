@@ -38,7 +38,7 @@ io.on('connection',function(socket, a, b){
 			tank.save();
 		});
 
-		socket.broadcast.emit('killed', kills.to);
+		socket.broadcast.emit('killed', kills);
 	});
 	socket.on('disconnect',function(){
 		socket.broadcast.emit('exit',socket.id)

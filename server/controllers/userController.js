@@ -4,8 +4,6 @@ var User = require('../models/userModel.js');
 var UserController = {};
 
 UserController.getPlayerData = function (req, res, id) {
-  //var userId = req.user.google.id;
-
   User.findOne({'google.id' : id}, function (err, user) {
     if (err){
      return next(err);
@@ -15,16 +13,12 @@ UserController.getPlayerData = function (req, res, id) {
 };
 
 UserController.getAllPlayer = function (req, res, next) {
-  //var userId = req.user.google.id;
-  console.log('hi')
   User.find({}, function (err, data) {
     if (err){
      return next(err);
-   } else {
-
-    console.log(data);
-    res.send(data);
-   }
+    } else {
+      res.send(data);
+    }
   });
 };
 
@@ -65,6 +59,8 @@ UserController.signin = function(profile, done, token) {
       newUser.google.link       = profile._json.link;
       newUser.player.kills      = 0;
       newUser.player.killed     = 0;
+      newUser.player.fired      = 0;
+      newUser.player.onTarget   = 0;
       newUser.tank.speed        = 0.1;
       newUser.tank.damage       = 1;
       newUser.tank.HP           = 10;

@@ -45,6 +45,21 @@ canvas {
 	z-index: 2;	
 }
 
+#dead {
+	background-color: black;
+	opacity: 0.5;
+	top: 0;
+}
+
+table#leader {
+	font-size: 12px;
+	width: 75%;
+	margin: 25% 12.5% 0 12.5%;
+	background-color: green;
+	color: white;
+	border: 1px solid white;
+}
+
 #loading {
 	top: 30%;
 	font-size: 25px;

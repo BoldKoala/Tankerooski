@@ -30,11 +30,14 @@ function Multiplayer(map,tanks,bullets){
 			}
 		},
 		killed: function(id){
-			tanks[id].flip();
-			tanks[id].hp = 0;
+			if(id.kill === tanks[tanks._id].objectID){
+				tanks[tanks._id].kills++;
+			}
+			tanks[id.to].flip();
+			tanks[id.to].hp = 0;
 			setTimeout(function(){
-				tanks[id].hp = 10;
-				tanks[id].restore();
+				tanks[id.to].hp = 10;
+				tanks[id.to].restore();
 			},5000)
 		},
 		//Remove disconnected tank
@@ -101,7 +104,11 @@ function Multiplayer(map,tanks,bullets){
         tanks[state.id].hpbar.position.y  = state.y+1;
         tanks[state.id].hpbar.position.z  = state.z;
         tanks[state.id].hpbar.rotation.y  = -tanks[tanks._id].cameraDirection;
-        tanks[state.id].hpbar.scale.z     = state.hp === 0 ? 0.01 : state.hp/state.maxHP;		
+        tanks[state.id].hpbar.scale.z     = state.hp === 0 ? 0.01 : state.hp/state.maxHP;	
+        tanks[state.id].fired             = state.fired;
+        tanks[state.id].onTarget          = state.onTarget;
+        tanks[state.id].kills 					  = state.kills;
+        tanks[state.id].deaths 						= state.deaths;
         if(tanks[state.id].hp === 10){
           tanks[state.id].hpbar.material.color.set('green');
         }

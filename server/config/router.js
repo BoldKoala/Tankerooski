@@ -29,7 +29,6 @@ module.exports = function(app, express, passport){
   }), function(req, res, profile){
 
     var user = req.user;
-    console.log("this is req.user", req.user);
     res.cookie('key', JSON.stringify(user));
     res.redirect('/#/profile');
 
@@ -39,22 +38,16 @@ module.exports = function(app, express, passport){
 
   app.get('/api/user/:id', function(req, res){
     if(req.isAuthenticated()){
-      console.log(req.params.id);
       UserController.getPlayerData(req, res, req.params.id);
     }else{
       res.redirect('/');
     }
   });  
 
-
   app.get('/game',function(req,res){
-    // res.sendFile(__dirname+'/../../client/game/index.html');
     res.redirect('/game/index.html');
   })
 
-  // app.get('*', function(req, res) {
-  //   res.sendFile(__dirname + '/../../client/index.html')
-  // })
 };
 
 // route middleware to make sure user is logged in
