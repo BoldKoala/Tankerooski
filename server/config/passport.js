@@ -5,7 +5,7 @@ var GoogleStrategy  = require('passport-google-oauth').OAuth2Strategy;
 var authKey = {
   'clientID'      : process.env.CLIENTID || require('./local.env.js').googleAuth.clientID,
   'clientSecret'  : process.env.CLIENTSECRET || require('./local.env.js').googleAuth.clientSecret,
-  'callbackURL'   : '/auth/google/callback'
+  'callbackURL'   : process.env.CALLBACK || 'http://localhost:9000/auth/google/callback'
 };
 
 // Require database model

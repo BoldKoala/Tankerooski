@@ -1,6 +1,8 @@
 {
   "name": "Tankerooski",
   "version": "1.0.0",
+  "scripts": {
+  },
   "engines": {
     "node": "0.12.0"
   },

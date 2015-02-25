@@ -28,7 +28,7 @@ gulp.task('lint', function() {
 // }));
 
 // Opens up browser, works with 'serve'
-gulp.task('browser-sync', ['serve'], function(){
+gulp.task('browser-sync', ['scripts','serve'], function(){
   browserSync.init({
     files: ['./**/**/*.*'],
     proxy:'http://localhost:9000',
