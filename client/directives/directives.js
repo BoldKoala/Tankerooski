@@ -39,14 +39,6 @@ angular.module('tank.directives', [])
       templateUrl: './views/profile.html'
     }
   })  
-  .directive('tankLeaderBoard', function(){
-    return {
-      restrict: 'EA',
-      scope: {},
-      replace: true,
-      templateUrl: './views/leaderBoard.html'
-    }
-  })
   .directive('tankAbout', function(){
     return {
       restrict: 'EA',
