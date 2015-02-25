@@ -8,7 +8,10 @@ angular.module('tank', [
   'ngResource',
   'ngCookies',
   'angular-parallax',
-  'scrollto'
+  'scrollto',
+  'tank.famous',
+  'famous.angular',
+  'tank.initial'
   ])
 
 // Configure roots for app
@@ -36,6 +39,16 @@ angular.module('tank', [
     .state('about',{
       url: '/about',
       template: '<tank-about></tank-about>'
+    })
+    .state('intro', {
+      url: '/intro',
+      templateUrl:"./views/intro.html",
+      controller:'FamousController'
+    })
+    .state('initial', {
+      url: '/initial',
+      template: '<tank-initial></tank-initial>',
+      controller: 'InitialController'
     })
   
   $httpProvider.interceptors.push('AttachTokens');

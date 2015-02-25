@@ -1,0 +1,78 @@
+<div>
+    <fa-app id="intro" ng-controller='FamousController' fa-perspective="2000">
+    <!-- Surface for Enter button and gif -->
+    <fa-modifier 
+        fa-align="enterModifier.align"
+        fa-size="enterModifier.size"
+        fa-origin="enterModifier.origin">
+        <fa-surface fa-background-color="'#4D5D53'">Enter
+        </fa-surface>
+    </fa-modifier>
+
+    
+    <!-- Surface for background of welcome page -->
+    <fa-modifier 
+        fa-align="introModifier.align"
+        fa-size="introModifier.size"
+        fa-origin="introModifier.origin"
+        fa-opacity="opacityState">
+        <fa-image-surface
+            fa-background-color="white">
+            
+
+        </fa-image-surface>
+    </fa-modifier>
+
+
+
+<!-- Set up all surfaces and use z-translations to change slides/surfaces -->
+
+
+
+        <!-- Flame and fade out to landing page -->
+<!--         <fa-surface>
+            <tank-welcome></tank-welcome>
+        </fa-surface>
+        <fa-modifier 
+            fa-align="introModifier.align"
+            fa-size="introModifier.size"
+            fa-origin="introModifier.origin"
+            fa-opacity="opacityState">
+            <fa-image-surface
+                fa-image-url="../assets/images/fire.gif"
+                fa-click="opacityOut()"
+                id="flames">
+            </fa-image-surface>
+        </fa-modifier> -->
+    </fa-app>
+
+<!-- <div>
+    <fa-app id="intro" ng-controller='FamousController' fa-perspective="2000">
+        <fa-flipper fa-options="flipOptions">
+            <fa-modifier fa-align="introModifier.align"
+                         fa-size="introModifier.size"
+                         fa-rotate-y="angle.get()"
+                         fa-origin="introModifier.origin"
+                         fa-translate="introTransitionable.get()"
+                         >
+                <fa-image-surface fa-image-url="../assets/images/fire.gif"
+                            fa-color="'white'"
+                            fa-click="flipIt()">
+                </fa-image-surface>
+            </fa-modifier>
+            <fa-modifier fa-align="introModifier.align"
+                         fa-size="introModifier.size"
+                         fa-rotate-y="angle.get()"
+                         fa-origin="introModifier.origin"
+                         fa-translate="introTransitionable.get()"
+                         >
+                <fa-surface>
+                    <tank-welcome></tank-welcome>
+                </fa-surface>
+            </fa-modifier>
+        </fa-flipper>
+    </fa-app>
+
+</div> -->
+    
+</div>
