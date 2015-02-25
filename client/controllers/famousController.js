@@ -6,7 +6,7 @@ angular.module('tank.famous',[])
   var Transitionable = $famous['famous/transitions/Transitionable'];
   var Easing = $famous['famous/transitions/Easing']
 
-  //$scope.introTransitionable = new Transitionable([0, 0, 0]);
+  // $scope.introTransitionable = new Transitionable([0, 0, 0]);
   //$scope.angle = new Transitionable(0);
   $scope.opacityState = new Transitionable(1);
 
@@ -37,6 +37,15 @@ angular.module('tank.famous',[])
     origin: [0.5,0.5],
     align: [0.5,0.5]
   };
+
+  $scope.enterModifier = {
+    translationValues
+    size: [284, 100],
+    origin: [0.5,0.5],
+    align: [0.5,0.5]
+  }
+
+
 
   // $scope.fadeOutModifier = {
   //   opacity: 1
