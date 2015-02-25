@@ -47,3 +47,12 @@ angular.module('tank.directives', [])
       templateUrl: './views/about.html'
     }
   })
+  .directive('tankInitial', function(){
+    return {
+      restrict: 'EA',
+      scope: '=',
+      replace: true,
+      templateUrl: './views/initial.html'
+    }
+  })
+  
