@@ -14,6 +14,20 @@ UserController.getPlayerData = function (req, res, id) {
   });
 };
 
+UserController.getAllPlayer = function (req, res, next) {
+  //var userId = req.user.google.id;
+  console.log('hi')
+  User.find({}, function (err, data) {
+    if (err){
+     return next(err);
+   } else {
+
+    console.log(data);
+    res.send(data);
+   }
+  });
+};
+
 UserController.signin = function(profile, done, token) {
 	User.findOne({'google.id': profile.id}, function(err, user) {
     if(err){

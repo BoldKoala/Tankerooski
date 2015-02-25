@@ -35,6 +35,8 @@ module.exports = function(app, express, passport){
 
   });
 
+  app.get('/api/users', UserController.getAllPlayer );
+
   app.get('/api/user/:id', function(req, res){
     if(req.isAuthenticated()){
       console.log(req.params.id);
@@ -42,16 +44,17 @@ module.exports = function(app, express, passport){
     }else{
       res.redirect('/');
     }
-  });
+  });  
+
 
   app.get('/game',function(req,res){
     // res.sendFile(__dirname+'/../../client/game/index.html');
     res.redirect('/game/index.html');
   })
 
-  app.get('*', function(req, res) {
-    res.sendFile(__dirname + '/../../client/index.html')
-  })
+  // app.get('*', function(req, res) {
+  //   res.sendFile(__dirname + '/../../client/index.html')
+  // })
 };
 
 // route middleware to make sure user is logged in

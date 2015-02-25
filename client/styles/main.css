@@ -43,7 +43,7 @@ ul.about li{
 }
 
 #navList { 
-  width: 770px; 
+  width: 870px; 
   float: right; 
   margin-top: 20px;
   list-style: none;
@@ -110,6 +110,31 @@ ul.about li{
     margin: 40 auto;
     overflow: hidden;
     padding: 200px 0;
+}
+
+#leaderBoardTable{
+  text-align: center;
+  width: 80%;
+}
+
+#leaderBoardUserPic{
+  width: 20%;
+}
+
+#leaderBoardUsername{
+  width: 20%;
+}
+
+#leaderBoardKills{
+  width: 20%;
+}
+
+#leaderBoardDeaths{
+  width: 20%;
+}
+
+#leaderBoardScore{
+  width: 20%;
 }
 
 .quotes_container { 

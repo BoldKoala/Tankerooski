@@ -7,6 +7,4 @@ angular.module('tank.auth',[])
   console.log('AuthController loaded');
 
 
-
-
 })

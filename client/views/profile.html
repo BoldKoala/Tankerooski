@@ -1,21 +1,44 @@
 <div class="container">
-    <h1>Tankerooski</h1>
-    <h2>Profile Page</h2>
-    <div>
-        <a href="/logout">Logout</a>
-        <h2>Player Name: {{user.givenName}}</h2>
-        <h3>Date Enlisted: {{player.date}} <h3> 
-        <h3>Player callsign: 'Viper'</h3>
-        <img src="{{user.picture}}"></img>
-        <h2>Player Stats</h2>
-        <h3>Kills: {{player.kills}}</h3> 
-        <h3>Deaths: {{player.killed}}</h3>
-        <h2>TANK DATA</h2>
-        <h3>Speed               {{tank.speed}} </h3>
-        <h3>Hit Points:         {{tank.HP}} </h3>
-        <h3>Bullet Frequency:   {{tank.bulletFreq}} </h3>
-        <h3> 
-        <h3>Ideal First Date : {{player.firstDate}}</h3>
-    </div>
+  <h1>Tankerooski</h1>
+  <h2>Profile Page</h2>
+
+  <div>
+    <a href="/logout">Logout</a>
+    <h2>Player Name: {{user.givenName}}</h2>
+    <h3>Date Enlisted: {{player.date}} <h3> 
+    <h3>Player callsign: 'Viper'</h3>
+    <img src="{{user.picture}}"></img>
+    <h2>Player Stats</h2>
+    <h3>Kills: {{player.kills}}</h3> 
+    <h3>Deaths: {{player.killed}}</h3>
+    <h2>TANK DATA</h2>
+    <h3>Speed               {{tank.speed}} </h3>
+    <h3>Hit Points:         {{tank.HP}} </h3>
+    <h3>Bullet Frequency:   {{tank.bulletFreq}} </h3>
+    <h3> 
+    <h3>Ideal First Date : {{player.firstDate}}</h3>
+  </div>
+
   <a href="/game"><h2>Join the fight!</h2></a>
+
+  <div>
+    <h2>Tankrooski Leader Board</h2>
+    <table id = "leaderBoardTable">
+      <tr>
+        <td>Avatar</td>
+        <td>Player</td>
+        <td><a href="" ng-click="sortBy = 'player.kills'">Kills</a></td>
+        <td><a href="" ng-click="sortBy = 'player.killed'">Deaths</a></td>
+        <td><a href="" ng-click="sortBy = 'player.kills / player.killed'">Score (Kill-Death Ratio)</a></td>
+      </tr>
+      <tr ng-repeat = "player in players | orderBy:sortBy:true">
+        <td><img src = "{{player.google.picture}}" id = "leaderBoardUserPic"></img></td>
+        <td id = "leaderBoardUsername">{{player.google.name}}</td>
+        <td id = "leaderBoardKills">{{player.player.kills}}</td>
+        <td id = "leaderBoardDeaths">{{player.player.killed}}</td>
+        <td id = "leaderBoardScore">{{player.player.kills / player.player.killed}}</td>
+      </tr>
+    </table>
+  </div>
+
 </div>

@@ -9,15 +9,13 @@ angular.module('tank.profile',[])
 
   $window.localStorage.setItem('com.tankerooski.id', $cookieStore.get('key')._id)
 
-  // angular.extend($scope,User);
-  // $scope.setUser(function(user){
-  // 	$scope.user  = user.google;
-  //   $scope.tank  = user.tank;
-  //   $scope.player= user.player;
-
-  // });
-
-
-
+  $http.get('./api/users').
+    success(function(data){
+      $scope.players = data;
+      $scope.sortBy = 'player.kills'
+    }).
+    error(function(data) {
+      console.log('error', data)
+    });
 
 });

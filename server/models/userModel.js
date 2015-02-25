@@ -24,13 +24,13 @@ tank : {
   damage:       Number,
   HP:           Number,
   bulletFreq:   Number
-},
+  },
 player: {
   kills:        Number,
   killed:       Number,
   date:         String,
   firstDate:    String
-}
+  }
 
 }); 
 
