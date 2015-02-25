@@ -2,7 +2,11 @@
 var GoogleStrategy  = require('passport-google-oauth').OAuth2Strategy;
 
 // load the auth variables
-var configAuth      = require('./local.env.js')
+var authKey = {
+  'clientID'      : process.env.CLIENTID || require('./local.env.js').googleAuth.clientID,
+  'clientSecret'  : process.env.CLIENTSECRET || require('./local.env.js').googleAuth.clientSecret,
+  'callbackURL'   : process.env.CALLBACK || 'http://localhost:9000/auth/google/callback'
+};
 
 // Require database model
 var User            = require('../models/userModel.js');
@@ -21,7 +25,7 @@ module.exports = function(passport) {
   });
   
   // Login user with Google OAuth
-  passport.use(new GoogleStrategy(configAuth.googleAuth, function(token, refreshToken, profile, done){
+  passport.use(new GoogleStrategy(authKey, function(token, refreshToken, profile, done){
     process.nextTick(function(){
        UserController.signin(profile, done, token)
     });
