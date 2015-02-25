@@ -25,10 +25,11 @@ function Multiplayer(map,tanks,bullets){
 			table.scrollTop = table.scrollHeight;
 		},
 		goodHit: function(hitter){
-			// console.log(hitter.from+" hit "+hitter.to);
+			if(hitter.from === tanks._id){
+				tanks[tanks._id].onTarget++;
+			}
 		},
 		killed: function(id){
-			// console.log(id + ' is dead');
 			tanks[id].flip();
 			tanks[id].hp = 0;
 			setTimeout(function(){
@@ -188,6 +189,10 @@ function Multiplayer(map,tanks,bullets){
 	multiplayer.kill = function(kills){
 		multiplayer.socket.emit('dead',kills);
 	};
+
+	multiplayer.updateHit = function(stat){
+		multiplayer.socket.emit('stat', stat)
+	}
 
 	return multiplayer;
 }

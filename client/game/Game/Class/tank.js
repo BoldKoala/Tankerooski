@@ -15,6 +15,8 @@ function Tank(attr) {
 	tank.damage = attr.damage;
 	tank.isCollide = false;
 	tank.bulletFreq = attr.bulletFreq;
+	tank.fired = 0;
+	tank.onTarget = 0;
 
 	//direction system
 	tank.currentSpeed = 0;
@@ -58,6 +60,8 @@ function Tank(attr) {
   
 	// Tank fire
 	tank.fire = function(direction){
+		this.fired++;
+		console.log(this.fired, this.onTarget);
 		bullet = Bullet(-Math.sin(direction), -Math.cos(direction), 10, this.tanker.position);
 		bullet.bulleter.position.x = this.tanker.position.x - Math.cos(direction)*2;
 		bullet.bulleter.position.y = this.tanker.position.y + this.y*2;

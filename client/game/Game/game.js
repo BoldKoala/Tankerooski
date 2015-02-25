@@ -32,10 +32,11 @@ function init(){
     tower3: testTower3,
     tower4: testTower4,
     tower5: testTower5
-  }
+  };
+
   for(var tower in towers){
     map.scene.add(towers[tower].model);
-  }
+  };
 
   //Set renderer size
   renderer.setSize( WIDTH, HEIGHT );
@@ -113,6 +114,10 @@ function init(){
   document.getElementsByTagName('canvas')[0].addEventListener('click',function(d){
     tanks[tanks._id].currentSpeed = tanks[tanks._id].currentSpeed ? 0 :-tanks[tanks._id].speed;
   })
+
+  window.onbeforeunload = function(){
+    multiplayer.updateHit({objectID: tanks[tanks._id].objectID, fired: tanks[tanks._id].fired, onTarget: tanks[tanks._id].onTarget});
+  };
 
   window.onunload = function(){
     window.localStorage.removeItem('com.tankerooski.id');
@@ -229,7 +234,10 @@ function init(){
       bullets[i].move();
       bullets[i].hit(tanks,towers,function(from, to, bullet){
         if(to === tanks._id){
+          //Send bullet hit to socket
           multiplayer.hit(from,to);
+
+          //Update HP and HP bar
           tanks[tanks._id].hp--;
           tanks[tanks._id].hpbar.scale.z = tanks[tanks._id].hp === 0 ? 0.01 : tanks[tanks._id].hp/tanks[tanks._id].maxHP;
           if(tanks[tanks._id].hp <= 7){
@@ -241,6 +249,8 @@ function init(){
           if(tanks[tanks._id].hp <= 2){
             tanks[tanks._id].hpbar.material.color.set('red');
           }
+
+          //Handle Death
           if(tanks[tanks._id].hp === 0){
             tanks[tanks._id].flip();
             tanks[tanks._id].spin = 0;
@@ -250,7 +260,6 @@ function init(){
             tanks[tanks._id].torretX = 0;
             document.getElementById('tank-hp').innerHTML = tanks[tanks._id].hp;
             document.getElementById('dead').style.display = 'inline-block'; 
-            console.log(tanks[from], tanks[to])         
             multiplayer.kill({kill: tanks[from].objectID, death: tanks[to].objectID, id: to});
             setTimeout(function(){
               tanks[tanks._id].hp = 10;
@@ -261,11 +270,10 @@ function init(){
               tanks[tanks._id].restore();       
             },5000)
           } else if(to !== 'Tower'){
-            // console.log(from+" hit "+to);
             document.getElementById('tank-hp').innerHTML = tanks[tanks._id].hp;
           }
         }
-
+        //Execute animation when bullet hit
         bullet.explosion(function(cube){
           map.scene.add(cube.spark);
           cube.move(10,150,function(movedCube){
