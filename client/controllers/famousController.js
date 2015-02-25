@@ -6,22 +6,31 @@ angular.module('tank.famous',[])
   var Transitionable = $famous['famous/transitions/Transitionable'];
   var Easing = $famous['famous/transitions/Easing']
 
-  $scope.introTransitionable = new Transitionable([0, 0, 0]);
-  $scope.angle = new Transitionable(0);
+  //$scope.introTransitionable = new Transitionable([0, 0, 0]);
+  //$scope.angle = new Transitionable(0);
+  $scope.opacityState = new Transitionable(1);
 
-  $scope.animate = function() {
-    $scope.introTransitionable.set([0, 0, 0], {duration: 1000, curve: Easing['outElastic']});
-    console.log("should translate");
-    $scope.angle.set(2*Math.PI, {
-      duration: 4000,
-      curve: 'easeInOut'
+  $scope.opacityOut = function() {
+    console.log("inside opacityOut");
+    $scope.opacityState.set(0, {duration: 5000}, function(){
+      $state.go('welcome');
     });
+
+
   };
 
+  // $scope.animate = function() {
+  //   $scope.introTransitionable.set([0, 0, 0], {duration: 1000, curve: Easing['outElastic']});
+  //   $scope.angle.set(2*Math.PI, {
+  //     duration: 4000,
+  //     curve: 'easeInOut'
+  //   });
+  // };
+
   // Creates a
-  $scope.databound = {
-    content: "change me!!"
-  }
+  // $scope.databound = {
+  //   content: "change me!!"
+  // }
   $scope.introModifier = {
     // translateValues: [50, 100, 0],
     size: [window.innerWidth, window.innerHeight],
@@ -29,20 +38,24 @@ angular.module('tank.famous',[])
     align: [0.5,0.5]
   };
 
-  $scope.flipIt = function(cb) {
-    $famous.find('fa-flipper')[0].flip(null, cb);
+  // $scope.fadeOutModifier = {
+  //   opacity: 1
+  // }
 
-    setTimeout((function(){console.log("inside the callback");
-    $state.go('welcome')}), 4000);
-  };
+  // $scope.flipIt = function(cb) {
+  //   $famous.find('fa-flipper')[0].flip(null, cb);
 
-  $scope.flipOptions = {
-    duration: 3000
-  };
+  //   setTimeout((function(){console.log("inside the callback");
+  //   $state.go('welcome')}), 4000);
+  // };
+
+  // $scope.flipOptions = {
+  //   duration: 3000
+  // };
   
-  var cb = function() {
+  // var cb = function() {
     
-  };
+  // };
 
 
 

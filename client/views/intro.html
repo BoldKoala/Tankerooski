@@ -1,5 +1,24 @@
 <div>
     <fa-app id="intro" ng-controller='FamousController' fa-perspective="2000">
+        <fa-surface>
+            <tank-welcome></tank-welcome>
+        </fa-surface>
+        <fa-modifier 
+            fa-align="introModifier.align"
+            fa-size="introModifier.size"
+            fa-origin="introModifier.origin"
+            fa-opacity="opacityState">
+
+            <fa-image-surface fa-image-url="../assets/images/fire.gif" fa-click="opacityOut()" id="flames">
+
+            </fa-image-surface>
+        </fa-modifier>
+    </fa-app>
+</div>
+
+
+<!-- <div>
+    <fa-app id="intro" ng-controller='FamousController' fa-perspective="2000">
         <fa-flipper fa-options="flipOptions">
             <fa-modifier fa-align="introModifier.align"
                          fa-size="introModifier.size"
@@ -25,4 +44,4 @@
         </fa-flipper>
     </fa-app>
 
-</div>
+</div> -->
