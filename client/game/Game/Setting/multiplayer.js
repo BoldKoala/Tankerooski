@@ -187,5 +187,10 @@ function Multiplayer(map,tanks,bullets){
 		multiplayer.socket.emit('dead',dead);
 	};
 
+	//Exit tank
+	multiplayer.exit = function(tankID){
+		multiplayer.socket.emit('remove',tankID)
+	}
+
 	return multiplayer;
 }

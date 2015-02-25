@@ -115,6 +115,7 @@ function init(){
   })
 
   window.onunload = function(){
+    multiplayer.exit(tanks._id);
     window.localStorage.removeItem('com.tankerooski.id');
   };
 
