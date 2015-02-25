@@ -44,7 +44,9 @@ gulp.task('scripts', function(){
     './client/lib/angular-resource/angular-resource.min.js',
     './client/lib/angular-cookies/angular-cookies.min.js',
     './client/lib/angular-scrollto/angular-scrollto.min.js',
-    './client/lib/parallax/deploy/parallax.min.js'
+    './client/lib/parallax/deploy/parallax.min.js',
+    './client/lib/famous-angular/dist/famous-angular.min.js',
+    './client/lib/famous/dist/famous-global.min.js'
     // './client/lib/jquery/dist/jquery.min.js'
     ])
     .pipe(concat('dependency.js'))
