@@ -15,6 +15,10 @@ function Tank(attr) {
 	tank.damage = attr.damage;
 	tank.isCollide = false;
 	tank.bulletFreq = attr.bulletFreq;
+	tank.fired = 0;
+	tank.onTarget = 0;
+	tank.kills = 0;
+	tank.deaths = 0;
 
 	//direction system
 	tank.currentSpeed = 0;

@@ -1,6 +1,6 @@
 var MSG = false;
 function keyDown(d, tanks, POV) {
-	// console.log(d.keyCode);
+	console.log(d.keyCode);
   //W key
   if(!MSG){
     if(d.keyCode === 87){
@@ -45,6 +45,11 @@ function keyDown(d, tanks, POV) {
       var table = document.getElementById('chatbox-table')
       table.scrollTop = table.scrollHeight;
       MSG = true;
+    }
+
+    if(d.keyCode === 76){
+      leaderboard(tanks);
+      document.getElementById('dead').style.display = document.getElementById('dead').style.display === 'none' ? 'inline-block' : 'none';
     }
 
     //c
@@ -109,4 +114,54 @@ function keyUp (d, tanks){
   if(d.keyCode === 40){
     tanks[tanks._id].torretX = 0;
   }
+}
+
+function leaderboard(tanks){
+  var result = [];
+
+  for(var tank in tanks){
+    if(tank !== '_id'){
+      result.push(tanks[tank])
+    }
+  }
+
+  result.sort(function(a,b){return b.kills-a.kills});
+
+  document.getElementById('leader').innerHTML = "<tr id='leader-header'><td id='leader-rank'>#</td><td id='leader-name'>Name</td><td id='leader-kills'>Kills</td><td id='leader-deaths'>Deaths</td><td id='leader-on-target'>On Target</td><td id='leader-fired'>Attempts</td><td id='leader-accuracy'>%</td></tr>"
+
+  result.forEach(function(tank,i){
+    var rank = document.createElement('td')
+    var name = document.createElement('td')
+    var kills = document.createElement('td')
+    var deaths = document.createElement('td')
+    var onTarget = document.createElement('td')
+    var fired = document.createElement('td')
+    var accuracy = document.createElement('td')
+    var row = document.createElement('tr')
+    rank.setAttribute('id','leader-rank');
+    name.setAttribute('id','leader-name');
+    kills.setAttribute('id','leader-kills');
+    deaths.setAttribute('id','leader-deaths');
+    onTarget.setAttribute('id','leader-on-target');
+    fired.setAttribute('id','leader-fired');
+    accuracy.setAttribute('id','leader-accuracy');
+    row.setAttribute('id','leader-stat');
+    rank.innerHTML = i+1;
+    name.innerHTML = tank.name;
+    kills.innerHTML = tank.kills;
+    deaths.innerHTML = tank.deaths;
+    onTarget.innerHTML = tank.onTarget;
+    fired.innerHTML = tank.fired;
+    accuracy.innerHTML = Math.floor((tank.onTarget/tank.fired)*100)+'%';
+    row.appendChild(rank);
+    row.appendChild(name);
+    row.appendChild(kills);
+    row.appendChild(deaths);
+    row.appendChild(onTarget);
+    row.appendChild(fired);
+    row.appendChild(accuracy);
+    document.getElementById('leader').appendChild(row);
+  })
+
+  return result;
 }

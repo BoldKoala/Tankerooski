@@ -29,7 +29,9 @@ player: {
   kills:        Number,
   killed:       Number,
   date:         String,
-  firstDate:    String
+  firstDate:    String,
+  fired:        Number,
+  onTarget:     Number
   }
 
 }); 

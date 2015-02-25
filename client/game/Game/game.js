@@ -32,10 +32,11 @@ function init(){
     tower3: testTower3,
     tower4: testTower4,
     tower5: testTower5
-  }
+  };
+
   for(var tower in towers){
     map.scene.add(towers[tower].model);
-  }
+  };
 
   //Set renderer size
   renderer.setSize( WIDTH, HEIGHT );
@@ -113,6 +114,10 @@ function init(){
   document.getElementsByTagName('canvas')[0].addEventListener('click',function(d){
     tanks[tanks._id].currentSpeed = tanks[tanks._id].currentSpeed ? 0 :-tanks[tanks._id].speed;
   })
+
+  window.onbeforeunload = function(){
+    multiplayer.updateHit({objectID: tanks[tanks._id].objectID, fired: tanks[tanks._id].fired, onTarget: tanks[tanks._id].onTarget});
+  };
 
   window.onunload = function(){
     window.localStorage.removeItem('com.tankerooski.id');
@@ -229,9 +234,12 @@ function init(){
       bullets[i].move();
       bullets[i].hit(tanks,towers,function(from, to, bullet){
         if(to === tanks._id){
+          //Send bullet hit to socket
           multiplayer.hit(from,to);
+
+          //Update HP and HP bar
           tanks[tanks._id].hp--;
-          tanks[tanks._id].hpbar.scale.z = tanks[tanks._id].hp === 0 ? 0.01 : tanks[tanks._id].hp/tanks[tanks._id].maxHP;
+          tanks[tanks._id].hpbar.scale.z = tanks[tanks._id].hp <= 0 ? 0.01 : tanks[tanks._id].hp/tanks[tanks._id].maxHP;
           if(tanks[tanks._id].hp <= 7){
             tanks[tanks._id].hpbar.material.color.set('yellow');
           }
@@ -241,6 +249,8 @@ function init(){
           if(tanks[tanks._id].hp <= 2){
             tanks[tanks._id].hpbar.material.color.set('red');
           }
+
+          //Handle Death
           if(tanks[tanks._id].hp === 0){
             tanks[tanks._id].flip();
             tanks[tanks._id].spin = 0;
@@ -250,8 +260,9 @@ function init(){
             tanks[tanks._id].torretX = 0;
             document.getElementById('tank-hp').innerHTML = tanks[tanks._id].hp;
             document.getElementById('dead').style.display = 'inline-block'; 
-            console.log(tanks[from], tanks[to])         
             multiplayer.kill({kill: tanks[from].objectID, death: tanks[to].objectID, id: to});
+            tanks[tanks._id].deaths++;
+            leaderboard(tanks);
             setTimeout(function(){
               tanks[tanks._id].hp = 10;
               tanks[tanks._id].hpbar.scale.z = tanks[tanks._id].hp/tanks[tanks._id].maxHP;
@@ -261,11 +272,10 @@ function init(){
               tanks[tanks._id].restore();       
             },5000)
           } else if(to !== 'Tower'){
-            // console.log(from+" hit "+to);
             document.getElementById('tank-hp').innerHTML = tanks[tanks._id].hp;
           }
         }
-
+        //Execute animation when bullet hit
         bullet.explosion(function(cube){
           map.scene.add(cube.spark);
           cube.move(10,150,function(movedCube){
@@ -382,7 +392,11 @@ function init(){
           hp: tanks[tanks._id].hp,
           name: tanks[tanks._id].name,
           maxHP: tanks[tanks._id].maxHP,
-          objectID: tanks[tanks._id].objectID
+          objectID: tanks[tanks._id].objectID,
+          fired: tanks[tanks._id].fired,
+          onTarget: tanks[tanks._id].onTarget,
+          kills: tanks[tanks._id].kills,
+          deaths: tanks[tanks._id].deaths
         }
       );
     }
@@ -394,6 +408,9 @@ function init(){
       if(tanks[tanks._id].isFire && !tanks[tanks._id].noFire){
         tanks[tanks._id].noFire = true;
         var bullet = tanks[tanks._id].fire(tanks[tanks._id].cameraDirection);
+        if(Object.keys(tanks).length > 2){
+          tanks[tanks._id].fired++;
+        }
         bullet._id = tanks._id;
         bullets.push(bullet);
         bullet.fireSound(100);

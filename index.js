@@ -31,16 +31,32 @@ io.on('connection',function(socket, a, b){
 		User.findById(kills.kill,function(err,tank){
 			tank.player.kills++;
 			tank.save();
-		})
+		});
+
 		User.findById(kills.death,function(err,tank){
 			tank.player.killed++;
 			tank.save();
-		})
-		socket.broadcast.emit('killed', kills.to);
+		});
+
+		socket.broadcast.emit('killed', kills);
 	});
 	socket.on('disconnect',function(){
 		socket.broadcast.emit('exit',socket.id)
 	});
+
+	socket.on('stat',function(d){
+		User.findById(d.objectID,function(err,tank){
+			if(tank.player.fired === undefined){
+				tank.player.fired = 0;
+			}
+			if(tank.player.onTarget === undefined){
+				tank.player.onTarget = 0;
+			}
+			tank.player.fired += d.fired;
+			tank.player.onTarget += d.onTarget;
+			tank.save();
+		});
+	})
 
 })
 
