@@ -30,8 +30,8 @@ io.on('connection',function(socket, a, b){
 	socket.on('dead',function(id){
 		socket.broadcast.emit('killed', id);
 	});
-	socket.on('disconnect',function(){
-		socket.broadcast.emit('exit',socket.id)
+	socket.on('remove',function(tankID){
+		socket.broadcast.emit('exit',tankID)
 	});
 
 })

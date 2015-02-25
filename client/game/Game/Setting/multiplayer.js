@@ -38,6 +38,7 @@ function Multiplayer(map,tanks,bullets){
 		},
 		//Remove disconnected tank
 		exit: function(id){
+			console.log('HIHIHIHIHIHIHIHIHIHI')
 			console.log(id," exited")
 			console.log('Currenlyt there are '+ (--counter) +' users');
 			map.scene.remove(tanks[id].tanker);
@@ -186,6 +187,11 @@ function Multiplayer(map,tanks,bullets){
 	multiplayer.kill = function(dead){
 		multiplayer.socket.emit('dead',dead);
 	};
+
+	//Exit tank
+	multiplayer.exit = function(tankID){
+		multiplayer.socket.emit('remove',tankID)
+	}
 
 	return multiplayer;
 }
