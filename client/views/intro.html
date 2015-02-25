@@ -1,27 +1,33 @@
 <div>
-    <fa-app id="intro" ng-controller='FamousController' fa-perspective="2000">
-    <!-- Surface for Enter button and gif -->
+  <fa-app id="enterButton" ng-controller='FamousController' fa-perspective="2000">
+  <!-- Surface for background of welcome page -->
     <fa-modifier 
+    fa-align="introModifier.align"
+    fa-size="introModifier.size"
+    fa-origin="introModifier.origin"
+    fa-opacity="opacityState">
+      <fa-image-surface
+      fa-background-color="white">
+      </fa-image-surface>
+      <!-- Surface for Enter button and gif -->
+        <fa-modifier 
         fa-align="enterModifier.align"
         fa-size="enterModifier.size"
         fa-origin="enterModifier.origin">
-        <fa-surface fa-background-color="'#4D5D53'">Enter
-        </fa-surface>
+          <fa-surface fa-background-color="'#4D5D53'"
+          fa-index="0">Enter
+          </fa-surface>
+        </fa-modifier>
     </fa-modifier>
 
-    
-    <!-- Surface for background of welcome page -->
-    <fa-modifier 
-        fa-align="introModifier.align"
-        fa-size="introModifier.size"
-        fa-origin="introModifier.origin"
-        fa-opacity="opacityState">
-        <fa-image-surface
-            fa-background-color="white">
-            
 
-        </fa-image-surface>
-    </fa-modifier>
+
+
+
+
+
+
+
 
 
 
@@ -29,7 +35,7 @@
 
 
 
-        <!-- Flame and fade out to landing page -->
+<!-- Flame and fade out to landing page -->
 <!--         <fa-surface>
             <tank-welcome></tank-welcome>
         </fa-surface>
@@ -43,8 +49,8 @@
                 fa-click="opacityOut()"
                 id="flames">
             </fa-image-surface>
-        </fa-modifier> -->
-    </fa-app>
+          </fa-modifier> -->
+        </fa-app>
 
 <!-- <div>
     <fa-app id="intro" ng-controller='FamousController' fa-perspective="2000">
@@ -73,6 +79,6 @@
         </fa-flipper>
     </fa-app>
 
-</div> -->
-    
+  </div> -->
+
 </div>

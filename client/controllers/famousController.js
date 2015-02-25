@@ -27,7 +27,15 @@ angular.module('tank.famous',[])
   };
 
   $scope.enterModifier = {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    // translationValues
+>>>>>>> progress on enter button
     size: [284, 100],
+=======
+    size: [446, 284],
+>>>>>>> progress on enter button
     origin: [0.5,0.5],
     align: [0.5,0.5]
   }
