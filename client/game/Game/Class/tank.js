@@ -10,6 +10,8 @@ function Tank(attr) {
 	tank.speed = attr.speed;
 	tank.hp = attr.hp;
 	tank.maxHP = attr.hp;
+	tank.name = attr.name;
+	tank.objectID = attr.objectID;
 	tank.damage = attr.damage;
 	tank.isCollide = false;
 	tank.bulletFreq = attr.bulletFreq;
