@@ -14,9 +14,34 @@ angular.module('tank.welcome', [])
       console.log('error', data)
     });
 
-    $scope.gotoRebellion = function() {
-      $location.hash('rebellion');
-      $anchorScroll();
-    }
+  $scope.gotoRebellion = function() {
+    $location.hash('rebellion');
+    $anchorScroll();
+  };
+
+  $scope.gotoLeaderBoard = function() {
+    $location.hash('leaderBoard');
+    $anchorScroll();
+  };
+  $scope.gotoTop = function() {
+    $location.hash('top');
+    $anchorScroll();
+  };
+  $scope.gotoBreakingNews = function() {
+    $location.hash('breakingNews');
+    $anchorScroll();
+  };
+  $scope.gotoInvasion= function() {
+    $location.hash('Invasion');
+    $anchorScroll();
+  };
+  $scope.gotoExtermination = function() {
+    $location.hash('extermination');
+    $anchorScroll();
+  };
+  $scope.gotoAbout = function() {
+    $location.hash('About');
+    $anchorScroll();
+  };
 
 })

@@ -3,16 +3,14 @@
  <nav  id="nav">
   <h1 class="tank">Tankerooski</h1>
     <ul id="navList" ng-controller="WelcomeController">
-     <li><a ui-sref="login">Login</a></li>
-     <li><a href="#top" title="Next Section" scroll-to="#top" offset="0" container="html, body">Top</a></li>
-     <li><a href="#breakingNews" title="Next Section" scroll-to="#breakingNews" offset="0" container="html, body">Breaking News</a></li>
-     <li><a href="#Invasion" title="Next Section" scroll-to="#Invasion" offset="0" container="html, body">Invasion</a></li>
-     <li><a href="#extermination" title="Next Section" scroll-to="#extermination" offset="0" container="html, body">Extermination</a></li>
-     <li><a ng-click="gotoRebellion()">Rebellion</a></li>
-     <li>LeaderBoard</li>
-     <li><a href="#About" title="Next Section" scroll-to="#About" offset="0" container="html, body">About</a></li>
-
-
+    <li><a ui-sref="login">Login</a></li>
+    <li><a ng-click="gotoTop()">Top</a></li>
+    <li><a ng-click="gotoBreakingNews()">Breaking News</a></li>
+    <li><a ng-click="gotoInvasion()">Invasion</a></li>
+    <li><a ng-click="gotoExtermination()">Extermination</a></li>
+    <li><a ng-click="gotoRebellion()">Rebellion</a></li>
+    <li><a ng-click="gotoLeaderBoard()">LeaderBoard</a></li>
+    <li><a ng-click="gotoAbout()">About</a></li>
    </ul>
  </nav>
  </header>
