@@ -5,7 +5,6 @@ angular.module('tank', [
   'tank.profile',
   'tank.welcome',
   'tank.auth',
-  'tank.leaderBoard',
   'ngResource',
   'ngCookies',
   'angular-parallax',
@@ -29,14 +28,10 @@ angular.module('tank', [
       template: '<tank-profile></tank-profile>',
       controller: 'ProfileController'
     })
-    .state('leaderBoard', {
-      url:'/leaderBoard',
-      template: '<tank-leader-board></tank-leader-board>',
-      controller: 'LeaderBoardController'
-    })
     .state('welcome', {
       url: '',
-      template: '<tank-welcome></tank-welcome>'
+      template: '<tank-welcome></tank-welcome>',
+      controller: 'WelcomeController'
     })
     .state('about',{
       url: '/about',
