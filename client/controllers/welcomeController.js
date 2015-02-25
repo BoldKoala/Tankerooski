@@ -4,7 +4,7 @@
 
 angular.module('tank.welcome', [])
 
-.controller('WelcomeController', function($scope, $http){
+.controller('WelcomeController', function($scope, $http, $location, $anchorScroll){
   $http.get('./api/users').
     success(function(data){
       $scope.players = data;
@@ -13,4 +13,35 @@ angular.module('tank.welcome', [])
     error(function(data) {
       console.log('error', data)
     });
+
+  $scope.gotoRebellion = function() {
+    $location.hash('rebellion');
+    $anchorScroll();
+  };
+
+  $scope.gotoLeaderBoard = function() {
+    $location.hash('leaderBoard');
+    $anchorScroll();
+  };
+  $scope.gotoTop = function() {
+    $location.hash('top');
+    $anchorScroll();
+  };
+  $scope.gotoBreakingNews = function() {
+    $location.hash('breakingNews');
+    $anchorScroll();
+  };
+  $scope.gotoInvasion= function() {
+    $location.hash('Invasion');
+    $anchorScroll();
+  };
+  $scope.gotoExtermination = function() {
+    $location.hash('extermination');
+    $anchorScroll();
+  };
+  $scope.gotoAbout = function() {
+    $location.hash('About');
+    $anchorScroll();
+  };
+
 })
