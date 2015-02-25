@@ -75,7 +75,8 @@ function Multiplayer(map,tanks,bullets){
 					z:0.25, 
 					color:state.color,
 					speed: 0.1,
-					name: state.id,
+					name: state.name,
+					objectID: state.objectID,
 					onLoad: function(d){
 						console.log('Currently there are '+ (++counter) +' users');
 						map.scene.add(d);
@@ -117,34 +118,35 @@ function Multiplayer(map,tanks,bullets){
 			}
 		},
 		//send tanks._id to socket id
-		id: function(id){
+		id: function(data){
 			var codes = 0;
-			for(var i = 0; i<id._id.length; i++){
-				codes += id._id.charCodeAt(i);
+			for(var i = 0; i<data.tank._id.length; i++){
+				codes += data.tank._id.charCodeAt(i);
 			}
 			var r = codes % Math.floor(Math.random()*256);
 			var g = codes % Math.floor(Math.random()*256);
 			var b = codes % Math.floor(Math.random()*256);
 			var rgb = 'rgb('+r+','+g+','+b+')';
 
-			tanks[id.google.givenName] = Tank({
+			tanks[data.id] = Tank({
 				x: 0.25,
 				y: 0.25,
 				z: 0.25, 
 				color: rgb, 
-				speed: id.tank.speed, 
-				hp: id.tank.HP,
-				bulletFreq: id.tank.bulletFreq,
-				damage: id.tank.damage,
-				name: id.google.givenName,
+				speed: data.tank.tank.speed, 
+				hp: data.tank.tank.HP,
+				bulletFreq: data.tank.tank.bulletFreq,
+				damage: data.tank.tank.damage,
+				name: data.tank.google.givenName,
+				objectID: data.tank._id,
 				onLoad:function(tanker){
 					console.log('Currently there are '+ (++counter) +' users');
 					map.scene.add(tanker);
 				}
 			});
 
-			tanks._id = id.google.givenName;
-			document.getElementById('tank-color').innerHTML = '<img src="'+id.google.picture+'"></img>';
+			tanks._id = data.id;
+			document.getElementById('tank-color').innerHTML = '<img src="'+data.tank.google.picture+'"></img>';
 		}
 	};
 
@@ -183,14 +185,9 @@ function Multiplayer(map,tanks,bullets){
 	};
 
 	//Trigger kill
-	multiplayer.kill = function(dead){
-		multiplayer.socket.emit('dead',dead);
+	multiplayer.kill = function(kills){
+		multiplayer.socket.emit('dead',kills);
 	};
-
-	//Exit tank
-	multiplayer.exit = function(tankID){
-		multiplayer.socket.emit('remove',tankID)
-	}
 
 	return multiplayer;
 }

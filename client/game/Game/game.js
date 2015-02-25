@@ -76,12 +76,12 @@ function init(){
       var table = document.getElementById('chatbox-table')
       
       //Broadcast message
-      multiplayer.sendMsg(tanks._id,message)
+      multiplayer.sendMsg(tanks[tanks._id].name,message)
       document.getElementById('chatbox-input').value = '';
 
       //Update username DOM
       username.setAttribute('id','chatbox-username');
-      username.innerHTML = tanks._id;
+      username.innerHTML = tanks[tanks._id].name;
 
       //Update message DOM
       text.setAttribute('id','chatbox-message');
@@ -115,7 +115,6 @@ function init(){
   })
 
   window.onunload = function(){
-    multiplayer.exit(tanks._id);
     window.localStorage.removeItem('com.tankerooski.id');
   };
 
@@ -250,8 +249,9 @@ function init(){
             tanks[tanks._id].torretY = 0;
             tanks[tanks._id].torretX = 0;
             document.getElementById('tank-hp').innerHTML = tanks[tanks._id].hp;
-            document.getElementById('dead').style.display = 'inline-block';          
-            multiplayer.kill(tanks._id);
+            document.getElementById('dead').style.display = 'inline-block'; 
+            console.log(tanks[from], tanks[to])         
+            multiplayer.kill({kill: tanks[from].objectID, death: tanks[to].objectID, id: to});
             setTimeout(function(){
               tanks[tanks._id].hp = 10;
               tanks[tanks._id].hpbar.scale.z = tanks[tanks._id].hp/tanks[tanks._id].maxHP;
@@ -380,7 +380,9 @@ function init(){
           isDriving: tanks[tanks._id].isDriving,
           torretY: tanks[tanks._id].tanker.children[2].rotation.y,
           hp: tanks[tanks._id].hp,
-          maxHP: tanks[tanks._id].maxHP
+          name: tanks[tanks._id].name,
+          maxHP: tanks[tanks._id].maxHP,
+          objectID: tanks[tanks._id].objectID
         }
       );
     }

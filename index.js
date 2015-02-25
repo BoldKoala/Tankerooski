@@ -12,7 +12,7 @@ io.on('connection',function(socket, a, b){
 
 	socket.on('spawn',function(d){
 		User.findById(d,function(err,tank){
-			socket.emit('id',tank);
+			socket.emit('id',{id: socket.id,tank:tank});
 		})
 	});
 	socket.on('send',function(d){
@@ -27,11 +27,19 @@ io.on('connection',function(socket, a, b){
 	socket.on('hit',function(hitter){
 		socket.broadcast.emit('goodHit', hitter);
 	});
-	socket.on('dead',function(id){
-		socket.broadcast.emit('killed', id);
+	socket.on('dead',function(kills){
+		User.findById(kills.kill,function(err,tank){
+			tank.player.kills++;
+			tank.save();
+		})
+		User.findById(kills.death,function(err,tank){
+			tank.player.killed++;
+			tank.save();
+		})
+		socket.broadcast.emit('killed', kills.to);
 	});
-	socket.on('remove',function(tankID){
-		socket.broadcast.emit('exit',tankID)
+	socket.on('disconnect',function(){
+		socket.broadcast.emit('exit',socket.id)
 	});
 
 })
