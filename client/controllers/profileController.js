@@ -10,14 +10,12 @@ angular.module('tank.profile',[])
   $window.localStorage.setItem('com.tankerooski.id', $cookieStore.get('key')._id)
 
   $http.get('./api/users').
+    success(function(data){
       $scope.players = data;
       $scope.sortBy = 'player.kills'
     }).
     error(function(data) {
       console.log('error', data)
     });
-
-
-
 
 });
