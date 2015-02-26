@@ -86,13 +86,11 @@ angular.module('tank.famous',[])
 
   // Set animations for the projectile and fire
   $scope.animateProjectile = function() {
-    $scope.scale.set([30, 30, 30], {
+    $scope.scale.set([40, 40, 40], {
       period: 1000
-    }, function() {
-      // if(!$scope.$$phase) $scope.apply();
-      $scope.rotate.set(Math.PI * 4, {
-        period: 1000
-      });
+    });
+    $scope.rotate.set(Math.PI * 2, {
+      period: 1000
     });
   };
 
@@ -126,24 +124,6 @@ angular.module('tank.famous',[])
 
 
 
-  // $scope.fadeOutModifier = {
-  //   opacity: 1
-  // }
-
-  // $scope.flipIt = function(cb) {
-  //   $famous.find('fa-flipper')[0].flip(null, cb);
-
-  //   setTimeout((function(){console.log("inside the callback");
-  //   $state.go('welcome')}), 4000);
-  // };
-
-  // $scope.flipOptions = {
-  //   duration: 3000
-  // };
-  
-  // var cb = function() {
-    
-  // };
 
 
 });
