@@ -27,11 +27,6 @@ angular.module('tank.famous',[])
   };
 
   $scope.enterModifier = {
-<<<<<<< HEAD
-    // translationValues
-=======
-    //translationValues
->>>>>>> added famous flip id card
     size: [284, 100],
     origin: [0.5,0.5],
     align: [0.5,0.5]
