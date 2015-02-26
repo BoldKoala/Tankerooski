@@ -13,37 +13,11 @@ angular.module('tank.famous',[])
 
   // $scope.introTransitionable = new Transitionable([0, 0, 0]);
   //$scope.angle = new Transitionable(0);
-  $scope.opacityState = new Transitionable(1);
-  $scope.opacityClear = new Transitionable(0);
-  $scope.appear = new Transitionable();
 
-  $scope.opacityOut = function() {
-    $scope.opacityState.set(0, {duration: 5000}, function(){
-      $state.go('welcome');
-    });
-  };
-
-  $scope.opacityIn = function() {
-    $scope.opacityClear.set(1)
-  }
-
-  $scope.turrentRotate = function() {
-    $scope.appear.set();
-  }
-
-
-
-  $scope.introModifier = {
-    // translateValues: [50, 100, 0],
-    size: [window.innerWidth, window.innerHeight],
-    origin: [0.5,0.5],
-    align: [0.5,0.5]
-  };
 
   /***** Initial tank still setup *****/
   // Sets the enter surface to the correct size and location
   $scope.enterModifier = {
-    // translationValues
     size: [486, 290],
     origin: [0.5,0.5],
     align: [0.5,0.5],
@@ -138,7 +112,6 @@ angular.module('tank.famous',[])
   //     curve: 'easeInOut'
   //   });
   // };
-
 
 
 
