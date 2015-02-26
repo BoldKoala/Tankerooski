@@ -14,8 +14,7 @@ function Tank(attr) {
 	tank.objectID = attr.objectID;
 	tank.damage = attr.damage;
 	tank.isCollide = false;
-  // tank.bulletFreq = attr.bulletFreq;
-	tank.bulletFreq = 2000;
+  tank.bulletFreq = attr.bulletFreq;
 	tank.fired = 0;
 	tank.onTarget = 0;
 	tank.kills = 0;
