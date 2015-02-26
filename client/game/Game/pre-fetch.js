@@ -88,4 +88,10 @@ var playTankFire = function(proximity){
     tfcounter = 0;
   }
 }
+// ===================== Pre-fetch Reload Sound =====================
+var tankReload = new buzz.sound('./Sound/reload.mp3');
+
+var playTankReload = function(){
+  tankReload.play();
+}
 

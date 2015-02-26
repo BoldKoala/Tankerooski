@@ -36,13 +36,20 @@ function Tank(attr) {
 
 	tank.material = {
 		tank: new THREE.MeshLambertMaterial({ color: tank.color }),
-		hp: new THREE.MeshBasicMaterial({ color: 'green'})
+		hp: new THREE.MeshBasicMaterial({ color: 'green'}),
+		reload: new THREE.MeshBasicMaterial({ color: 'blue'})
 	};
 
 	tank.driveSound = new buzz.sound('./Sound/tank-driving-edited.ogg');
 
 	//HP Bar
 	tank.hpbar = new THREE.Mesh(new THREE.BoxGeometry(0.05,0.05,0.5), tank.material.hp );
+
+	//Reload Bar
+	tank.reloadBar = new THREE.Mesh(new THREE.BoxGeometry(0.05,0.05,0.5), tank.material.reload);
+
+	//Reload Sound
+	tank.reloadSound = playTankReload;
 
 	var loader = new THREE.ObjectLoader();
 	tank.tanker = loader.parse(GermanTank);
@@ -58,14 +65,41 @@ function Tank(attr) {
   })
 
   tank.tanker.children.push(tank.hpbar)
+  tank.tanker.children.push(tank.reloadBar)
   attr.onLoad(tank.tanker);
+
+  tank.reload = function(){
+  	setTimeout(tank.reloadSound, tank.bulletFreq - 1200)
+  	tank.reloadBar.scale.z = 0;
+  	tank.reloadBar.material.color.set('red')
+  	var loading = function(){
+  		if (tank.reloadBar.scale.z < 1){
+	  		tank.reloadBar.scale.z += 1/(tank.bulletFreq/20);
+  		}
+  		if (tank.reloadBar.scale.z > 0.4 && tank.reloadBar.scale.z !== 1){
+  			tank.reloadBar.material.color.set('yellow')
+  		}
+  		if (tank.reloadBar.scale.z > 0.7 && tank.reloadBar.scale.z !== 1){
+  			tank.reloadBar.material.color.set('orange')
+  		}
+  	}
+  	var loadingInterval = setInterval(loading, 10)
+
+  	setTimeout(function() {
+  		clearInterval(loadingInterval)
+  		tank.reloadBar.material.color.set('blue')
+  		tank.reloadBar.scale.z = 1;
+  	}, tank.bulletFreq - 100)
+  }
   
 	// Tank fire
 	tank.fire = function(direction){
+		tank.reload();
 		bullet = Bullet(-Math.sin(direction), -Math.cos(direction), 10, this.tanker.position);
 		bullet.bulleter.position.x = this.tanker.position.x - Math.cos(direction)*2;
 		bullet.bulleter.position.y = this.tanker.position.y + this.y*2;
 		bullet.bulleter.position.z = this.tanker.position.z - Math.sin(direction)*2;
+
 		return bullet;
 	};
 
