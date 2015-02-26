@@ -153,6 +153,11 @@ function init(){
         tanks[tanks._id].hpbar.position.y = tanks[tanks._id].tanker.position.y+1;
         tanks[tanks._id].hpbar.position.z = tanks[tanks._id].tanker.position.z;
         tanks[tanks._id].hpbar.rotation.y = -tanks[tanks._id].cameraDirection;
+
+        tanks[tanks._id].reloadBar.position.x = tanks[tanks._id].tanker.position.x;
+        tanks[tanks._id].reloadBar.position.y = tanks[tanks._id].tanker.position.y + 0.95;
+        tanks[tanks._id].reloadBar.position.z = tanks[tanks._id].tanker.position.z;
+        tanks[tanks._id].reloadBar.rotation.y = -tanks[tanks._id].cameraDirection;
       } 
     }
   };
