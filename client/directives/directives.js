@@ -55,4 +55,12 @@ angular.module('tank.directives', [])
       templateUrl: './views/initial.html'
     }
   })
+  .directive('tankLeaderboard', function(){
+    return {
+      restrict: 'EA',
+      scope: '=',
+      replace: true,
+      templateUrl: './views/leaderBoard.html'
+    }
+  })
   

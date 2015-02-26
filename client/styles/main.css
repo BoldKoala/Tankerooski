@@ -115,28 +115,51 @@ ul.about li{
 #leaderBoardTable{
   text-align: center;
   width: 80%;
+  color:white;
 }
 
-#leaderBoardUserPic{
-  width: 20%;
+
+
+#leaderBoardImage{
+  right:0;
+  left:0;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 #leaderBoardUsername{
-  width: 20%;
+  color:white;
+  width: 12.5%;
 }
 
 #leaderBoardKills{
-  width: 20%;
+  width: 12.5%;
+  color:white;
 }
 
 #leaderBoardDeaths{
-  width: 20%;
+  width: 12.5%;
+  color:white;
 }
 
 #leaderBoardScore{
-  width: 20%;
+  width: 12.5%;
+  color:white;
 }
 
+#col6{
+  width:12.5%;
+}
+
+
+#col7{
+  width:12.5%;
+}
+
+
+#col8{
+  width:12.5%;
+}
 .quotes_container { 
   width: 800px; 
 }
@@ -286,4 +309,79 @@ input{
   font-family: 'Goudy Bookletter 1911', serif;
   padding:10px;
   border:5px solid #4D5D53;
+}
+#profile ul li a{
+  text-align:right;
+}
+#profileFamous{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+  margin-bottom:100px;
+}
+#idContent img{
+  border-radius:20px;
+  width:35%;
+  float:left;
+  padding:10px;  
+}
+#idContent{
+  border:15px solid #606060;
+  border-radius:25px;
+  background-image: url('../assets/images/darkcamo.png');
+}
+#idContent h2, #idContent h3{
+  font-family: 'Black Ops One', cursive;
+  color:#C8C8C8;
+  text-shadow: 1px 1px black;
+  margin:0;
+  padding:0;
+}
+#gameEnter{
+  position:absolute;
+  right:0;
+  left:0;
+  margin-left:auto;
+  margin-right:auto;
+  bottom:0;
+
+}
+#gameEnter img{
+  border-radius:35%;
+  width:10%;
+}
+#nextToPicture{
+  margin-left: 100px;
+}
+#nextToPicture h3{
+  color:#C8C8C8;
+  font-family: stencil;
+  text-align:left;
+  padding:0;
+  margin:0;
+  font-family: 'Black Ops One', cursive;
+  text-shadow: 1px 1px black;
+
+}
+#belowPicture{
+  clear:both;
+  text-align:center;
+  padding:0;
+  margin:0;
+  color:white;
+  text-shadow: 1px 1px black;
+
+}
+#tankData h3, #tankData h2{
+  text-align:left;
+  padding:0;
+  margin:0;
+}
+#nextToPicture h2{
+  text-decoration:underline;
+}
+#leaderboardBack td{
+  color:white;
 }
