@@ -9,6 +9,7 @@ angular.module('tank.famous',[])
   var View = $famous['famous/core/View'];
   var Transform = $famous['famous/core/Transform'];
   var ImageSurface = $famous['famous/surfaces/ImageSurface'];
+  var EventHandler = $famous['famous/core/EventHandler'];
 
   // $scope.introTransitionable = new Transitionable([0, 0, 0]);
   //$scope.angle = new Transitionable(0);
@@ -75,7 +76,7 @@ angular.module('tank.famous',[])
   };
 
   /***** Cannon animation *****/
-  $scope.scale = new Transitionable([1, 1, 1]);
+  $scope.scale = new Transitionable([0, 0, 0]);
   $scope.rotate = new Transitionable(0);
 
   // Create image for projectiles
@@ -84,15 +85,31 @@ angular.module('tank.famous',[])
     align: [0.5, 0.5]
   })
 
+  // Create new event handler to delay the firing of the cannon
+  var eventHandler = new EventHandler();
+
   // Set animations for the projectile and fire
   $scope.animateProjectile = function() {
+    console.log("Fire!");
+    setTimeout(function(){
+      // place event emmiter here
+      eventHandler.emit('Fire');
+    }, 1500);
+  };
+
+  // On load command fire
+  $scope.animateProjectile();
+
+  // Fire once the command was recieved
+  eventHandler.on('Fire', function() {
+    console.log("Firing!");
     $scope.scale.set([40, 40, 40], {
       period: 1000
     });
-    $scope.rotate.set(Math.PI * 2, {
+    $scope.rotate.set(Math.PI * 1, {
       period: 1000
     });
-  };
+  })
 
   /***** Flame fade *****/
   // Sets the inital opacity of the flames to be 1

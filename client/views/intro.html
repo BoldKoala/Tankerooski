@@ -24,23 +24,25 @@
         fa-size="tankModifier.size"
         fa-origin="tankModifier.origin">
           <fa-image-surface
+          fa-properties='{zIndex: 0}'
           fa-image-url="./assets/images/tankTurrent.gif">
           </fa-image-surface>
+          <!-- Flame surface -->
           <fa-modifier
           fa-origin="[0.5, 0.5]"
           fa-align="[0.5, 0.5]"
           fa-scale="scale.get()">
             <fa-image-surface
-            fa-index="0"
             fa-image-url="./assets/images/circularFlame4.png"
-            fa-size="[100, 100]"></fa-image-surface>
+            fa-size="[100, 100]"
+            fa-properties='{zIndex: 1}'></fa-image-surface>
+            <!-- Projectile surface -->
             <fa-modifier
             fa-size="[50, 50]"
             fa-rotate-z="rotate.get()">
               <fa-image-surface
-              fa-index="0"
               fa-image-url="./assets/images/projectile.png"
-              fa-click="animateProjectile()">
+              fa-properties='{zIndex: 2}'>
               </fa-image-surface>
             </fa-modifier>
           </fa-modifier>
