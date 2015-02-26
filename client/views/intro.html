@@ -1,22 +1,33 @@
 <div>
-  <fa-app id="enterButton" ng-controller='FamousController' fa-perspective="2000">
+  <fa-app id="intro" ng-controller='FamousController' fa-perspective="2000">
   <!-- Surface for background of welcome page -->
     <fa-modifier 
     fa-align="introModifier.align"
     fa-size="introModifier.size"
-    fa-origin="introModifier.origin"
-    fa-opacity="opacityState">
+    fa-origin="introModifier.origin">
       <fa-image-surface
-      fa-background-color="white">
+      fa-background-color="black">
       </fa-image-surface>
       <!-- Surface for Enter button and gif -->
         <fa-modifier 
         fa-align="enterModifier.align"
         fa-size="enterModifier.size"
         fa-origin="enterModifier.origin">
-          <fa-surface fa-background-color="'#4D5D53'"
-          fa-index="0">Enter
+          <fa-surface
+          fa-background-color="'#4D5D53'"
+          fa-click="tankBlast()">
+          <div id="enterTitle">Tankerooski</div>
+          <div id="enterButton">Enter</div>
           </fa-surface>
+        </fa-modifier>
+        <!-- Tank image still surface -->
+        <fa-modifier
+        fa-align="tankModifier.align"
+        fa-size="tankModifier.size"
+        fa-origin="tankModifier.origin">
+          <fa-image-surface
+          fa-image-url="./assets/images/tankStill.jpg">
+          </fa-image-surface>
         </fa-modifier>
     </fa-modifier>
 
@@ -25,6 +36,8 @@
 
 
 
+            <!-- <img id="enterTank" src="./assets/images/tankTurrent.gif"/><br> -->
+            <!-- <img id="enterTank" src="./assets/images/tankStill.jpg"/><br> -->
 
 
 

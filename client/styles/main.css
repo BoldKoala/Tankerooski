@@ -305,15 +305,25 @@ input{
 
 }
 #enterButton{
-  position: fixed;
-  top: 0;
+  position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-  font-family: 'Goudy Bookletter 1911', serif;
+  color: white;
+  text-align: center;
+  vertical-align: center;
+  border-radius: 5px;
+  font-size: 50px;
+  font-family: 'Black Ops One', cursive;
+  cursor: pointer;
 /*  padding:10px;
   border:5px solid #4D5D53;*/
+}
+#enterTitle{
   text-align: center;
+  color: white;
+  font-size: 50px;
+  font-family: 'Black Ops One', cursive;
 }
 #profile ul li a{
   text-align:right;
