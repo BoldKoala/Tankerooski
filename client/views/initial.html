@@ -1,26 +1,34 @@
-
 <div>
-    <header id="header">
-           <h1 class="tank">Tankerooski</h1>
-
-
-
-   </header>
-
-   <div id="tankBlast">
-        <div id="tankEnter">
-            <img src="./assets/images/tankTurrent.gif"/><br>
-            <fa-modifier fa-size="[20,100]"
-                <fa-surface id="#enterButton">   Enter   </fa-surface>
-            </fa-modifier>
-        </div>
-   </div>
-
-   <fa-app id="initial">
-   <fa-surface>
-
-</fa-surface>
-</fa-app>
+  <fa-app id="intro" ng-controller='FamousController' fa-perspective="2000">
+  <!-- Surface for background of welcome page -->
+    <fa-modifier 
+    fa-align="introModifier.align"
+    fa-size="introModifier.size"
+    fa-origin="introModifier.origin">
+      <fa-image-surface
+      fa-background-color="black">
+      </fa-image-surface>
+      <!-- Surface for Enter button and gif -->
+        <fa-modifier 
+        fa-align="enterModifier.align"
+        fa-size="enterModifier.size"
+        fa-origin="enterModifier.origin">
+          <fa-surface
+          fa-background-color="'#4D5D53'"
+          fa-click="enter()">
+          <div id="enterTitle">Tankerooski</div>
+          <div id="enterButton">Enter</div>
+          </fa-surface>
+        </fa-modifier>
+        <!-- Tank image still surface -->
+        <fa-modifier
+        fa-align="tankModifier.align"
+        fa-size="tankModifier.size"
+        fa-origin="tankModifier.origin">
+          <fa-image-surface
+          fa-image-url="./assets/images/tankStill.jpg">
+          </fa-image-surface>
+        </fa-modifier>
+    </fa-modifier>
+  </fa-app>
 </div>
-
-

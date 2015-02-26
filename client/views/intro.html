@@ -13,40 +13,37 @@
         fa-align="enterModifier.align"
         fa-size="enterModifier.size"
         fa-origin="enterModifier.origin">
-          <fa-surface
-          fa-background-color="'#4D5D53'"
-          fa-click="tankBlast()">
-          <div id="enterTitle">Tankerooski</div>
-          <div id="enterButton">Enter</div>
+          <fa-surface fa-background-color="'#4D5D53'">
+            <div id="enterTitle">Tankerooski</div>
+            <div id="enterButton">Enter</div>
           </fa-surface>
         </fa-modifier>
-        <!-- Tank image still surface -->
+        <!-- Tank gif image surface -->
         <fa-modifier
         fa-align="tankModifier.align"
         fa-size="tankModifier.size"
         fa-origin="tankModifier.origin">
           <fa-image-surface
-          fa-image-url="./assets/images/tankStill.jpg">
+          fa-image-url="./assets/images/tankTurrent.gif">
           </fa-image-surface>
+          <fa-modifier
+          fa-origin="[0.5, 0.5]"
+          fa-align="[0.5, 0.5]"
+          fa-scale="scale.get()">
+            <fa-surface
+            fa-background-color="'#dc322f'"
+            fa-size="[100, 100]"></fa-surface>
+            <fa-modifier
+            fa-size="[50, 50]"
+            fa-rotate-z="rotate.get()">
+              <fa-surface
+              fa-background-color="'#268bd2'"
+                fa-click="animateScale()">
+              </fa-surface>
+            </fa-modifier>
+          </fa-modifier>
         </fa-modifier>
-    </fa-modifier>
-
-
-
-
-
-
-            <!-- <img id="enterTank" src="./assets/images/tankTurrent.gif"/><br> -->
-            <!-- <img id="enterTank" src="./assets/images/tankStill.jpg"/><br> -->
-
-
-
-
-
-
-<!-- Set up all surfaces and use z-translations to change slides/surfaces -->
-
-
+      </fa-modifier>
 
 <!-- Flame and fade out to landing page -->
 <!--         <fa-surface>
@@ -63,7 +60,11 @@
                 id="flames">
             </fa-image-surface>
           </fa-modifier> -->
-        </fa-app>
+  </fa-app>
+
+<!--   <fa-app ng-controller='TurrentRotationController'>
+    <fa-render-node fa-node="turrentView"></fa-render-node>
+  </fa-app> -->
 
 <!-- <div>
     <fa-app id="intro" ng-controller='FamousController' fa-perspective="2000">
