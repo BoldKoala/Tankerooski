@@ -1,35 +1,55 @@
 <div>
-    <fa-app id="intro" ng-controller='FamousController' fa-perspective="2000">
-    <!-- Surface for Enter button and gif -->
+  <fa-app id="intro" ng-controller='FamousController' fa-perspective="2000">
+  <!-- Surface for background of welcome page -->
     <fa-modifier 
+    fa-align="introModifier.align"
+    fa-size="introModifier.size"
+    fa-origin="introModifier.origin">
+      <fa-image-surface
+      fa-background-color="black">
+      </fa-image-surface>
+      <!-- Surface for Enter button and gif -->
+        <fa-modifier 
         fa-align="enterModifier.align"
         fa-size="enterModifier.size"
         fa-origin="enterModifier.origin">
-        <fa-surface fa-background-color="'#4D5D53'">Enter
-        </fa-surface>
-    </fa-modifier>
+          <fa-surface fa-background-color="'#4D5D53'">
+            <div id="enterTitle">Tankerooski</div>
+            <div id="enterButton">Enter</div>
+          </fa-surface>
+        </fa-modifier>
+        <!-- Tank gif image surface -->
+        <fa-modifier
+        fa-align="tankModifier.align"
+        fa-size="tankModifier.size"
+        fa-origin="tankModifier.origin">
+          <fa-image-surface
+          fa-properties='{zIndex: 0}'
+          fa-image-url="./assets/images/tankTurrent.gif">
+          </fa-image-surface>
+          <!-- Flame surface -->
+          <fa-modifier
+          fa-origin="[0.5, 0.5]"
+          fa-align="[0.5, 0.5]"
+          fa-scale="scale.get()">
+            <fa-image-surface
+            fa-image-url="./assets/images/circularFlame4.png"
+            fa-size="[100, 100]"
+            fa-properties='{zIndex: 1}'></fa-image-surface>
+            <!-- Projectile surface -->
+            <fa-modifier
+            fa-size="[50, 50]"
+            fa-rotate-z="rotate.get()">
+              <fa-image-surface
+              fa-image-url="./assets/images/projectile.png"
+              fa-properties='{zIndex: 2}'>
+              </fa-image-surface>
+            </fa-modifier>
+          </fa-modifier>
+        </fa-modifier>
+      </fa-modifier>
 
-    
-    <!-- Surface for background of welcome page -->
-    <fa-modifier 
-        fa-align="introModifier.align"
-        fa-size="introModifier.size"
-        fa-origin="introModifier.origin"
-        fa-opacity="opacityState">
-        <fa-image-surface
-            fa-background-color="white">
-            
-
-        </fa-image-surface>
-    </fa-modifier>
-
-
-
-<!-- Set up all surfaces and use z-translations to change slides/surfaces -->
-
-
-
-        <!-- Flame and fade out to landing page -->
+<!-- Flame and fade out to landing page -->
 <!--         <fa-surface>
             <tank-welcome></tank-welcome>
         </fa-surface>
@@ -43,8 +63,12 @@
                 fa-click="opacityOut()"
                 id="flames">
             </fa-image-surface>
-        </fa-modifier> -->
-    </fa-app>
+          </fa-modifier> -->
+  </fa-app>
+
+<!--   <fa-app ng-controller='TurrentRotationController'>
+    <fa-render-node fa-node="turrentView"></fa-render-node>
+  </fa-app> -->
 
 <!-- <div>
     <fa-app id="intro" ng-controller='FamousController' fa-perspective="2000">
@@ -73,6 +97,6 @@
         </fa-flipper>
     </fa-app>
 
-</div> -->
-    
+  </div> -->
+
 </div>
