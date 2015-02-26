@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     connect = require('gulp-connect-multi')();
     concat = require('gulp-concat');
+    clean = require('gulp-clean');
 
 // Lint on gulp lint
 gulp.task('lint', function() {
@@ -28,14 +29,20 @@ gulp.task('lint', function() {
 // }));
 
 // Opens up browser, works with 'serve'
-gulp.task('browser-sync', ['scripts','serve'], function(){
+gulp.task('browser-sync', ['build','serve'], function(){
   browserSync.init({
     files: ['./**/**/*.*'],
     proxy:'http://localhost:9000',
     port: 9000,
     browser: ['google chrome']
   })
-})
+});
+
+gulp.task('clean',function(){
+  return gulp.src('./client/dist/*.js', {read: false})
+    .pipe(clean());
+});
+
 
 gulp.task('scripts', function(){
   return gulp.src([
@@ -51,7 +58,10 @@ gulp.task('scripts', function(){
     ])
     .pipe(concat('dependency.js'))
     .pipe(gulp.dest('./client/dist/'));
-})
+});
+
+gulp.task('build',['clean','scripts'],function(){
+});
 
 // Run nodemon on gulp serve
 gulp.task('serve', function() {
