@@ -12,7 +12,6 @@ angular.module('tank.famous',[])
 
   // $scope.introTransitionable = new Transitionable([0, 0, 0]);
   //$scope.angle = new Transitionable(0);
-<<<<<<< HEAD
   $scope.opacityState = new Transitionable(1);
   $scope.opacityClear = new Transitionable(0);
   $scope.appear = new Transitionable();
@@ -39,24 +38,11 @@ angular.module('tank.famous',[])
     origin: [0.5,0.5],
     align: [0.5,0.5]
   };
-=======
-
->>>>>>> separated intro and initial page
 
   /***** Initial tank still setup *****/
   // Sets the enter surface to the correct size and location
   $scope.enterModifier = {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
     // translationValues
->>>>>>> progress on enter button
-    size: [284, 100],
-=======
-    size: [446, 284],
->>>>>>> progress on enter button
-=======
     size: [486, 290],
     origin: [0.5,0.5],
     align: [0.5,0.5],
@@ -66,7 +52,6 @@ angular.module('tank.famous',[])
   // Sets tank image and gif to correct size and location
   $scope.tankModifier = {
     size: [446, 157],
->>>>>>> working on gettin gif to show
     origin: [0.5,0.5],
     align: [0.5,0.5]
   }
@@ -79,7 +64,6 @@ angular.module('tank.famous',[])
     size: [446, 157],
     origin: [0.5,0.5],
     align: [0.5,0.5]
-    
   });
 
   // Set the content of the surface to be the still tank
@@ -94,23 +78,23 @@ angular.module('tank.famous',[])
   $scope.scale = new Transitionable([1, 1, 1]);
   $scope.rotate = new Transitionable(0);
 
+  // Create image for projectiles
+  var _projectileSurface = new ImageSurface({
+    origin: [0.5, 0.5],
+    align: [0.5, 0.5]
+  })
+
+  // Set animations for the projectile and fire
   $scope.animateProjectile = function() {
-    $scope.scale.set([2, 2, 2], {
-      period: 750
+    $scope.scale.set([30, 30, 30], {
+      period: 1000
     }, function() {
-      if(!$scope.$$phase) $scope.apply();
-      $scope.rotate.set(Math.PI * 2, {
+      // if(!$scope.$$phase) $scope.apply();
+      $scope.rotate.set(Math.PI * 4, {
         period: 1000
       });
     });
   };
-
-
-
-
-
-<<<<<<< HEAD
-=======
 
   /***** Flame fade *****/
   // Sets the inital opacity of the flames to be 1
@@ -161,5 +145,5 @@ angular.module('tank.famous',[])
     
   // };
 
->>>>>>> separated intro and initial page
+
 });
