@@ -11,7 +11,8 @@ angular.module('tank', [
   'scrollto',
   'tank.famous',
   'famous.angular',
-  'tank.initial'
+  'tank.initial',
+  'tank.leaderBoard'
   ])
 
 // Configure roots for app
@@ -49,6 +50,11 @@ angular.module('tank', [
       url: '/initial',
       template: '<tank-initial></tank-initial>',
       controller: 'InitialController'
+    })
+    .state('leaderboard', {
+      url:'/leaderboard',
+      template: '<tank-leaderboard></tank-leaderboard>',
+      controller: 'LeaderboardController'
     })
   
   $httpProvider.interceptors.push('AttachTokens');

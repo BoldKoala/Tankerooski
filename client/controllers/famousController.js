@@ -19,18 +19,6 @@ angular.module('tank.famous',[])
 
   };
 
-  // $scope.animate = function() {
-  //   $scope.introTransitionable.set([0, 0, 0], {duration: 1000, curve: Easing['outElastic']});
-  //   $scope.angle.set(2*Math.PI, {
-  //     duration: 4000,
-  //     curve: 'easeInOut'
-  //   });
-  // };
-
-  // Creates a
-  // $scope.databound = {
-  //   content: "change me!!"
-  // }
   $scope.introModifier = {
     // translateValues: [50, 100, 0],
     size: [window.innerWidth, window.innerHeight],
@@ -39,33 +27,10 @@ angular.module('tank.famous',[])
   };
 
   $scope.enterModifier = {
-    // translationValues
     size: [284, 100],
     origin: [0.5,0.5],
     align: [0.5,0.5]
   }
-
-
-
-  // $scope.fadeOutModifier = {
-  //   opacity: 1
-  // }
-
-  // $scope.flipIt = function(cb) {
-  //   $famous.find('fa-flipper')[0].flip(null, cb);
-
-  //   setTimeout((function(){console.log("inside the callback");
-  //   $state.go('welcome')}), 4000);
-  // };
-
-  // $scope.flipOptions = {
-  //   duration: 3000
-  // };
-  
-  // var cb = function() {
-    
-  // };
-
 
 
 });

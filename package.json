@@ -2,16 +2,14 @@
   "name": "Tankerooski",
   "version": "1.0.0",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "engines": {
     "node": "0.12.0"
   },
   "description": "Multiplayer 3D Tank Game",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"    
-  },
   "repository": {
     "type": "git",
     "url": "http://github.com/BoldKoala/Tankerooski"
@@ -24,6 +22,7 @@
   "homepage": "https://github.com/BoldKoala/Tankerooski",
   "dependencies": {
     "angular": "^1.3.13",
+    "angular-cookies": "^1.3.14",
     "angular-ui-router": "^0.2.13",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.11.0",
