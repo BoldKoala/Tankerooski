@@ -14,7 +14,8 @@ function Tank(attr) {
 	tank.objectID = attr.objectID;
 	tank.damage = attr.damage;
 	tank.isCollide = false;
-	tank.bulletFreq = attr.bulletFreq;
+  // tank.bulletFreq = attr.bulletFreq;
+	tank.bulletFreq = 2000;
 	tank.fired = 0;
 	tank.onTarget = 0;
 	tank.kills = 0;
@@ -74,7 +75,7 @@ function Tank(attr) {
   	tank.reloadBar.material.color.set('red')
   	var loading = function(){
   		if (tank.reloadBar.scale.z < 1){
-	  		tank.reloadBar.scale.z += 1/(tank.bulletFreq/20);
+	  		tank.reloadBar.scale.z += 1/(tank.bulletFreq/(20 - (tank.bulletFreq - 1200)/160));
   		}
   		if (tank.reloadBar.scale.z > 0.4 && tank.reloadBar.scale.z !== 1){
   			tank.reloadBar.material.color.set('yellow')
