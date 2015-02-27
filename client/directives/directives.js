@@ -27,10 +27,15 @@ angular.module('tank.directives', [])
     return{
       restrict: 'EA',
       scope: '=',
-      // replace: true,
       templateUrl: './newviews/home.html'
     }
-  })  
+  })
+  .directive('tankControl', function(){
+    return{
+      restrict: 'EA',
+      templateUrl: './newviews/control.html'
+    }
+  })
   // .directive('tankLogin', function(){
   //   return{
   //     restrict: 'EA',
