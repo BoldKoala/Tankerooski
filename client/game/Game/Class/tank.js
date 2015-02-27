@@ -99,7 +99,6 @@ function Tank(attr) {
 		bullet.bulleter.position.x = this.tanker.position.x - Math.cos(direction)*2;
 		bullet.bulleter.position.y = this.tanker.position.y + this.y*2;
 		bullet.bulleter.position.z = this.tanker.position.z - Math.sin(direction)*2;
-
 		return bullet;
 	};
 
