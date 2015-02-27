@@ -2,9 +2,9 @@
 
 'use strict';
 
-angular.module('tank.welcome', [])
+angular.module('tank.main', [])
 
-.controller('WelcomeController', function($scope, $http, $location, $anchorScroll){
+.controller('MainController', function($scope, $http, $location, $anchorScroll){
   $http.get('./api/users').
     success(function(data){
       $scope.players = data;
