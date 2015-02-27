@@ -36,6 +36,18 @@ angular.module('tank.directives', [])
       templateUrl: './newviews/control.html'
     }
   })
+  .directive('tankStacks', function(){
+    return{
+      restrict: 'EA',
+      templateUrl: './newviews/stack.html'
+    }
+  })
+  .directive('tankTeam', function(){
+    return{
+      restrict: 'EA',
+      templateUrl: './newviews/team.html'
+    }
+  })
   // .directive('tankLogin', function(){
   //   return{
   //     restrict: 'EA',

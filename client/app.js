@@ -38,7 +38,7 @@ angular.module('tank', [
     })
     .state('main.welcome', {
       url:'',
-      template: '<tank-home></tank-home><tank-control></tank-control>'
+      template: '<tank-home></tank-home><tank-control></tank-control><tank-stacks></tank-stacks><tank-team><tank-team>'
     })
     // .state('about',{
     //   url: '/about',

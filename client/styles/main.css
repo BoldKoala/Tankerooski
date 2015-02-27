@@ -125,7 +125,7 @@ p#title {
 
 #control {
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 17vh 0 15vh 0;
 }
 
@@ -176,6 +176,47 @@ div#key-space {
 div#key:hover, div#key-space:hover {
   background-color: rgb(0, 145, 0);
   color: white;
+}
+
+#tech-stack-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    height: 10vh;
+    margin: 1px;
+    padding: 5px;
+}
+
+#tech-stack-container:hover {
+    box-shadow: 0 0 5px rgb(0, 145, 0);
+}
+
+#tech-stack {
+  height: 100%;    
+}
+
+#tech-stacks {
+  width: 100%;
+}
+
+#team{
+  text-align: center;
+}
+
+div#team-member {
+  width: 25vmin;
+  height: 25vmin;
+  margin: 2px;
+  display: inline-block;
+}
+
+img#team-pic{
+  width: 100%;
+}
+
+img#team-navicon {
+  width: 5vmin;
 }
 
 #breakingNews{
