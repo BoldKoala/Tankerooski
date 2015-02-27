@@ -1,6 +1,11 @@
 body {
   width:100%;
   background-color: black;
+  background: url('../assets/images/cover2.png') no-repeat;
+  background-attachment: fixed;
+  height: 750px;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 h1 {
@@ -96,7 +101,6 @@ p#title {
 }
 
 #top{
-  background: url('../assets/images/cover2.png') no-repeat;
   height: 750px;
   background-size: cover;
   background-position: 50% 50%;
@@ -121,6 +125,8 @@ p#title {
 
 #control {
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 17vh 0 15vh 0;
 }
 
 .control-box.ng-scope > table {
