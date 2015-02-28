@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angular-parallax', [
+angular.module('tank-parallax', [
 ]).directive('parallax', ['$window', function($window) {
   return {
     restrict: 'A',

@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     connect = require('gulp-connect-multi')();
     concat = require('gulp-concat');
+    clean = require('gulp-clean');
 
 // Lint on gulp lint
 gulp.task('lint', function() {
@@ -17,41 +18,36 @@ gulp.task('lint', function() {
     .pipe(jshint());
 });
 
-// Opens up browser
-// gulp.task('connect', connect.server({
-//   root: ['app'],
-//   port: 9000,
-//   livereload: true,
-//   open: {
-//     browser: 'Google Chrome'
-//   }
-// }));
-
 // Opens up browser, works with 'serve'
-gulp.task('browser-sync', ['scripts','serve'], function(){
+gulp.task('browser-sync', ['build','serve'], function(){
   browserSync.init({
     files: ['./**/**/*.*'],
     proxy:'http://localhost:9000',
     port: 9000,
     browser: ['google chrome']
   })
-})
+});
+
+gulp.task('clean',function(){
+  return gulp.src('./client/dist/*.js', {read: false})
+    .pipe(clean());
+});
+
 
 gulp.task('scripts', function(){
   return gulp.src([
     './client/lib/angular/angular.min.js',
     './client/lib/angular-ui-router/release/angular-ui-router.min.js',
-    './client/lib/angular-resource/angular-resource.min.js',
     './client/lib/angular-cookies/angular-cookies.min.js',
-    './client/lib/angular-scrollto/angular-scrollto.min.js',
-    './client/lib/parallax/deploy/parallax.min.js',
     './client/lib/famous-angular/dist/famous-angular.min.js',
     './client/lib/famous/dist/famous-global.min.js'
-    // './client/lib/jquery/dist/jquery.min.js'
     ])
     .pipe(concat('dependency.js'))
     .pipe(gulp.dest('./client/dist/'));
-})
+});
+
+gulp.task('build',['clean','scripts'],function(){
+});
 
 // Run nodemon on gulp serve
 gulp.task('serve', function() {
