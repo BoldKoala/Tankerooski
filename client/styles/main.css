@@ -42,14 +42,6 @@ h3 {
 ul.about li{
   text-align:center;
 }
-/*
-#header {
-  width: 100%;
-  background: url('../assets/images/header-bg.png');
-  height: 90px;
-  position: fixed;
-  margin-top: 30px;
-}*/
 
 nav#nav {
   background-color: black;
@@ -110,18 +102,6 @@ p#title {
   background-size: cover;
   background-position: 50% 50%;
 }
-
-/*#top h1, #top h2{
-  font-family: 'Goudy Bookletter 1911', serif;
-  text-align: left;
-  color: #ccc;
-  margin-left:75px;
-  font-size:30px;
-}
-
-#top h1{
-  font-size:45px;
-}*/
 
 .control-box.ng-scope {
   display: inline-block;
@@ -278,234 +258,6 @@ img#team-navicon {
   text-decoration: none;
 }
 
-/*
-#breakingNews{
-    background-color: #fff;
-    color: #333333;
-    height: 750px;
-    margin: 40 auto;
-    overflow: hidden;
-    padding: 200px 0;
-}
-
-#leaderBoardTable{
-  text-align: center;
-  width: 80%;
-  color:white;
-}*/
-
-
-
-/*#leaderBoardImage{
-  right:0;
-  left:0;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-#leaderBoardUsername{
-  color:white;
-  width: 12.5%;
-}
-
-#leaderBoardKills{
-  width: 12.5%;
-  color:white;
-}
-
-#leaderBoardDeaths{
-  width: 12.5%;
-  color:white;
-}
-
-#leaderBoardScore{
-  width: 12.5%;
-  color:white;
-}
-
-#col6{
-  width:12.5%;
-}
-
-
-#col7{
-  width:12.5%;
-}
-
-
-#col8{
-  width:12.5%;
-}
-.quotes_container { 
-  width: 800px; 
-}
-
-.quotes {
- font-family: 'Goudy Bookletter 1911', serif;
- font-weight: normal;
- font-size: 25px;
- text-align: left;
- margin: 50px 0px 20px 25px;
-}
-.barack{
-  margin-left:25px;
-}
-.aliens{
-  margin-left:250px;
-}
-
-#Invasion{
-    background: url(../assets/images/invasion.jpg) 50% 0 no-repeat fixed;
-    color: #fff;
-    height: 750px;
-    max-height:750px;
-    padding: 170px 0 0 0;
-    background-size: cover;
-}
-
-#extermination{
-  background-color: #fff fixed;
-
-  color: #333333;
-  height: 600px;
-  max-height:600px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 100px 0;
-}
-
-#rebellion{
-    background: url(../assets/images/tank.jpg) 50% 0 no-repeat;
-    color: #fff;
-    height: 750px;
-    background-size: cover;
-    padding:30px;
-}
-
-#rebellionLogin{
-    background: url(../assets/images/tank.jpg) 50% 0 no-repeat;
-    color: black;
-    height: 750px;
-    background-size: cover;
-    padding:0px;
-}
-
-.log{
-  margin-left:340px;
-  border:10px solid white;
-  width:350px;
-  text-align:center;
-  margin-top:300px;
-  padding-bottom:10px;
-}
-.logs{
-  margin-left:340px;
-  border:10px solid black;
-  width:350px;
-  text-align:center;
-  margin-top:50px;
-  padding-bottom:10px;
-}
-.gols{
-  color:black;
-  margin-left:290px;
-  width:300px;
-  text-align:center;
-  margin-top:0px;
-}
-.gol{
-  margin-left:290px;
-  width:300px;
-  text-align:center;
-  margin-top:300px;
-}
-
-div.About{
-  background-color: #fff;
-  color: #333333;
-  height: 600px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 200px 0;
-  margin-bottom:50px;
-}
-
-.desc{
-  text-align:center;
-}
-/*.parallax-window{
-  height:400px;
-  background:transparent;
-}
-#intro{
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left:0;
-  background-size: 100% 100%;
-}
-input{
-  display:block;
-  width:150px;
-}
-#mySurface{
-  /*background-color:#FA5C4F;
-  background: url(../assets/images/flame.gif) 50% 0 no-repeat;
-}
-#flames{
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left:0;
-  z-index:1;
-}
-#initial{
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left:0;
-}
-#tankBlast{
-  padding-top:300px;
-  text-align:center;
-}
-#tankEnter{
-  border:10px solid #4D5D53;
-  padding-top:30px;
-  padding-bottom:100px;
-  margin-left:600px;
-  margin-right:600px;
-
-}
-#enterButton{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  color: white;
-  text-align: center;
-  vertical-align: center;
-  border-radius: 5px;
-  font-size: 50px;
-  font-family: 'Black Ops One', cursive;
-  cursor: pointer;
-  padding:10px;
-  border:5px solid #4D5D53;
-}
-*/
-/*#enterTitle{
-  text-align: center;
-  color: white;
-  font-size: 50px;
-  font-family: 'Black Ops One', cursive;
-}
-#profile ul li a{
-  text-align:right;
-}
-*/
 #profileFamous{
   position: fixed;
   top: 0;
@@ -567,67 +319,38 @@ th#id-header {
   color: red;
 }
 
-/*#idContent h2 {
-  color:#C8C8C8;
-  text-shadow: 1px 1px black;
-  margin:0;
-  padding:0;
-  font-size: 5vmin;
+div#leaderBoard {
+  height: 50vh;
+  overflow-y: scroll;
 }
 
-#idContent h3{
-  font-family: 'Black Ops One', cursive;
-  color:#C8C8C8;
-  text-shadow: 1px 1px black;
-  margin:0;
-  padding:0;
-  font-size: 3vmin;
+td#leaderBoardImage {
+  width: 10%;
 }
 
+td#leaderBoardImage>img {
+  width: 100%;
+}
 
-#gameEnter{
-  position:absolute;
-  right:0;
-  left:0;
-  margin-left:auto;
-  margin-right:auto;
-  bottom:0;
+.lb-stats-header {
+  text-align: center;
+}
 
+.lb-stats {
+  color: white;
+  text-align: center;
 }
-#gameEnter img{
-  border-radius:35%;
-  width:10%;
-}
-#nextToPicture{
-  margin-left: 100px;
-}
-#nextToPicture h3{
-  color:#C8C8C8;
-  font-family: stencil;
-  text-align:left;
-  padding:0;
-  margin:0;
-  font-family: 'Black Ops One', cursive;
-  text-shadow: 1px 1px black;
 
+div#gameEnter {
+  position: fixed;
+  top: 12vmin;
+  left: 0;
+  right: 0;
+  padding: 2vmin;
+  text-decoration: none;
+  background-color: rgba(255, 0, 0, 0.67);
 }
-#belowPicture{
-  clear:both;
-  text-align:center;
-  padding:0;
-  margin:0;
-  color:white;
-  text-shadow: 1px 1px black;
 
+a#gameEnter:hover {
+  text-decoration: none;  
 }
-#tankData h3, #tankData h2{
-  text-align:left;
-  padding:0;
-  margin:0;
-}
-#nextToPicture h2{
-  text-decoration:underline;
-}
-#leaderboardBack td{
-  color:white;
-}*/

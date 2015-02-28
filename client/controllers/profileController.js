@@ -20,6 +20,24 @@ angular.module('tank.profile',[])
   $http.get('./api/users').
     success(function(data){
       $scope.players = data;
+      $scope.players.forEach(function(player){
+        player.kdratio = player.player.kills/player.player.killed;
+        if(typeof player.kdratio !== 'number' || player.player.kills === 0){
+          player.kdratio = 0;
+        }
+        if(!player.player.onTarget){
+          player.player.onTarget = 0;
+        }
+        if(!player.player.fired){
+          player.player.fired = 0;
+        }
+        player.accuracy = player.player.onTarget/player.player.fired;
+        if(typeof player.accuracy !== 'number' || player.player.onTarget === 0){
+          player.accuracy = 0;
+        }
+      })
+
+
       $scope.sortBy = 'player.kills'
     }).
     error(function(data) {
