@@ -60,7 +60,6 @@ angular.module('tank.profile',[])
         if(typeof player.accuracy !== 'number' || player.player.onTarget === 0){
           player.accuracy = 0;
         }
-        console.log(player.accuracy)
       })
 
 
