@@ -4,15 +4,15 @@ angular.module('tank', [
   'tank.services',
   'tank.profile',
   'tank.main',
-  'tank.auth',
-  'ngResource',
+  // 'tank.auth',
+  // 'ngResource',
   'ngCookies',
-  'angular-parallax',
-  'scrollto',
-  'tank.famous',
+  'tank-parallax',
+  // 'scrollto',
+  // 'tank.famous',
   'famous.angular',
-  'tank.initial',
-  'tank.leaderBoard'
+  // 'tank.initial',
+  // 'tank.leaderBoard'
   ])
 
 // Configure roots for app
@@ -27,11 +27,11 @@ angular.module('tank', [
     //   url: '/signin',
     //   template: '<tank-signin></tank-signin>'
     // })
-    // .state('profile', {
-    //   url:'/profile',
-    //   template: '<tank-profile></tank-profile>',
-    //   controller: 'ProfileController'
-    // })
+    .state('profile', {
+      url:'/profile',
+      template: '<tank-profile></tank-profile>',
+      controller: 'ProfileController'
+    })
     .state('main', {
       template: '<tank-main></tank-main>',
       controller: 'MainController'

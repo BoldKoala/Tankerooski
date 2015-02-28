@@ -19,43 +19,46 @@ h1 {
 }
 
 h2 {
- font-weight: normal;
- font-size: 40px;
- text-align: center;
- color: #fff;
- margin: 0;
- padding: 0;
+  font-weight: normal;
+  font-size: 5vmin;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family:'Black Ops One', cursive;
 }
 
 h3 {
- font-weight: normal;
- font-size: 16px;
- text-align: center;
- margin: 5px 0;
- padding: 0;
- z-index: 1;
- position: relative;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  margin: 5px 0;
+  padding: 0;
+  z-index: 1;
+  position: relative;
+  font-family:'Black Ops One', cursive;
 }
 
 ul.about li{
   text-align:center;
 }
-
+/*
 #header {
   width: 100%;
   background: url('../assets/images/header-bg.png');
   height: 90px;
   position: fixed;
   margin-top: 30px;
-}
+}*/
 
 nav#nav {
   background-color: black;
-  padding: 2vmin;
+  padding: 3vmin;
   box-shadow: 0px 2px 2px green;
   position: fixed;
   width: 100%;
   z-index: 100;
+  height: 10vmin;
 }
 
 #navList { 
@@ -75,6 +78,8 @@ nav#nav {
   font-size: 3vmin; 
   text-decoration: none; 
   font-family:'Black Ops One', cursive;
+  position: relative;
+  top: 2vmin;
 }
 #nav li a.active { 
   color: white; 
@@ -106,7 +111,7 @@ p#title {
   background-position: 50% 50%;
 }
 
-#top h1, #top h2{
+/*#top h1, #top h2{
   font-family: 'Goudy Bookletter 1911', serif;
   text-align: left;
   color: #ccc;
@@ -116,7 +121,7 @@ p#title {
 
 #top h1{
   font-size:45px;
-}
+}*/
 
 .control-box.ng-scope {
   display: inline-block;
@@ -198,7 +203,7 @@ div#key:hover, div#key-space:hover {
 
 #tech-stacks {
   width: 100%;
-  margin: 10vmin 0 0vmin 0;  
+  padding: 10vmin 0 0vmin 0;  
 }
 
 #team-links {
@@ -266,6 +271,14 @@ img#team-navicon {
   transition: 500ms linear;
 }
 
+.profile-title, .profile-title:hover {
+  font-family: 'Black Ops One', cursive;
+  font-size: 5vmin;
+  color: white;
+  text-decoration: none;
+}
+
+/*
 #breakingNews{
     background-color: #fff;
     color: #333333;
@@ -279,11 +292,11 @@ img#team-navicon {
   text-align: center;
   width: 80%;
   color:white;
-}
+}*/
 
 
 
-#leaderBoardImage{
+/*#leaderBoardImage{
   right:0;
   left:0;
   margin-left:auto;
@@ -423,7 +436,7 @@ div.About{
 /*.parallax-window{
   height:400px;
   background:transparent;
-}*/
+}
 #intro{
   position: fixed;
   top: 0;
@@ -437,7 +450,7 @@ input{
   width:150px;
 }
 #mySurface{
-  /*background-color:#FA5C4F;*/
+  /*background-color:#FA5C4F;
   background: url(../assets/images/flame.gif) 50% 0 no-repeat;
 }
 #flames{
@@ -479,10 +492,11 @@ input{
   font-size: 50px;
   font-family: 'Black Ops One', cursive;
   cursor: pointer;
-/*  padding:10px;
-  border:5px solid #4D5D53;*/
+  padding:10px;
+  border:5px solid #4D5D53;
 }
-#enterTitle{
+*/
+/*#enterTitle{
   text-align: center;
   color: white;
   font-size: 50px;
@@ -491,6 +505,7 @@ input{
 #profile ul li a{
   text-align:right;
 }
+*/
 #profileFamous{
   position: fixed;
   top: 0;
@@ -499,24 +514,77 @@ input{
   left:0;
   margin-bottom:100px;
 }
-#idContent img{
-  border-radius:20px;
-  width:35%;
-  float:left;
-  padding:10px;  
-}
+
 #idContent{
-  border:15px solid #606060;
-  border-radius:25px;
+  border:2vmin solid #606060;
+  border-radius:5vmin ;
   background-image: url('../assets/images/darkcamo.png');
+  background-size: cover;
+  background-position: 50% 50%;
+  margin: 0 auto 0 auto;
+  width: 90vmin;
+  height: auto;
+  padding: 2vmin;
+  font-family: 'Black Ops One', cursive;
 }
-#idContent h2, #idContent h3{
+
+td.id-vital {
+  color: white;
+  font-size: 2.5vmin;
+}
+
+td#id-picture {
+  width: 40%;
+  padding: 3%;
+}
+
+img#id-picture {
+  width: 100%;
+}
+
+td.id-subtitle {
+  color: white;
+  font-size: 2vmin;
+  width: 25%;
+}
+
+th {
+  border-bottom: 1px solid rgb(0, 131, 0);
+  background-color: rgba(124, 255, 115, 0.62);
+}
+
+th#id-header {
+  padding: 2vmin;
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: none;
+}
+
+#id-kills {
+  color: green;
+}
+
+#id-deaths {
+  color: red;
+}
+
+/*#idContent h2 {
+  color:#C8C8C8;
+  text-shadow: 1px 1px black;
+  margin:0;
+  padding:0;
+  font-size: 5vmin;
+}
+
+#idContent h3{
   font-family: 'Black Ops One', cursive;
   color:#C8C8C8;
   text-shadow: 1px 1px black;
   margin:0;
   padding:0;
+  font-size: 3vmin;
 }
+
+
 #gameEnter{
   position:absolute;
   right:0;
@@ -562,4 +630,4 @@ input{
 }
 #leaderboardBack td{
   color:white;
-}
+}*/

@@ -5,6 +5,8 @@ angular.module('tank.profile',[])
 .controller('ProfileController', function($scope, $http, User, $stateParams, $rootScope, $cookieStore, $window, $famous){
   var Transitionable = $famous['famous/transitions/Transitionable'];
   var Easing = $famous['famous/transitions/Easing'];
+  var viewState = 'profile';
+
   $scope.profileTransitionable = new Transitionable([0, 0, 0]);
   $scope.angle = new Transitionable(0);
 
@@ -36,14 +38,11 @@ angular.module('tank.profile',[])
       duration: 250
     };
 
-    $scope.flipIt = function(cb) {
-      $famous.find('fa-flipper')[0].flip();
-
-      // setTimeout((function(){console.log("inside the callback");
-      // $state.go('welcome')}), 4000);
+    $scope.flipIt = function(view) {
+      if(viewState!==view){
+        $famous.find('fa-flipper')[0].flip();
+        viewState = view;
+      }
     };
-    $scope.goto = function(link){
-      console.log('hello');
-    }
 
 });
