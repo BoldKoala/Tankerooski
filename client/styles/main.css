@@ -3,7 +3,6 @@ body {
   background-color: black;
   background: url('../assets/images/cover2.png') no-repeat;
   background-attachment: fixed;
-  height: 750px;
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -41,6 +40,10 @@ h3 {
 
 ul.about li{
   text-align:center;
+}
+
+a {
+  cursor: pointer;
 }
 
 nav#nav {
@@ -339,11 +342,14 @@ td#leaderBoardImage>img {
 
 .lb-stats-header {
   text-align: center;
+  font-size: 2vmin;
+  cursor: pointer;
 }
 
 .lb-stats {
   color: white;
   text-align: center;
+  font-size: 2vmin;
 }
 
 div#gameEnter {
@@ -358,4 +364,17 @@ div#gameEnter {
 
 a#gameEnter:hover {
   text-decoration: none;  
+}
+
+img#id-stars {
+  display: inline-block;
+  height: 5vmin;
+}
+
+td#id-stars {
+  text-align: center;
+}
+
+h2#id-level {
+  color: gold;
 }

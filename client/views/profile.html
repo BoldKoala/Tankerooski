@@ -23,7 +23,7 @@
                         <th colspan='3' id='id-header'><h2>TANK OPERATOR LICENSE</h2></th>
                       </tr>
                       <tr>
-                        <td><h2>{{player.level}}</h2></td>
+                        <td><h2 id='id-level'>{{player.level}}</h2></td>
                         <th colspan='2'><h2>Operator Data</h2></th>
                       </tr>
                       <tr>
@@ -55,7 +55,9 @@
                         <td class='id-vital'>{{tank.HP | number:0}}</td>
                       </tr>
                       <tr>
-                        <td><h2>Stars</h2></td>
+                        <td id='id-stars'>
+                          <img id='id-stars' src='./assets/images/star.png' ng-repeat='star in stars'></img>
+                        </td>
                         <td class='id-subtitle'>Fire Rate</td>
                         <td class='id-vital'>{{60000/tank.bulletFreq | number:0}} per minute</td>
                       </tr>

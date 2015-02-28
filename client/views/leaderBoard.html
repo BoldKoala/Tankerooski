@@ -2,14 +2,14 @@
   <h2>Leader Board</h2>
   <table id = "leaderBoardTable">
     <tr class='lb-header'>
-      <td class='lb-stats-header'><a href="">Avatar</a></td>
-      <td class='lb-stats-header'><a href="">Player</a></td>
-      <td class='lb-stats-header'><a href="" ng-click="sortBy = 'player.kills'">Kills</a></td>
-      <td class='lb-stats-header'><a href="" ng-click="sortBy = 'player.killed'">Deaths</a></td>
-      <td class='lb-stats-header'><a href="" ng-click="sortBy = 'player.kills / player.killed'">Kills/Deaths</a></td>
-      <td class='lb-stats-header'><a href="" ng-click="sortBy = 'player.onTarget'">Hits</a></td>
-      <td class='lb-stats-header'><a href="" ng-click="sortBy = 'player.fired'">Shots</a></td>
-      <td class='lb-stats-header'><a href="" ng-click="sortBy = 'player.accuracy'">Accuracy</a></td>
+      <td class='lb-stats-header'><a>Avatar</a></td>
+      <td class='lb-stats-header'><a>Player</a></td>
+      <td class='lb-stats-header'><a ng-click="sortBy = 'player.kills'">Kills</a></td>
+      <td class='lb-stats-header'><a ng-click="sortBy = 'player.killed'">Deaths</a></td>
+      <td class='lb-stats-header'><a ng-click="sortBy = 'player.kills / player.killed'">Kills/Deaths</a></td>
+      <td class='lb-stats-header'><a ng-click="sortBy = 'player.onTarget'">Hits</a></td>
+      <td class='lb-stats-header'><a ng-click="sortBy = 'player.fired'">Shots</a></td>
+      <td class='lb-stats-header'><a ng-click="sortBy = 'player.onTarget / player.fired'">Accuracy</a></td>
     </tr>
     <tr ng-repeat = "player in players | orderBy:sortBy:true">
       <td id="leaderBoardImage"><img src="{{player.google.picture}}" id="leaderBoardUserPic"></img></td>

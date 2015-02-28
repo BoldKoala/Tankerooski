@@ -35,6 +35,11 @@ angular.module('tank.profile',[])
     $scope.nextLevel ="Max Level!";
   }
 
+  $scope.stars = [];
+  for(var i = 0; i<$scope.player.rank; i++){
+    $scope.stars.push(i);
+  }
+
   $window.localStorage.setItem('com.tankerooski.id', $cookieStore.get('key')._id)
 
   $http.get('./api/users').
