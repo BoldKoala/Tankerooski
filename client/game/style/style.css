@@ -52,7 +52,7 @@ canvas {
 }
 
 table#leader {
-	font-size: 12px;
+	font-size: 15px;
 	width: 75%;
 	margin: 25% 12.5% 0 12.5%;
 	background-color: green;
@@ -90,7 +90,7 @@ table#leader {
 	display: inline-block;
 	height: 95%;
 	font-family: monospace;
-	font-size: 12px;
+	font-size: 15px;
 	color: rgb(82, 250, 0);
 	width: 100%;
 	overflow-y: scroll;

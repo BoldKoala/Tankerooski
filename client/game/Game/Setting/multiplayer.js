@@ -49,26 +49,31 @@ function Multiplayer(map,tanks,bullets){
 		},
 		//Add bullets to all users
 		addBullet: function(pos){
-			var bullet = Bullet(-Math.sin(pos.direction), -Math.cos(pos.direction), 10);
+			if(tanks[tanks._id]){
+				if(tanks[tanks._id].tanker){
+					
+					var bullet = Bullet(-Math.sin(pos.direction), -Math.cos(pos.direction), 10);
 
-	    bullet.bulleter.position.x = pos.x;
-	    bullet.bulleter.position.y = pos.y;
-	    bullet.bulleter.position.z = pos.z;
+			    bullet.bulleter.position.x = pos.x;
+			    bullet.bulleter.position.y = pos.y;
+			    bullet.bulleter.position.z = pos.z;
 
-	    var dx = tanks[tanks._id].tanker.position.x - pos.x;
-	    var dz = tanks[tanks._id].tanker.position.z - pos.z;
+			    var dx = tanks[tanks._id].tanker.position.x - pos.x;
+			    var dz = tanks[tanks._id].tanker.position.z - pos.z;
 
-	    var dxdz = Math.sqrt(dx*dx+dz*dz);
-	    var proximity = (dxdz/50)*100;
+			    var dxdz = Math.sqrt(dx*dx+dz*dz);
+			    var proximity = (dxdz/50)*100;
 
-	    bullets.push(bullet);
-	    bullet.fireSound(100-proximity);
-	    map.scene.add(bullet.bulleter);
-	    bullet._id = pos.id;
+			    bullets.push(bullet);
+			    bullet.fireSound(100-proximity);
+			    map.scene.add(bullet.bulleter);
+			    bullet._id = pos.id;
 
-	    setTimeout(function(){
-	      map.scene.remove(bullets.shift().bulleter);
-	    },1000)
+			    setTimeout(function(){
+			      map.scene.remove(bullets.shift().bulleter);
+			    },1000)
+				}
+			}
 		},
 		//Sync movements for all users
 		move: function(state){
