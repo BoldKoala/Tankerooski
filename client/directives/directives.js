@@ -1,65 +1,98 @@
 angular.module('tank.directives', [])
-  .directive('tankAuth', function(){
+  // .directive('tankAuth', function(){
+  //   return{
+  //     restrict: 'EA',
+  //     scope: '=',
+  //     replace: true,
+  //     templateUrl: './views/login.html'
+  //   }
+  // })
+  .directive('tankMain', function(){
     return{
       restrict: 'EA',
       scope: '=',
       replace: true,
-      templateUrl: './views/login.html'
+      templateUrl: './views/main.html'
     }
   })
-  .directive('tankWelcome', function(){
+  .directive('tankNavbar', function(){
     return{
       restrict: 'EA',
       scope: '=',
       replace: true,
-      templateUrl: './views/welcome.html'
+      templateUrl: './views/navbar.html'
     }
-  })
-  .directive('tankLogin', function(){
+  })  
+  .directive('tankHome', function(){
     return{
       restrict: 'EA',
       scope: '=',
-      replace: true,
-      templateUrl: './views/login.html'
+      templateUrl: './views/home.html'
     }
   })
-  .directive('tankSignup', function(){
+  .directive('tankControl', function(){
     return{
       restrict: 'EA',
-      scope: '=',
-      replace: true,
-      templateUrl: './views/signin.html'
+      templateUrl: './views/control.html'
     }
   })
+  .directive('tankStacks', function(){
+    return{
+      restrict: 'EA',
+      templateUrl: './views/stack.html'
+    }
+  })
+  .directive('tankTeam', function(){
+    return{
+      restrict: 'EA',
+      templateUrl: './views/team.html'
+    }
+  })
+  // .directive('tankLogin', function(){
+  //   return{
+  //     restrict: 'EA',
+  //     scope: '=',
+  //     replace: true,
+  //     templateUrl: './views/loginshtml'
+  //   }
+  // })
+  // .directive('tankSignup', function(){
+  //   return{
+  //     restrict: 'EA',
+  //     scope: '=',
+  //     replace: true,
+  //     templateUrl: './views/signin.html'
+  //   }
+  // })
   .directive('tankProfile', function(){
     return {
       restrict: 'EA',
       scope: '=',
-      replace: true,
+      // replace: true,
       templateUrl: './views/profile.html'
     }
   })  
-  .directive('tankAbout', function(){
-    return {
-      restrict: 'EA',
-      scope: '=',
-      replace: true,
-      templateUrl: './views/about.html'
-    }
-  })
-  .directive('tankInitial', function(){
-    return {
-      restrict: 'EA',
-      scope: '=',
-      replace: true,
-      templateUrl: './views/initial.html'
-    }
-  })
+  // .directive('tankAbout', function(){
+  //   return {
+  //     restrict: 'EA',
+  //     scope: '=',
+  //     replace: true,
+  //     templateUrl: './views/about.html'
+  //   }
+  // })
+  // .directive('tankInitial', function(){
+  //   return {
+  //     restrict: 'EA',
+  //     scope: '=',
+  //     replace: true,
+  //     templateUrl: './views/initial.html'
+  //   }
+  // })
   .directive('tankLeaderboard', function(){
     return {
       restrict: 'EA',
       scope: '=',
-      replace: true,
+      // replace: true,
       templateUrl: './views/leaderBoard.html'
     }
   })
