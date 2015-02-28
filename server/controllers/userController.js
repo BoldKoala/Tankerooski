@@ -60,7 +60,7 @@ UserController.signin = function(profile, done, token) {
         user.player.level = 'General';
       }
 
-      user.tank.speed        = user.player.rank === 5 ? 1.2 : 0.1 + (user.player.rank - 1) * 0.004;
+      user.tank.speed        = user.player.rank === 5 ? 0.12 : 0.1 + (user.player.rank - 1) * 0.004;
       user.tank.HP           = user.player.rank === 5 ? 20 : 10 + (user.player.rank - 1) * 2;
       user.tank.bulletFreq   = user.player.rank === 5 ? 1200 : 2000 - (user.player.rank - 1) * 160;
       //========= End of LevelUP system
