@@ -52,11 +52,11 @@ function Falcon(attr) {
 	falcon.reloadSound = playTankReload;
 
 	var loader = new THREE.ObjectLoader();
-	falcon.tanker = loader.parse(GermanTank);
+	falcon.tanker = loader.parse(Falcon);
   falcon.tanker.children.forEach(function(part,i){
   	if(i === 1){
 			falcon.tanker.children[1].material.color.set(falcon.color);			
-  	} else if (i < 5){
+  	} else if (i < 5){ // Apply texture to each body, look in children to see order
 			falcon.tanker.children[i].material = TankTexture[i];		  	
   	}
   	falcon.tanker.children[i].scale.set(falcon.x, falcon.y, falcon.z);
@@ -92,7 +92,7 @@ function Falcon(attr) {
   	}, falcon.bulletFreq - 100)
   }
   
-	// Tank fire
+	Tank fire
 	falcon.fire = function(direction){
 		falcon.reload();
 		bullet = Bullet(-Math.sin(direction), -Math.cos(direction), 10, this.tanker.position);

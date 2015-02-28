@@ -26,8 +26,8 @@ function Bullet(dir1, dir2, speed, position) {
   bullet.fireSound = playTankFire;
 
   // ======>> Bullet building
-  // bullet.bulleter = new THREE.Mesh(new THREE.SphereGeometry(bullet.radius), bullet.material.bullet );
-  bullet.bulleter = new THREE.Mesh(new THREE.CylinderGeometry(bullet.radiusTop, bullet.radiusBottom, bullet.heighth, bullet.radiusSegments, bullet.heightSegments, bullet.openEnded), bullet.material.bullet );
+  bullet.bulleter = new THREE.Mesh(new THREE.SphereGeometry(bullet.radius), bullet.material.bullet );
+  // bullet.bulleter = new THREE.Mesh(new THREE.CylinderGeometry(bullet.radiusTop, bullet.radiusBottom, bullet.heighth, bullet.radiusSegments, bullet.heightSegments, bullet.openEnded), bullet.material.bullet );
 
   bullet.move = function(){
     if (!this.hitTower){

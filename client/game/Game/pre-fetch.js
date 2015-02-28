@@ -73,6 +73,44 @@ tankUrl.forEach(function(url,i){
   TankTexture[i] = tankTexture(i);
 })
 
+// ===================== Pre-fetch Falcon Texture =====================
+var FalconTexture = [];
+var falconUrl = [
+  './Model/Falcon/Cockpit2.jpg', 
+  './Model/Falcon/Cockpit3.jpg',
+  './Model/Falcon/CP_Front.jpg',
+  './Model/Falcon/Dish01.jpg',
+  './Model/Falcon/Dish02.jpg',
+  './Model/Falcon/DishSide.jpg', 
+  './Model/Falcon/DrivBack.jpg',
+  './Model/Falcon/Engine01.jpg',
+  './Model/Falcon/Engine02.jpg',
+  './Model/Falcon/EscPod_L.jpg',
+  './Model/Falcon/EscPod_U.jpg', 
+  './Model/Falcon/FalcPlan.jpg',
+  './Model/Falcon/FalcUndr.jpg',
+  './Model/Falcon/Hatch.jpg',
+  './Model/Falcon/MInside.jpg',
+  './Model/Falcon/MandbEnd.jpg', 
+  './Model/Falcon/PodSide1.jpg',
+  './Model/Falcon/SidePort.jpg',
+  './Model/Falcon/SideRe01.jpg',
+  './Model/Falcon/SideRear.jpg',
+  './Model/Falcon/Turret_L.jpg',
+  './Model/Falcon/Turret_U.jpg',
+  './Model/Falcon/Vent01.jpg'
+];
+
+var falconTexture = function(i){
+  return new THREE.MeshLambertMaterial({ 
+    map: THREE.ImageUtils.loadTexture(falconUrl[i])
+  });
+};
+
+falconUrl.forEach(function(url,i){
+  FalconTexture[i] = falconTexture(i);
+});
+
 // ===================== Pre-fetch sound =====================
 var tankFire = [];
 for(var j = 0; j<10; j++){

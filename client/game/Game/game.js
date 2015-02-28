@@ -379,6 +379,7 @@ function init(){
     }
   };
 
+  // This is where the tanks are being called. We can change this to the falcon later
   //Send tank position and rotation to other players
   function syncStates() {
     if(tanks._id){
