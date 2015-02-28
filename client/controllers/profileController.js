@@ -35,6 +35,11 @@ angular.module('tank.profile',[])
     $scope.nextLevel ="Max Level!";
   }
 
+  $scope.stars = [];
+  for(var i = 0; i<$scope.player.rank; i++){
+    $scope.stars.push(i);
+  }
+
   $window.localStorage.setItem('com.tankerooski.id', $cookieStore.get('key')._id)
 
   $http.get('./api/users').
@@ -55,6 +60,7 @@ angular.module('tank.profile',[])
         if(typeof player.accuracy !== 'number' || player.player.onTarget === 0){
           player.accuracy = 0;
         }
+        console.log(player.accuracy)
       })
 
 
