@@ -2,93 +2,84 @@
   <nav id="nav">
     <a ng-href="/" class='profile-title'>Tankerooski</a>
     <ul id="navList" ng-controller="MainController">
-      <li><a href='' ng-click='flipIt("profile")'>Profile</a></li>
-      <li><a href='' ng-click='flipIt("leaderboard")'>Leaderboard</a></li>
+      <li><span id='flip' href='' ng-click='flipIt("profile")'>Profile</span></li>
+      <li><span id='flip' href='' ng-click='flipIt("leaderboard")'>Leaderboard</span></li>
     </ul>
   </nav>
-
   <div>
     <fa-app id="profileFamous" fa-perspective="2000">
-        <fa-flipper fa-options="flipOptions">
-            <fa-modifier fa-align="profileModifier.align"
-                          fa-size="profileModifier.size"
-                          fa-rotate-y="angle.get()"
-                          fa-origin="profileModifier.origin"
-                          fa-translate="profileTransitionable.get()"
-                          fa-pointer-events="profileModifier.pointerEvents">
-                <fa--surface>
-                  <div id="idContent">
-                    <table>
-                      <tr>
-                        <th colspan='3' id='id-header'><h2>TANK OPERATOR LICENSE</h2></th>
-                      </tr>
-                      <tr>
-                        <td><h2 id='id-level'>{{player.level}}</h2></td>
-                        <th colspan='2'><h2>Operator Data</h2></th>
-                      </tr>
-                      <tr>
-                        <td id='id-picture' rowspan='7'><img id='id-picture' src="{{user.picture}}"></img></td>
-                        <td class='id-subtitle'>Name</td>
-                        <td class='id-vital'>{{user.givenName}}</td>
-                      </tr>
-                      <tr>
-                        <td class='id-subtitle'>Date Enlishted</td>
-                        <td class='id-vital'>{{player.date.split(' ').slice(1,4).join(' ')}}</td>
-                      </tr>
-                      <tr>
-                        <td class='id-subtitle'>Kills</td>
-                        <td class='id-vital' id='id-kills'>{{player.kills}}<span id = "nextLevel">{{nextLevel}}</span></td>
-                      </tr>
-                      <tr>
-                        <td class='id-subtitle'>Deaths</td>
-                        <td class='id-vital' id='id-deaths'>{{player.killed}}</td>
-                      </tr>
-                      <tr>
-                        <th colspan='2'><h2>Tank Specs</h2></th>
-                      </tr>
-                      <tr>
-                        <td class='id-subtitle'>Speed</td>
-                        <td class='id-vital'>{{tank.speed*1000 | number:0}}</td>
-                      </tr>
-                      <tr>
-                        <td class='id-subtitle'>Max HP</td>
-                        <td class='id-vital'>{{tank.HP | number:0}}</td>
-                      </tr>
-                      <tr>
-                        <td id='id-stars'>
-                          <img id='id-stars' src='./assets/images/star.png' ng-repeat='star in stars'></img>
-                        </td>
-                        <td class='id-subtitle'>Fire Rate</td>
-                        <td class='id-vital'>{{60000/tank.bulletFreq | number:0}} per minute</td>
-                      </tr>
-                    </table>
-                  </div>
-                </fa-surface>
-            </fa-modifier>
-            <fa-modifier fa-align="profileModifier.align"
-                         fa-size="profileModifier.size"
-                          fa-rotate-y="angle.get()"
-                          fa-origin="profileModifier.origin"
-                          fa-translate="profileTransitionable.get()"
-                          fa-pointer-events="profileModifier.pointerEvents"
-                          >
-                 <fa-surface>
-                  <div id="idContent">
-                     <tank-leaderboard id="leaderboardBack"></tank-leaderboard>
-                  </div>
-                 </fa-surface>
-             </fa-modifier>
-        </fa-flipper>
+      <fa-flipper fa-options="flipOptions">
+        <fa-modifier fa-align="profileModifier.align"
+                     fa-size="profileModifier.size"
+                     fa-rotate-y="angle.get()"
+                     fa-origin="profileModifier.origin"
+                     fa-translate="profileTransitionable.get()"
+                     fa-pointer-events="profileModifier.pointerEvents">
+          <fa--surface>
+            <div id="idContent">
+              <table>
+                <tr>
+                  <th colspan='3' id='id-header'><h2>TANK OPERATOR LICENSE</h2></th>
+                </tr>
+                <tr>
+                  <td><h2 id='id-level'>{{player.level}}</h2></td>
+                  <th colspan='2'><h2>Operator Data</h2></th>
+                </tr>
+                <tr>
+                  <td id='id-picture' rowspan='7'><img id='id-picture' src="{{user.picture}}"></img></td>
+                  <td class='id-subtitle'>Name</td>
+                  <td class='id-vital'>{{user.givenName}}</td>
+                </tr>
+                <tr>
+                  <td class='id-subtitle'>Date Enlishted</td>
+                  <td class='id-vital'>{{player.date.split(' ').slice(1,4).join(' ')}}</td>
+                </tr>
+                <tr>
+                  <td class='id-subtitle'>Kills</td>
+                  <td class='id-vital' id='id-kills'>{{player.kills}}<span id = "nextLevel">{{nextLevel}}</span></td>
+                </tr>
+                <tr>
+                  <td class='id-subtitle'>Deaths</td>
+                  <td class='id-vital' id='id-deaths'>{{player.killed}}</td>
+                </tr>
+                <tr>
+                  <th colspan='2'><h2>Tank Specs</h2></th>
+                </tr>
+                <tr>
+                  <td class='id-subtitle'>Speed</td>
+                  <td class='id-vital'>{{tank.speed*1000 | number:0}}</td>
+                </tr>
+                <tr>
+                  <td class='id-subtitle'>Max HP</td>
+                  <td class='id-vital'>{{tank.HP | number:0}}</td>
+                </tr>
+                <tr>
+                  <td id='id-stars'>
+                    <img id='id-stars' src='./assets/images/star.png' ng-repeat='star in stars'></img>
+                  </td>
+                  <td class='id-subtitle'>Fire Rate</td>
+                  <td class='id-vital'>{{60000/tank.bulletFreq | number:0}} per minute</td>
+                </tr>
+              </table>
+            </div>
+          </fa-surface>
+        </fa-modifier>
+        <fa-modifier fa-align="profileModifier.align"
+                     fa-size="profileModifier.size"
+                     fa-rotate-y="angle.get()"
+                     fa-origin="profileModifier.origin"
+                     fa-translate="profileTransitionable.get()"
+                     fa-pointer-events="profileModifier.pointerEvents">
+          <fa-surface>
+            <div id="idContent">
+              <tank-leaderboard id="leaderboardBack"></tank-leaderboard>
+            </div>
+          </fa-surface>
+        </fa-modifier>
+      </fa-flipper>
     </fa-app>
-
-
   </div>
- 
-  
-  
-
-    <div id="gameEnter">
-      <a id="gameEnter" href="/game" alt="gameMode" target="_self"><h2>Join the Fight!</h2></a>
-    </div>
-
+  <div id="gameEnter">
+    <a id="gameEnter" href="/game" alt="gameMode" target="_self"><h2>Join the Fight!</h2></a>
+  </div>
 </div>
