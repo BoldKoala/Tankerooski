@@ -90,7 +90,7 @@ var falconUrl = [
   './Model/Falcon/FalcPlan.jpg',
   './Model/Falcon/FalcUndr.jpg',
   './Model/Falcon/Hatch.jpg',
-  './Model/Falcon/MInside.jpg',
+  './Model/Falcon/M_Inside.jpg',
   './Model/Falcon/MandbEnd.jpg', 
   './Model/Falcon/PodSide1.jpg',
   './Model/Falcon/SidePort.jpg',

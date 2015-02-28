@@ -1,6 +1,6 @@
 var MSG = false;
 function keyDown(d, tanks, POV) {
-	console.log(d.keyCode);
+	// console.log(d.keyCode);
   //W key
   if(!MSG){
     if(d.keyCode === 87){
@@ -52,21 +52,55 @@ function keyDown(d, tanks, POV) {
       document.getElementById('dead').style.display = document.getElementById('dead').style.display === 'none' ? 'inline-block' : 'none';
     }
 
-    //c
     if(d.keyCode === 67){
-      if(tanks[tanks._id].tanker.position.y < 0.1){    
-        var counter = 0;
-        setInterval(function(){
-          if (counter < 50){
-            tanks[tanks._id].tanker.position.y += 0.06
-            counter++
-          }
-          if (counter >= 50 && counter < 100){
-            tanks[tanks._id].tanker.position.y -= 0.06
-            counter++
-          }
-        }, 10)
+    // C - Jump key, implement freefall physics here
+    var initialVelocity = 1.0;
+    var acceleration = -0.01;
+    // console.log(tanks[tanks._id].tanker.position.y);
+    var counter = 0;
+      while(tanks[tanks._id].tanker.position.y >= 0){
+        console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
+        tanks[tanks._id].tanker.position.y = (initialVelocity * counter) + (acceleration * counter * counter);
+        counter++;
       }
+      tanks[tanks._id].tanker.position.y = 0;
+
+
+
+
+        // var jump = true;
+          
+        //   var counter = 0;
+        //   while(jump){
+        //     setInterval(function(){
+        //       tanks[tanks._id].tanker.position.y = (initialVelocity * counter) + (acceleration * counter * counter);
+        //       counter++;
+           
+        //       // }else {
+        //       //   tanks[tanks._id].tanker.position.y = 0;
+        //       //   counter = 0;
+        //         console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
+        //       // }
+              
+            
+        //       // if (counter < 50){
+        //       //   tanks[tanks._id].tanker.position.y += 0.06
+        //       //   counter++
+        //       // }
+        //       // if (counter >= 50 && counter < 100){
+        //       //   tanks[tanks._id].tanker.position.y -= 0.06
+        //       //   counter++
+        //       // }
+        //     }, 10);
+
+            
+        //     if(tanks[tanks._id].tanker.position.y <= 0){
+        //       // clearInterval(jumper);
+        //       jump = false;
+        //     }
+
+        
+        //   }
     }
   }
 

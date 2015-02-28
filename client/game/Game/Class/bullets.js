@@ -1,7 +1,7 @@
 function Bullet(dir1, dir2, speed, position) {
   var bullet = {};
 
-  bullet.radius = 0.5;
+  bullet.radius = 0.05;
   bullet.speed = speed;
   bullet.zSpeed = dir1 * speed;
   bullet.xSpeed = dir2 * speed;
@@ -19,7 +19,7 @@ function Bullet(dir1, dir2, speed, position) {
 
 
   bullet.material = {
-    bullet: new THREE.MeshBasicMaterial({ color: 'red' })
+    bullet: new THREE.MeshBasicMaterial({ color: 'grey' })
   };
 
 
@@ -31,8 +31,8 @@ function Bullet(dir1, dir2, speed, position) {
 
   bullet.move = function(){
     if (!this.hitTower){
-      this.bulleter.position.z += this.zSpeed/10;
-      this.bulleter.position.x += this.xSpeed/10;
+      this.bulleter.position.z += this.zSpeed/5;
+      this.bulleter.position.x += this.xSpeed/5;
       // This represents bullet drop, it is currently constant and needs to be parabolic
       // this.bulleter.position.y -= this.yDrop;
     }
