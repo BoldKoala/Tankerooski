@@ -54,53 +54,52 @@ function keyDown(d, tanks, POV) {
 
     if(d.keyCode === 67){
     // C - Jump key, implement freefall physics here
-    var initialVelocity = 1.0;
-    var acceleration = -0.01;
+    var initialVelocity = 0.5;
+    var acceleration = -0.005;
+
+    // Create function for height position
+    var jump = function(time) {
+      return ((initialVelocity * time) + (acceleration * time * time));
+    }
     // console.log(tanks[tanks._id].tanker.position.y);
-    var counter = 0;
-      while(tanks[tanks._id].tanker.position.y >= 0){
-        console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
-        tanks[tanks._id].tanker.position.y = (initialVelocity * counter) + (acceleration * counter * counter);
-        counter++;
+    // var counter = 0;
+      // while(tanks[tanks._id].tanker.position.y >= 0){
+      //   console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
+      //   tanks[tanks._id].tanker.position.y = (initialVelocity * counter) + (acceleration * counter * counter);
+      //   counter++;
+      // }
+      // tanks[tanks._id].tanker.position.y = 0;
+
+      if(tanks[tanks._id].tanker.position.y < 0.5){    
+        var counter = 0;
+        setInterval(function(){
+          console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
+          if (counter < 50){
+            tanks[tanks._id].tanker.position.y = jump(counter);
+            counter++
+          }
+          if (counter >= 50 && counter < 100){
+            tanks[tanks._id].tanker.position.y = jump(counter);
+            counter++
+          }
+        }, 1)
       }
-      tanks[tanks._id].tanker.position.y = 0;
 
-
-
-
-        // var jump = true;
-          
-        //   var counter = 0;
-        //   while(jump){
-        //     setInterval(function(){
-        //       tanks[tanks._id].tanker.position.y = (initialVelocity * counter) + (acceleration * counter * counter);
-        //       counter++;
-           
-        //       // }else {
-        //       //   tanks[tanks._id].tanker.position.y = 0;
-        //       //   counter = 0;
-        //         console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
-        //       // }
-              
-            
-        //       // if (counter < 50){
-        //       //   tanks[tanks._id].tanker.position.y += 0.06
-        //       //   counter++
-        //       // }
-        //       // if (counter >= 50 && counter < 100){
-        //       //   tanks[tanks._id].tanker.position.y -= 0.06
-        //       //   counter++
-        //       // }
-        //     }, 10);
-
-            
-        //     if(tanks[tanks._id].tanker.position.y <= 0){
-        //       // clearInterval(jumper);
-        //       jump = false;
-        //     }
-
-        
-        //   }
+      // Original jump algorithm
+      // if(tanks[tanks._id].tanker.position.y < 0.1){    
+      //   var counter = 0;
+      //   setInterval(function(){
+      //     console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
+      //     if (counter < 50){
+      //       tanks[tanks._id].tanker.position.y += 0.06;
+      //       counter++
+      //     }
+      //     if (counter >= 50 && counter < 100){
+      //       tanks[tanks._id].tanker.position.y -= 0.06;
+      //       counter++
+      //     }
+      //   }, 10)
+      // }
     }
   }
 
