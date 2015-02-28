@@ -37,6 +37,34 @@ UserController.signin = function(profile, done, token) {
       user.google.picture    = profile._json.picture;
       user.google.locale     = profile._json.locale;
       user.google.link       = profile._json.link;
+
+      //======== Tank Level System
+      if (user.player.kills >= 0){
+        user.player.rank = 1;
+        user.player.level = 'Private';
+      }
+      if (user.player.kills >= 10){
+        user.player.rank = 2;
+        user.player.level = 'Sergeant';
+      }
+      if (user.player.kills >= 30){
+        user.player.rank = 3;
+        user.player.level = 'Captain';
+      }
+      if (user.player.kills >= 60){
+        user.player.rank = 4;
+        user.player.level = 'Major';
+      }
+      if (user.player.kills >= 100){
+        user.player.rank = 5;
+        user.player.level = 'General';
+      }
+
+      user.tank.speed        = user.player.rank === 5 ? 1.2 : 0.1 + (user.player.rank - 1) * 0.004;
+      user.tank.HP           = user.player.rank === 5 ? 20 : 10 + (user.player.rank - 1) * 2;
+      user.tank.bulletFreq   = user.player.rank === 5 ? 1200 : 2000 - (user.player.rank - 1) * 160;
+      //========= End of LevelUP system
+
       user.save(function(err, user, num){
         if(err){
           console.log('error saving token');

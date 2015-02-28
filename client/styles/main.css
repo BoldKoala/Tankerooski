@@ -141,6 +141,11 @@ td#control-cell-2 {
   height: 20vmin;
 }
 
+#nextLevel {
+  font-size: 1.7vmin;
+  color: yellow;
+}
+
 div#key, div#key-space {
   margin: 0 auto 0 auto;
   background-color: white;

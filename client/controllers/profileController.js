@@ -15,6 +15,26 @@ angular.module('tank.profile',[])
   $scope.player = $cookieStore.get('key').player;
   $scope.tank = $cookieStore.get('key').tank;
 
+  //Next Level Requirement
+  var killsNeeded = 0;
+  if ($scope.player.rank === 1){
+    killsNeeded = 10 - $scope.player.kills;
+  }
+  if ($scope.player.rank === 2){
+    killsNeeded = 30 - $scope.player.kills;
+  }
+  if ($scope.player.rank === 3){
+    killsNeeded = 60 - $scope.player.kills;
+  }
+  if ($scope.player.rank === 4){
+    killsNeeded = 100 - $scope.player.kills;
+  }
+  $scope.nextLevel = " (" + killsNeeded + " Kills to Next Level)";
+
+  if ($scope.player.rank === 5){
+    $scope.nextLevel ="Max Level!";
+  }
+
   $window.localStorage.setItem('com.tankerooski.id', $cookieStore.get('key')._id)
 
   $http.get('./api/users').
