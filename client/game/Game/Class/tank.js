@@ -51,6 +51,7 @@ function Tank(attr) {
 	//Reload Sound
 	tank.reloadSound = playTankReload;
 
+  /**************** This loader may need to be changed for the falcon **********/
 	var loader = new THREE.ObjectLoader();
 	tank.tanker = loader.parse(GermanTank);
   tank.tanker.children.forEach(function(part,i){

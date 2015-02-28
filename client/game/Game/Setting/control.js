@@ -55,34 +55,26 @@ function keyDown(d, tanks, POV) {
     if(d.keyCode === 67){
     // C - Jump key, implement freefall physics here
     var initialVelocity = 0.5;
-    var acceleration = -0.005;
+    var acceleration = -0.01;
 
     // Create function for height position
     var jump = function(time) {
       return ((initialVelocity * time) + (acceleration * time * time));
     }
-    // console.log(tanks[tanks._id].tanker.position.y);
-    // var counter = 0;
-      // while(tanks[tanks._id].tanker.position.y >= 0){
-      //   console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
-      //   tanks[tanks._id].tanker.position.y = (initialVelocity * counter) + (acceleration * counter * counter);
-      //   counter++;
-      // }
-      // tanks[tanks._id].tanker.position.y = 0;
-
-      if(tanks[tanks._id].tanker.position.y < 0.5){    
+      if(tanks[tanks._id].tanker.position.y < 1){    
         var counter = 0;
         setInterval(function(){
           console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
-          if (counter < 50){
+          if (tanks[tanks._id].tanker.position.y < 0) {
+            tanks[tanks._id].tanker.position.y = 0;
+            return;
+          }
+          // Need to change the max counter to be right after height is 0
+          if (counter < 51){
             tanks[tanks._id].tanker.position.y = jump(counter);
             counter++
           }
-          if (counter >= 50 && counter < 100){
-            tanks[tanks._id].tanker.position.y = jump(counter);
-            counter++
-          }
-        }, 1)
+        }, 10)
       }
 
       // Original jump algorithm
