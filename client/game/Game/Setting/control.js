@@ -54,8 +54,8 @@ function keyDown(d, tanks, POV) {
 
     if(d.keyCode === 67){
     // C - Jump key, implement freefall physics here
-    var initialVelocity = 0.5;
-    var acceleration = -0.01;
+    var initialVelocity = 0.35;
+    var acceleration = -0.006;
 
     // Create function for height position
     var jump = function(time) {
@@ -70,7 +70,7 @@ function keyDown(d, tanks, POV) {
             return;
           }
           // Need to change the max counter to be right after height is 0
-          if (counter < 51){
+          if (counter < 60){
             tanks[tanks._id].tanker.position.y = jump(counter);
             counter++
           }

@@ -1,7 +1,7 @@
 function Bullet(dir1, dir2, speed, position) {
   var bullet = {};
 
-  bullet.radius = 0.05;
+  bullet.radius = 0.08;
   bullet.speed = speed;
   bullet.zSpeed = dir1 * speed;
   bullet.xSpeed = dir2 * speed;
@@ -19,7 +19,7 @@ function Bullet(dir1, dir2, speed, position) {
 
 
   bullet.material = {
-    bullet: new THREE.MeshBasicMaterial({ color: 'grey' })
+    bullet: new THREE.MeshBasicMaterial({ color: 'red' })
   };
 
 
