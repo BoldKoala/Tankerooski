@@ -1,6 +1,5 @@
 server/config/local.env.json
 server/config/local.env.js
-client/dist/*.js
 client/lib/
 node_modules/
 *.log*.DS_Store
