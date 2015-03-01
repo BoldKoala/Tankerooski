@@ -63,10 +63,11 @@ function keyDown(d, tanks, POV) {
     }
       if(tanks[tanks._id].tanker.position.y < 1){    
         var counter = 0;
-        setInterval(function(){
-          console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
+        var jumping = setInterval(function(){
+          // console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
           if (tanks[tanks._id].tanker.position.y < 0) {
             tanks[tanks._id].tanker.position.y = 0;
+            clearInterval(jumping);
             return;
           }
           // Need to change the max counter to be right after height is 0

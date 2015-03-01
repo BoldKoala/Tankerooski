@@ -173,7 +173,7 @@ p#title {
 }
 
 #top{
-  height: 750px;
+  height: 100vh;
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -276,7 +276,8 @@ div#key:hover, div#key-space:hover {
 
 #team{
   text-align: center;
-  padding: 15vmin 0 32vmin 0;
+  height: 100vh;
+  padding: 15vmin 0 15vmin 0;
   background-color: rgba(0, 0, 0, 0.7);
   background-image: url('../assets/images/darkcamo.png');
 }
