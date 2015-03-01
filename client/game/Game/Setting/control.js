@@ -1,6 +1,6 @@
 var MSG = false;
 function keyDown(d, tanks, POV) {
-	console.log(d.keyCode);
+	// console.log(d.keyCode);
   //W key
   if(!MSG){
     if(d.keyCode === 87){
@@ -52,21 +52,46 @@ function keyDown(d, tanks, POV) {
       document.getElementById('dead').style.display = document.getElementById('dead').style.display === 'none' ? 'inline-block' : 'none';
     }
 
-    //c
     if(d.keyCode === 67){
-      if(tanks[tanks._id].tanker.position.y < 0.1){    
+    // C - Jump key, implement freefall physics here
+    var initialVelocity = 0.35;
+    var acceleration = -0.006;
+
+    // Create function for height position
+    var jump = function(time) {
+      return ((initialVelocity * time) + (acceleration * time * time));
+    }
+      if(tanks[tanks._id].tanker.position.y < 1){    
         var counter = 0;
         setInterval(function(){
-          if (counter < 50){
-            tanks[tanks._id].tanker.position.y += 0.06
-            counter++
+          console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
+          if (tanks[tanks._id].tanker.position.y < 0) {
+            tanks[tanks._id].tanker.position.y = 0;
+            return;
           }
-          if (counter >= 50 && counter < 100){
-            tanks[tanks._id].tanker.position.y -= 0.06
+          // Need to change the max counter to be right after height is 0
+          if (counter < 60){
+            tanks[tanks._id].tanker.position.y = jump(counter);
             counter++
           }
         }, 10)
       }
+
+      // Original jump algorithm
+      // if(tanks[tanks._id].tanker.position.y < 0.1){    
+      //   var counter = 0;
+      //   setInterval(function(){
+      //     console.log("counter: ", counter, "height: ", tanks[tanks._id].tanker.position.y);
+      //     if (counter < 50){
+      //       tanks[tanks._id].tanker.position.y += 0.06;
+      //       counter++
+      //     }
+      //     if (counter >= 50 && counter < 100){
+      //       tanks[tanks._id].tanker.position.y -= 0.06;
+      //       counter++
+      //     }
+      //   }, 10)
+      // }
     }
   }
 

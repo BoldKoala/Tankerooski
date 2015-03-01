@@ -269,7 +269,7 @@ function init(){
             tanks[tanks._id].deaths++;
             leaderboard(tanks);
             setTimeout(function(){
-              tanks[tanks._id].hp = tanks[tanks._id].maxHP;
+              tanks[tanks._id].hp = 10;
               tanks[tanks._id].hpbar.scale.z = tanks[tanks._id].hp/tanks[tanks._id].maxHP;
               tanks[tanks._id].hpbar.material.color.set('green');
               INITIAL = true;
@@ -379,6 +379,7 @@ function init(){
     }
   };
 
+  // This is where the tanks are being called. We can change this to the falcon later
   //Send tank position and rotation to other players
   function syncStates() {
     if(tanks._id){

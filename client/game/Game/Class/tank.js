@@ -51,6 +51,7 @@ function Tank(attr) {
 	//Reload Sound
 	tank.reloadSound = playTankReload;
 
+  /**************** This loader may need to be changed for the falcon **********/
 	var loader = new THREE.ObjectLoader();
 	tank.tanker = loader.parse(GermanTank);
   tank.tanker.children.forEach(function(part,i){
@@ -99,7 +100,6 @@ function Tank(attr) {
 		bullet.bulleter.position.x = this.tanker.position.x - Math.cos(direction)*2;
 		bullet.bulleter.position.y = this.tanker.position.y + this.y*2;
 		bullet.bulleter.position.z = this.tanker.position.z - Math.sin(direction)*2;
-
 		return bullet;
 	};
 
