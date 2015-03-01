@@ -33,6 +33,43 @@
     background-color: rgba(255, 0, 0, 0.67);
   }
 }
+
+@keyframes colorPulse {
+  0% {
+    background-color: rgba(255, 0, 0, 0.67);
+  } 
+  10% {
+    background-color: rgba(255, 0, 0, 1);
+  }
+  20% {
+    background-color: rgba(255, 0, 0, 0.67);
+  } 
+  30% {
+    background-color: rgba(255, 0, 0, 1);
+  }
+  40% {
+    background-color: rgba(255, 0, 0, 0.67);
+  } 
+  50% {
+    background-color: rgba(255, 0, 0, 1);
+  }
+  60% {
+    background-color: rgba(255, 0, 0, 0.67);
+  } 
+  70% {
+    background-color: rgba(255, 0, 0, 1);
+  }
+  80% {
+    background-color: rgba(255, 0, 0, 0.67);
+  } 
+  90% {
+    background-color: rgba(255, 0, 0, 1);
+  }
+  100% {
+    background-color: rgba(255, 0, 0, 0.67);
+  }
+}
+
 body {
   height: 100vh;
   background-color: black;
