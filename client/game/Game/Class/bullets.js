@@ -1,21 +1,21 @@
 function Bullet(dir1, dir2, speed, position) {
   var bullet = {};
 
-  bullet.radius = 0.08;
+  bullet.radius = 0.2;
   bullet.speed = speed;
   bullet.zSpeed = dir1 * speed;
   bullet.xSpeed = dir2 * speed;
-  bullet.yDrop = 0.05;
+  // bullet.yDrop = 0.05;
   bullet.isHit = false;
   bullet.hitTower = false;
 
   // Add geometry for cylindrical bullet (laser beam)
-  bullet.radiusTop = 0.5;
-  bullet.radiusBottom = 0.5;
-  bullet.heighth = 2;
-  bullet.radiusSegments = 8;
-  bullet.heightSegments = 1;
-  bullet.openEnded = false; // This defines whether the ends of the cylinder is capped. false is capped.
+  // bullet.radiusTop = 0.5;
+  // bullet.radiusBottom = 0.5;
+  // bullet.heighth = 2;
+  // bullet.radiusSegments = 8;
+  // bullet.heightSegments = 1;
+  // bullet.openEnded = false; // This defines whether the ends of the cylinder is capped. false is capped.
 
 
   bullet.material = {
@@ -31,8 +31,8 @@ function Bullet(dir1, dir2, speed, position) {
 
   bullet.move = function(){
     if (!this.hitTower){
-      this.bulleter.position.z += this.zSpeed/5;
-      this.bulleter.position.x += this.xSpeed/5;
+      this.bulleter.position.z += this.zSpeed/10;
+      this.bulleter.position.x += this.xSpeed/10;
       // This represents bullet drop, it is currently constant and needs to be parabolic
       // this.bulleter.position.y -= this.yDrop;
     }
