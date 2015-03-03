@@ -114,7 +114,7 @@ function Multiplayer(map,tanks,bullets){
         tanks[state.id].onTarget          = state.onTarget;
         tanks[state.id].kills 					  = state.kills;
         tanks[state.id].deaths 						= state.deaths;
-        if(tanks[state.id].hp === 10){
+        if(tanks[state.id].hp >= 10){
           tanks[state.id].hpbar.material.color.set('green');
         }
         if(tanks[state.id].hp <= 7){
