@@ -1,4 +1,5 @@
 var MSG = false;
+var JUMP = false;
 function keyDown(d, tanks, POV) {
 	// console.log(d.keyCode);
   //W key
@@ -52,15 +53,17 @@ function keyDown(d, tanks, POV) {
       document.getElementById('dead').style.display = document.getElementById('dead').style.display === 'none' ? 'inline-block' : 'none';
     }
 
-    if(d.keyCode === 67){
-    // C - Jump key, implement freefall physics here
-    var initialVelocity = 0.35;
-    var acceleration = -0.006;
+    if(d.keyCode === 67 && !JUMP){
+      // C - Jump key, implement freefall physics here
+      var initialVelocity = 0.35;
+      var acceleration = -0.01;
+      JUMP = true;
 
-    // Create function for height position
-    var jump = function(time) {
-      return ((initialVelocity * time) + (acceleration * time * time));
-    }
+      // Create function for height position
+      var jump = function(time) {
+        return ((initialVelocity * time) + (acceleration * time * time));
+      }
+
       if(tanks[tanks._id].tanker.position.y < 1){    
         var counter = 0;
         var jumping = setInterval(function(){
@@ -68,11 +71,23 @@ function keyDown(d, tanks, POV) {
           if (tanks[tanks._id].tanker.position.y < 0) {
             tanks[tanks._id].tanker.position.y = 0;
             clearInterval(jumping);
+            JUMP = false;
             return;
           }
           // Need to change the max counter to be right after height is 0
           if (counter < 60){
             tanks[tanks._id].tanker.position.y = jump(counter);
+
+            tanks[tanks._id].hpbar.position.x = tanks[tanks._id].tanker.position.x;
+            tanks[tanks._id].hpbar.position.y = tanks[tanks._id].tanker.position.y+1;
+            tanks[tanks._id].hpbar.position.z = tanks[tanks._id].tanker.position.z;
+            tanks[tanks._id].hpbar.rotation.y = -tanks[tanks._id].cameraDirection;
+
+            tanks[tanks._id].reloadBar.position.x = tanks[tanks._id].tanker.position.x;
+            tanks[tanks._id].reloadBar.position.y = tanks[tanks._id].tanker.position.y + 0.95;
+            tanks[tanks._id].reloadBar.position.z = tanks[tanks._id].tanker.position.z;
+            tanks[tanks._id].reloadBar.rotation.y = -tanks[tanks._id].cameraDirection;
+
             counter++
           }
         }, 10)
