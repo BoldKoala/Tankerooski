@@ -1,7 +1,8 @@
 'use strict';
+//Parallax effect for profile page
+angular.module('tank-parallax', [])
 
-angular.module('tank-parallax', [
-]).directive('parallax', ['$window', function($window) {
+.directive('parallax', ['$window', function($window) {
   return {
     restrict: 'A',
     scope: {
@@ -25,9 +26,10 @@ angular.module('tank-parallax', [
 
       angular.element($window).bind("scroll", setPosition);
       angular.element($window).bind("touchmove", setPosition);
-    }  // link function
+    }
   };
-}]).directive('parallaxBackground', ['$window', function($window) {
+}])
+.directive('parallaxBackground', ['$window', function($window) {
   return {
     restrict: 'A',
     transclude: true,
@@ -50,6 +52,6 @@ angular.module('tank-parallax', [
 
       angular.element($window).bind("scroll", setPosition);
       angular.element($window).bind("touchmove", setPosition);
-    }  // link function
+    }
   };
 }]);
