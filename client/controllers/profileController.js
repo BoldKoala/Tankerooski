@@ -3,10 +3,15 @@
 angular.module('tank.profile',[])
   
 .controller('ProfileController', function($scope, $http, User, $stateParams, $rootScope, $cookieStore, $window, $famous){
+  
+  //Get Famo.us objects
   var Transitionable = $famous['famous/transitions/Transitionable'];
   var Easing = $famous['famous/transitions/Easing'];
+
+  //Set current state to toggle between profile and leaderboard
   var viewState = 'profile';
 
+  //Instantiate Famo.us transitionables
   $scope.profileTransitionable = new Transitionable([0, 0, 0]);
   $scope.angle = new Transitionable(0);
 
@@ -35,6 +40,7 @@ angular.module('tank.profile',[])
     $scope.nextLevel ="Max Level!";
   }
 
+  //Get stars for Tank Operator License
   $scope.stars = [];
   for(var i = 0; i<$scope.player.rank; i++){
     $scope.stars.push(i);
@@ -44,31 +50,28 @@ angular.module('tank.profile',[])
   $window.localStorage.setItem('com.tankerooski.id', $cookieStore.get('key')._id)
 
   //Fetch all users information
-  $http.get('./api/users')
-    .success(function(data){
-      $scope.players = data;
-      $scope.players.forEach(function(player){
-        player.kdratio = player.player.kills/player.player.killed;
-        if(typeof player.kdratio !== 'number' || player.player.kills === 0){
-          player.kdratio = 0;
-        }
-        if(!player.player.onTarget){
-          player.player.onTarget = 0;
-        }
-        if(!player.player.fired){
-          player.player.fired = 0;
-        }
-        player.accuracy = player.player.onTarget/player.player.fired;
-        if(typeof player.accuracy !== 'number' || player.player.onTarget === 0){
-          player.accuracy = 0;
-        }
-      })
-
-      $scope.sortBy = 'player.kills'
-    })
-    .error(function(data) {
-      console.log('error', data)
+  User.getUsers(function(data){
+    $scope.players = data;
+    $scope.players.forEach(function(player){
+      player.kdratio = player.player.kills/player.player.killed;
+      if(typeof player.kdratio !== 'number' || player.player.kills === 0){
+        player.kdratio = 0;
+      }
+      if(!player.player.onTarget){
+        player.player.onTarget = 0;
+      }
+      if(!player.player.fired){
+        player.player.fired = 0;
+      }
+      player.accuracy = player.player.onTarget/player.player.fired;
+      if(typeof player.accuracy !== 'number' || player.player.onTarget === 0){
+        player.accuracy = 0;
+      }
     });
+
+    $scope.sortBy = 'player.kills'
+  });
+
 
   //Flip Mechanism
   $scope.profileModifier = {
@@ -79,10 +82,12 @@ angular.module('tank.profile',[])
     pointerEvents:'none'
   }
 
+  //Set flip speed
   $scope.flipOptions = {
     duration: 250
   };
 
+  //Flip function for Tank Operator License
   $scope.flipIt = function(view) {
     if(viewState!==view){
       $famous.find('fa-flipper')[0].flip();
