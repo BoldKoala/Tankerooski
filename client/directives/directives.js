@@ -44,7 +44,6 @@ angular.module('tank.directives', [])
     return {
       restrict: 'EA',
       scope: '=',
-      // replace: true,
       templateUrl: './views/profile.html'
     }
   })
