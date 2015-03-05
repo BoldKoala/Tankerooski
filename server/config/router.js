@@ -2,9 +2,10 @@ module.exports = function(app, express, passport){
   //=====================================
   // HOME PAGE
   // ====================================
-  // console.log("this is dirname", __dirname);
   var UserController  = require('../controllers/userController.js');
   var cookieParser = require('cookie-parser');
+
+  //Configure Route
   app.use(cookieParser());
   app.use(express.static(__dirname+'/../../client'));
 
@@ -24,16 +25,13 @@ module.exports = function(app, express, passport){
   }));
 
   app.get('/auth/google/callback', passport.authenticate('google', {
-    // successRedirect: '/#/profile',
-    // failureRedirect: '/'
   }), function(req, res, profile){
-
     var user = req.user;
     res.cookie('key', JSON.stringify(user));
     res.redirect('/#/profile');
-
   });
 
+  //Get Users Data
   app.get('/api/users', UserController.getAllPlayer );
 
   app.get('/api/user/:id', function(req, res){
@@ -44,6 +42,7 @@ module.exports = function(app, express, passport){
     }
   });  
 
+  //Serve Game Page
   app.get('/game',function(req,res){
     res.redirect('/game/index.html');
   })
