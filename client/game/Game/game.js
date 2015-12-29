@@ -54,33 +54,22 @@ function init(){
   //Append canvas element to body;
   document.body.appendChild( renderer.domElement );
 
-
-
-
-  screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
-  if (screen.lockOrientationUniversal && screen.lockOrientationUniversal("landscape")) {
-    // orientation was locked
-  } else {
-    // orientation lock failed
-  }
-  var hpSpan = document.querySelector('#tank-hp');
-    // hpSpan.innerText = ''+ tiltData.x + ' | ' + tiltData.y + '';
-
   var onTilt = function(tiltData) {
-    hpSpan.innerText = ''+ tiltData.x + ' | ' + tiltData.y + '';
+    // var hpSpan = document.querySelector('#tank-hp');
+    // hpSpan.innerText = ''+ tiltData.x + ' | ' + tiltData.y + '';
     //X AXIS forward and backwards in landscape
-    if (tiltData.x > 0.1) {
-      //press down key
-      if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
-        if(tanks[tanks._id].hp > 0){
-          keyDown({keyCode: 83}, tanks);
-        }
-      }
-    } else if (tiltData.x < -0.1) {
+    if (tiltData.x > 0.05) {
       //press up key
       if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
         if(tanks[tanks._id].hp > 0){
           keyDown({keyCode: 87}, tanks);
+        }
+      }
+    } else if (tiltData.x < -0.05) {
+      //press down key
+      if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
+        if(tanks[tanks._id].hp > 0){
+          keyDown({keyCode: 83}, tanks);
         }
       }
     } else {
@@ -94,14 +83,14 @@ function init(){
     }
 
     //Y AXIS LEFT AND RIGHT IN LANDSCAPE
-    if (tiltData.y > 0.1) {
+    if (tiltData.y > 0.05) {
       //press left key
       if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
         if(tanks[tanks._id].hp > 0){
           keyDown({keyCode: 68}, tanks);
         }
       }
-    } else if (tiltData.y < -0.1) {
+    } else if (tiltData.y < -0.05) {
       //press right key
       if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
         if(tanks[tanks._id].hp > 0){
@@ -119,10 +108,8 @@ function init(){
     }
   } 
 
-  console.log("dOr")
   var dOr_handler = dOr();
-  dOr_handler.onTilt(onTilt, 500);
-  console.log("dOr")
+  dOr_handler.onTilt(onTilt, 100);
 
 
   //Add control handler
