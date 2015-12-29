@@ -54,22 +54,25 @@ function init(){
   document.body.appendChild( renderer.domElement );
 
 
+  var hpSpan = document.querySelector('#tank-hp');
+    // hpSpan.innerText = ''+ tiltData.x + ' | ' + tiltData.y + '';
 
   var onTilt = function(tiltData) {
+    hpSpan.innerText = ''+ tiltData.x + ' | ' + tiltData.y + '';
     //x axis is left and right turn
     //y axis is forward and backwards
     console.log("TILT DATA: ", tiltData);
 
     if (tiltData.y > 0.1) {
       //press up key
-      console.log('y up')
+      console.log('y up', tiltData.y)
       if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
         if(tanks[tanks._id].hp > 0){
           keyDown({keyCode: 87});
         }
       }
     } else if (tiltData.y < -0.1) {
-      console.log('y down')
+      console.log('y down', tiltData.y)
       if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
         if(tanks[tanks._id].hp > 0){
           keyDown({keyCode: 83});
@@ -79,7 +82,7 @@ function init(){
       //press down key
     } else {
       //keyUp both
-      console.log('y keyup')
+      console.log('y keyup', tiltData.y)
       if(tanks._id && tanks[tanks._id].tanker  && tanks[tanks._id].hp > 0){
         if(tanks[tanks._id].hp > 0){
           keyUp({keyCode: 87}, tanks);
@@ -90,7 +93,7 @@ function init(){
   } 
 
   console.log("dOr")
-  var dOr_handler = dOr(10);
+  var dOr_handler = dOr();
   dOr_handler.onTilt(onTilt, 500);
   console.log("dOr")
 
