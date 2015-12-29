@@ -15,6 +15,7 @@ function init(){
   //Instantiate game assets
   var map = Map(60,60,1,0.5);
   var tanks = {};
+  window.tanks = tanks;
   var bullets = [];
 
   //Add Multiplayer 
@@ -68,14 +69,14 @@ function init(){
       console.log('y up', tiltData.y)
       if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
         if(tanks[tanks._id].hp > 0){
-          keyDown({keyCode: 87});
+          keyDown({keyCode: 87}, tanks);
         }
       }
     } else if (tiltData.y < -0.1) {
       console.log('y down', tiltData.y)
       if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
         if(tanks[tanks._id].hp > 0){
-          keyDown({keyCode: 83});
+          keyDown({keyCode: 83}, tanks);
         }
       }
       
