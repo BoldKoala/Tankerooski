@@ -55,39 +55,65 @@ function init(){
   document.body.appendChild( renderer.domElement );
 
 
+
+
+  screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
+  if (screen.lockOrientationUniversal && screen.lockOrientationUniversal("landscape")) {
+    // orientation was locked
+  } else {
+    // orientation lock failed
+  }
   var hpSpan = document.querySelector('#tank-hp');
     // hpSpan.innerText = ''+ tiltData.x + ' | ' + tiltData.y + '';
 
   var onTilt = function(tiltData) {
     hpSpan.innerText = ''+ tiltData.x + ' | ' + tiltData.y + '';
-    //x axis is left and right turn
-    //y axis is forward and backwards
-    console.log("TILT DATA: ", tiltData);
-
-    if (tiltData.y > 0.1) {
-      //press up key
-      console.log('y up', tiltData.y)
-      if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
-        if(tanks[tanks._id].hp > 0){
-          keyDown({keyCode: 87}, tanks);
-        }
-      }
-    } else if (tiltData.y < -0.1) {
-      console.log('y down', tiltData.y)
+    //X AXIS forward and backwards in landscape
+    if (tiltData.x > 0.1) {
+      //press down key
       if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
         if(tanks[tanks._id].hp > 0){
           keyDown({keyCode: 83}, tanks);
         }
       }
-      
-      //press down key
+    } else if (tiltData.x < -0.1) {
+      //press up key
+      if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
+        if(tanks[tanks._id].hp > 0){
+          keyDown({keyCode: 87}, tanks);
+        }
+      }
     } else {
       //keyUp both
-      console.log('y keyup', tiltData.y)
       if(tanks._id && tanks[tanks._id].tanker  && tanks[tanks._id].hp > 0){
         if(tanks[tanks._id].hp > 0){
           keyUp({keyCode: 87}, tanks);
           keyUp({keyCode: 83}, tanks);
+        }
+      }
+    }
+
+    //Y AXIS LEFT AND RIGHT IN LANDSCAPE
+    if (tiltData.y > 0.1) {
+      //press left key
+      if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
+        if(tanks[tanks._id].hp > 0){
+          keyDown({keyCode: 68}, tanks);
+        }
+      }
+    } else if (tiltData.y < -0.1) {
+      //press right key
+      if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
+        if(tanks[tanks._id].hp > 0){
+          keyDown({keyCode: 65}, tanks);
+        }
+      }
+    } else {
+      //keyUp both
+      if(tanks._id && tanks[tanks._id].tanker  && tanks[tanks._id].hp > 0){
+        if(tanks[tanks._id].hp > 0){
+          keyUp({keyCode: 65}, tanks);
+          keyUp({keyCode: 68}, tanks);
         }
       }
     }
