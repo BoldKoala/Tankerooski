@@ -53,6 +53,32 @@ function init(){
   //Append canvas element to body;
   document.body.appendChild( renderer.domElement );
 
+
+
+  var onTilt = function(tiltData) {
+    //x axis is left and right turn
+    //y axis is forward and backwards
+    console.log("TILT DATA: ", tiltData);
+
+    if (tiltData.y > 0.1) {
+      //press up key
+      keyDown({keyCode: 87});
+    } else if (tiltData.y < -0.1) {
+      keyDown({keyCode: 83});
+      //press down key
+    } else {
+      //keyUp both
+      keyUp({keyCode: 87}, tanks);
+      keyUp({keyCode: 83}, tanks);
+    }
+  } 
+
+  console.log("dOr")
+  var dOr_handler = dOr(10);
+  dOr_handler.onTilt(onTilt, 500);
+  console.log("dOr")
+
+
   //Add control handler
   window.onkeydown = function(d){
     //Tank Control
