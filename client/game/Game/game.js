@@ -62,14 +62,30 @@ function init(){
 
     if (tiltData.y > 0.1) {
       //press up key
-      keyDown({keyCode: 87});
+      console.log('y up')
+      if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
+        if(tanks[tanks._id].hp > 0){
+          keyDown({keyCode: 87});
+        }
+      }
     } else if (tiltData.y < -0.1) {
-      keyDown({keyCode: 83});
+      console.log('y down')
+      if(tanks._id && tanks[tanks._id].tanker && tanks[tanks._id].hp > 0){
+        if(tanks[tanks._id].hp > 0){
+          keyDown({keyCode: 83});
+        }
+      }
+      
       //press down key
     } else {
       //keyUp both
-      keyUp({keyCode: 87}, tanks);
-      keyUp({keyCode: 83}, tanks);
+      console.log('y keyup')
+      if(tanks._id && tanks[tanks._id].tanker  && tanks[tanks._id].hp > 0){
+        if(tanks[tanks._id].hp > 0){
+          keyUp({keyCode: 87}, tanks);
+          keyUp({keyCode: 83}, tanks);
+        }
+      }
     }
   } 
 
