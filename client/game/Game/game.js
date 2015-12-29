@@ -109,7 +109,7 @@ function init(){
   } 
 
   var dOr_handler = dOr();
-  dOr_handler.onTilt(onTilt, 100);
+  dOr_handler.onTilt(onTilt, 1);
 
 
   //Add control handler
@@ -170,8 +170,13 @@ function init(){
       POV = POV === 'FPS' ? 'Birdeye' : 'FPS';
   })
 
+  var shootTimer;
   document.getElementsByTagName('canvas')[0].addEventListener('click',function(d){
-    tanks[tanks._id].currentSpeed = tanks[tanks._id].currentSpeed ? 0 :-tanks[tanks._id].speed;
+      clearTimeout(shootTimer);
+      tanks[tanks._id].isFire = true;
+      shootTimer = setTimeout(function() {
+        tanks[tanks._id].isFire = false;
+      }, 5);
   })
 
   window.onbeforeunload = function(){
